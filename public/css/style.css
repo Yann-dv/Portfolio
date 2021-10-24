@@ -2,6 +2,10 @@ html {
     background-color: black;
 }
 
-h1 {
+.description {
     color: white;
+}
+
+.main_title {
+    text-align: center;
 }
