@@ -2,39 +2,48 @@ html {
     background-clip: border-box;
     background-color: black;
     background-size: cover;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-image: url('../image/code-944499.jpg');
 }
+
 body {
+    font-family: "Oswald", sans-serif;
     background-color: rgba(0, 0, 0, 0.795);
-    height: 1200px;
-    width:100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     color: white;
 }
 
 nav ul {
-    width: 70%;
-    font-size: 1.8rem;
-    margin: auto;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .navbar {
+    display: flex;
     position: sticky;
-    top: .1rem;
+    top: 0;
+}
+
+.rightHolder, .leftHolder {
+    background-color: #8f8f8fdc;
+    flex-grow: 1;
 }
 
 .navbar li {
     padding: 1rem;
-    background-color: #8f8f8f;
+    background-color: #8f8f8fdc;
 }
 
 .navbar li:hover {
-    transition-duration: .7s;
+    transition-duration: .5s;
     background-color: rgba(0, 0, 0, 0.795);
     color: #8f5bfd;
     background: linear-gradient(to top,#8f5bfd 0%, #8f5bfd 5%, transparent 5.01%) no-repeat left bottom/100% 100%;
@@ -49,12 +58,23 @@ li {
     list-style: none;
 }
 
-.mainTitle {
+.header {
     text-align: center;
+    margin: 3rem;
+}
+
+.mainTitle {
+    margin: .1rem;
     font-size: 4rem;
 }
 
 .mainSubtitle {
-    text-align: center;
+    margin: .1rem;
     font-size: 3rem;
+}
+
+.contentBlock {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 150px;
 }
