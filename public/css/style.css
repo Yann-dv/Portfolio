@@ -10,8 +10,14 @@ nav ul {
     justify-content: space-between;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 li {
     list-style: none;
+    margin: .2rem;
 }
 
 body {

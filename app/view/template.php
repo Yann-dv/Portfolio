@@ -17,25 +17,7 @@ require ('./app/textContent.php');
     <!--<body onselectstart="return false" oncontextmenu="return false" 
     ondragstart="return false" onMouseOver="window.status='No right click '; return true;">-->
     <body>
-        <nav>
-            <ul>
-                <li>
-                    Nav1
-                </li>
-                <li>
-                    Nav2
-                </li>
-                <li>
-                    Nav3
-                </li>
-                <li>
-                    Nav4
-                </li>
-                <li>
-                    Nav5
-                </li>
-            </ul>
-        </nav>
+        <?php require('./app/view/navbar.php'); ?>
         <?php echo '<h1 class="mainTitle">' . $page_title. '</h1>' ?>
         <?php echo '<h2 class="mainSubtitle">' . $page_subtitle. '</h2>' ?>
         <?php echo '<div class="description"><p>' . $description . '</p></div>'?>
