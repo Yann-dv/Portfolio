@@ -12,6 +12,7 @@ require ('./app/textContent.php');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $title ?></title>
         <link href="./public/css/style.css" rel="stylesheet"/>
+        <script src="https://kit.fontawesome.com/158c254b57.js"></script>
     </head>
         
     <!--<body onselectstart="return false" oncontextmenu="return false" 
