@@ -2,10 +2,28 @@ html {
     background-color: black;
 }
 
-.description {
+nav ul {
+    width: 50%;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+li {
+    list-style: none;
+}
+
+body {
     color: white;
 }
 
-.main_title {
+.mainTitle {
     text-align: center;
+    font-size: 4rem;
+}
+
+.mainSubtitle {
+    text-align: center;
+    font-size: 3rem;
 }

@@ -1,8 +1,6 @@
 <?php
 
-$title = 'Développement Web - Yann Hagege ';
-$page_title = 'Développement Web';
-$description = 'Bonjour, je m\'appelle Yann ;)'
+require ('./app/textContent.php');
 
 ?>
 
@@ -13,11 +11,33 @@ $description = 'Bonjour, je m\'appelle Yann ;)'
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?= $title ?></title>
-        <link href="./public/css/style.css" rel="stylesheet" /> 
+        <link href="./public/css/style.css" rel="stylesheet"/>
     </head>
         
+    <!--<body onselectstart="return false" oncontextmenu="return false" 
+    ondragstart="return false" onMouseOver="window.status='No right click '; return true;">-->
     <body>
-        <?php echo '<h1 class="main_title">' . $page_title. '</h1>' ?>
+        <nav>
+            <ul>
+                <li>
+                    Nav1
+                </li>
+                <li>
+                    Nav2
+                </li>
+                <li>
+                    Nav3
+                </li>
+                <li>
+                    Nav4
+                </li>
+                <li>
+                    Nav5
+                </li>
+            </ul>
+        </nav>
+        <?php echo '<h1 class="mainTitle">' . $page_title. '</h1>' ?>
+        <?php echo '<h2 class="mainSubtitle">' . $page_subtitle. '</h2>' ?>
         <?php echo '<div class="description"><p>' . $description . '</p></div>'?>
     </body>
 </html>
