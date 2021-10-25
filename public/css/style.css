@@ -78,3 +78,46 @@ li {
     padding-right: 2rem;
     margin-bottom: 150px;
 }
+
+.sectionHeader {
+    text-align: center;
+}
+
+.sectionTitle {
+    font-size: 1.8rem;
+}
+
+.servicesContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.item-service {
+    display: grid;
+    grid-template-columns: 20% 79%;
+}
+
+.iconBlock {
+    display: flex;
+    align-items: center;
+    margin: .2rem;
+}
+
+.iconBlock i {
+    padding: .8rem;
+    color: #8f5bfd;
+    border: 1px solid #8f5bfd;
+    border-radius: 50%;
+    vertical-align: center;
+}
+
+.iconBlock i:hover {
+    background-color: #8f5bfd;
+    color: black;
+    transition-duration: .3s;
+}
+
+.leftServicesList, .rightServicesList {
+    max-width: 36%;
+    margin: 1rem;
+}
