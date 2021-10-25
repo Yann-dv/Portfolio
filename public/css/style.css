@@ -94,7 +94,7 @@ li {
 
 .item-service {
     display: grid;
-    grid-template-columns: 20% 79%;
+    grid-template-columns: 13% 79%;
 }
 
 .iconBlock {
