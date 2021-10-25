@@ -1,13 +1,13 @@
-<?php
+<?php 
 
-echo '<nav>
+echo '<nav class="navbar">
         <ul>
-            <li><a href="#">Services</a></li>
-            <li><a href="">Compétences</a></li>
-            <li><a href="">Portfolio</a></li>
-            <li><a href="">Tarifs</a></li>
-            <li><a href="">A propos</a></li>
-            <li><a href="">Contact</a></li>
+            <a href="#services"><li>Services</li></a>
+            <a href="#services"><li>Compétences</li></a>
+            <a href="#services"><li>Portfolio</li></a>
+            <a href="#services"><li>Tarifs</li></a>
+            <a href="#services"><li>A propos</li></a>
+            <a href="#services"><li>Contact</li></a>
         </ul>
         </nav>
     ';
