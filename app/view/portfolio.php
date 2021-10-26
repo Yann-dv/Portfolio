@@ -2,7 +2,7 @@
 
 <div class="sectionHeader">
         <h3 class="sectionTitle"><?php echo strtoupper('Mes projets') ?></h3>
-        <p>Apperçu des projets sur lesquels j'ai travaillé</p>
+        <p>Aperçu des projets sur lesquels j'ai travaillé</p>
         <hr class="under_border">
 </div>
 
