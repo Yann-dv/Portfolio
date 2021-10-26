@@ -141,35 +141,58 @@ li {
     color: #8f5bfd;
 }
 
-.item-skills {
-    margin-bottom: .4rem;
+.leftSkillsList .skillsList .item-skills {
+    margin-bottom: 1rem;
 }
 
-/* Custom progress tag */
+.skillsList_dev .item-skills, .skillsList_design .item-skills {
+    margin-bottom: .5rem;
+}
 
+/* Custom progress bar */
 .item-skills progress {
-    width: 90%;
-    color: black;
-    height: 20px;
-
+    -webkit-appearance: none;
+    height: 26px;
+    margin-bottom: 1rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.267);
 }
-
-.item-skills progress::before{
-    position:absolute;
-    height:30px;
-    background:black;
-    color: black;
-    content:'teeeext';
+.item-skills progress::-webkit-progress-bar {
+    background-color: #8f5bfd;
+    height: 100%;
 }
-
 .item-skills progress::-webkit-progress-bar {
     background-color: #8f5bfd;
 }
-.item-skills  progress::-webkit-progress-value {
+.item-skills progress::-webkit-progress-value {
     background-color: #8f5bfd;
     box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
 }
 .item-skills progress::-moz-progress-bar {
-    /* style rules */
-    background-color: #8f5bfd;
+    background-color: #603daa;
 }
+
+.progress-bar span {
+    position: absolute;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    text-align: right;
+    background-color: #8f5bfd;
+    height: 26px;
+}
+
+.progress-bar {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+progress {
+    width: 100%;
+}
+
+/* End of custom progress bar */
+
