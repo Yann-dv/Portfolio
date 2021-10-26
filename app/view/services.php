@@ -2,6 +2,7 @@
     <div class="sectionHeader">
         <h3 class="sectionTitle"><?php echo strtoupper('Mes services') ?></h3>
         <p>Des prestations adaptées à vos besoins</p>
+        <hr class="under_border">
     </div>
 
     <div class="servicesContainer">
