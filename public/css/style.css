@@ -15,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     color: white;
+    font-size: 18px;
 }
 
 nav ul {
@@ -139,6 +140,14 @@ li {
     margin-right: 0;
     content: "\f058";
     color: #8f5bfd;
+}
+
+.skillsList .item-skills:hover {
+    background-color: #8f5bfd;
+    border-radius: 4px;
+    padding: .2rem;
+    color: black;
+    transition-duration: .450s;
 }
 
 .leftSkillsList .skillsList .item-skills {
