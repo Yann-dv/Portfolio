@@ -6,7 +6,7 @@
         <hr class="under_border">
 </div>
 
-<div class="skillsContainer" id="portfolioList">
+<div class="projectsContainer" id="portfolioList">
 </div>
 
 <?php echo '<script type="text/javascript" src="../app.js"></script>' ?>
