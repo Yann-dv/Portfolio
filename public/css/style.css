@@ -85,6 +85,11 @@ li {
     text-align: center;
 }
 
+.under_border {
+    width: 20%;
+    color: #8f5bfd;
+  }
+
 .sectionTitle {
     font-size: 1.8rem;
 }
@@ -205,3 +210,9 @@ progress {
 
 /* End of custom progress bar */
 
+.item {
+    background: rgb(128, 62, 158);
+    width: 200px;
+    Height: 200px;
+    margin: 1rem;
+}
