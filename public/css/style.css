@@ -9,6 +9,7 @@ html {
 
 body {
     font-family: "Oswald", sans-serif;
+    font-family: "Font Awesome 5 Free";
     background-color: rgba(0, 0, 0, 0.795);
     width: 100%;
     margin: 0;
@@ -76,7 +77,7 @@ li {
 .contentBlock {
     padding-left: 2rem;
     padding-right: 2rem;
-    margin-bottom: 150px;
+    margin-top: 7rem;
 }
 
 .sectionHeader {
@@ -87,7 +88,7 @@ li {
     font-size: 1.8rem;
 }
 
-.servicesContainer {
+.servicesContainer, .skillsContainer {
     display: flex;
     justify-content: center;
 }
@@ -120,4 +121,55 @@ li {
 .leftServicesList, .rightServicesList {
     max-width: 36%;
     margin: 1rem;
+}
+
+.leftSkillsList, .rightSkillsList {
+    max-width: 45%;
+    margin: 1rem;
+}
+
+.skillsList ul li {
+    position: relative;
+}
+
+.skillsList .item-skills::before {
+    position: absolute;
+    top: 0px;
+    left: -1.5rem;
+    margin-right: 0;
+    content: "\f058";
+    color: #8f5bfd;
+}
+
+.item-skills {
+    margin-bottom: .4rem;
+}
+
+/* Custom progress tag */
+
+.item-skills progress {
+    width: 90%;
+    color: black;
+    height: 20px;
+
+}
+
+.item-skills progress::before{
+    position:absolute;
+    height:30px;
+    background:black;
+    color: black;
+    content:'teeeext';
+}
+
+.item-skills progress::-webkit-progress-bar {
+    background-color: #8f5bfd;
+}
+.item-skills  progress::-webkit-progress-value {
+    background-color: #8f5bfd;
+    box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
+}
+.item-skills progress::-moz-progress-bar {
+    /* style rules */
+    background-color: #8f5bfd;
 }
