@@ -29,6 +29,7 @@ nav ul {
 }
 
 .navbar {
+    font-weight: bold;
     display: flex;
     z-index: 100;
     position: sticky;
@@ -47,7 +48,7 @@ nav ul {
 
 @keyframes onHoverNav {
     0% {
-        color: white;
+        background: #8f8f8fdc;
     }
     100% {
         color: #8f5bfd;
@@ -57,7 +58,7 @@ nav ul {
 
 .navbar li:hover {
     animation-name: onHoverNav;
-    animation-duration: .5s;
+    animation-duration: .350s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
 }
