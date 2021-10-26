@@ -9,11 +9,13 @@ html {
 
 body {
     font-family: "Oswald", sans-serif;
+    font-family: "Font Awesome 5 Free";
     background-color: rgba(0, 0, 0, 0.795);
     width: 100%;
     margin: 0;
     padding: 0;
     color: white;
+    font-size: 18px;
 }
 
 nav ul {
@@ -76,7 +78,7 @@ li {
 .contentBlock {
     padding-left: 2rem;
     padding-right: 2rem;
-    margin-bottom: 150px;
+    margin-top: 7rem;
 }
 
 .sectionHeader {
@@ -87,7 +89,7 @@ li {
     font-size: 1.8rem;
 }
 
-.servicesContainer {
+.servicesContainer, .skillsContainer {
     display: flex;
     justify-content: center;
 }
@@ -121,3 +123,85 @@ li {
     max-width: 36%;
     margin: 1rem;
 }
+
+.leftSkillsList, .rightSkillsList {
+    max-width: 45%;
+    margin: 1rem;
+}
+
+.skillsList ul li {
+    position: relative;
+}
+
+.skillsList .item-skills::before {
+    position: absolute;
+    top: 0px;
+    left: -1.5rem;
+    margin-right: 0;
+    content: "\f058";
+    color: #8f5bfd;
+}
+
+.skillsList .item-skills:hover {
+    background-color: #8f5bfd;
+    border-radius: 4px;
+    padding: .2rem;
+    color: black;
+    transition-duration: .450s;
+}
+
+.leftSkillsList .skillsList .item-skills {
+    margin-bottom: 1rem;
+}
+
+.skillsList_dev .item-skills, .skillsList_design .item-skills {
+    margin-bottom: .5rem;
+}
+
+/* Custom progress bar */
+.item-skills progress {
+    -webkit-appearance: none;
+    height: 26px;
+    margin-bottom: 1rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.267);
+}
+.item-skills progress::-webkit-progress-bar {
+    background-color: #8f5bfd;
+    height: 100%;
+}
+.item-skills progress::-webkit-progress-bar {
+    background-color: #8f5bfd;
+}
+.item-skills progress::-webkit-progress-value {
+    background-color: #8f5bfd;
+    box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
+}
+.item-skills progress::-moz-progress-bar {
+    background-color: #603daa;
+}
+
+.progress-bar span {
+    position: absolute;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    text-align: right;
+    background-color: #8f5bfd;
+    height: 26px;
+}
+
+.progress-bar {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+progress {
+    width: 100%;
+}
+
+/* End of custom progress bar */
+
