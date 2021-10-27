@@ -10,6 +10,7 @@ const addProject = index => {
     }
 }
 
+
 /*fetch ('https://api.github.com/users/Yann-dv/repos')
 .catch(error =>  {throw error})
 .then(res => {
