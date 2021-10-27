@@ -27,7 +27,7 @@ require ('./app/textContent.php');
         <?php require('./app/view/about.php'); ?>
         <?php require('./app/view/contact.php'); ?>
 
-        <?php echo '<div class="navbar" id="navbar">' . $navbar . '</div>'?>
+        <?php echo '<nav class="navbar" id="navbar">' . $navbar . '</nav>'?>
         <?php echo '<div class="header">' . $header . '</div>' ?>
         <?php echo '<div class="contentBlock" id="services">' . $services . '</div>'?>
         <?php echo '<div class="contentBlock" id="skills">' . $skills . '</div>'?>

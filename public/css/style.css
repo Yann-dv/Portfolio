@@ -29,7 +29,9 @@ nav ul {
 }
 
 .navbar {
+    font-weight: bold;
     display: flex;
+    z-index: 100;
     position: sticky;
     top: 0;
 }
@@ -44,11 +46,21 @@ nav ul {
     background-color: #8f8f8fdc;
 }
 
+@keyframes onHoverNav {
+    0% {
+        background: #8f8f8fdc;
+    }
+    100% {
+        color: #8f5bfd;
+        background: linear-gradient(to top,#8f5bfd 0%, #000000 6%) no-repeat left bottom/100% 100%;
+    }
+}
+
 .navbar li:hover {
-    transition-duration: .5s;
-    background-color: rgba(0, 0, 0, 0.795);
-    color: #8f5bfd;
-    background: linear-gradient(to top,#8f5bfd 0%, #8f5bfd 5%, transparent 5.01%) no-repeat left bottom/100% 100%;
+    animation-name: onHoverNav;
+    animation-duration: .350s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
 }
 
 a {
@@ -99,9 +111,20 @@ li {
     justify-content: center;
 }
 
+.projectsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .item-service {
     display: grid;
     grid-template-columns: 13% 79%;
+}
+
+.item-service h4:hover {
+    transition-duration: .3s;
+    transform: scale(1.2);
 }
 
 .iconBlock {
@@ -148,15 +171,14 @@ li {
 }
 
 .skillsList .item-skills:hover {
-    background-color: #8f5bfd;
+    background-color: #8e5bfd75;
     border-radius: 4px;
     padding: .2rem;
-    color: black;
     transition-duration: .450s;
 }
 
 .leftSkillsList .skillsList .item-skills {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .skillsList_dev .item-skills, .skillsList_design .item-skills {
