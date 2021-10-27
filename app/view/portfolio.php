@@ -63,9 +63,9 @@ $url = "http://dummy.restapiexample.com/api/v1/employees";
 curl_setopt($curl_handle, CURLOPT_URL, $url);
 
 // This option will return data as a string instead of direct output
-//curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
 
-// Execute curl & store data in a variable
+// Execute curl & store data in a variable + show into browser
 $curl_data = curl_exec($curl_handle);
 
 curl_close($curl_handle);
@@ -78,12 +78,12 @@ $response_data = json_decode($curl_data);
 // die();
 
 // All user data exists in 'data' object
-//$user_data = $response_data->data;
+$user_data = $response_data->data;
 
-//var_dump($user_data);
+//var_dump($curl_data);
 
 // Extract only first 5 user data (or 5 array elements)
-//$user_data = array_slice($user_data, 0, 4);
+$user_data = array_slice($user_data, 0, 4);
 
 // Traverse array and print employee data
 /*foreach ($user_data as $user) {
