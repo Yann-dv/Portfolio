@@ -57,38 +57,46 @@ echo $stringBody;
 // Initiate curl session in a variable (resource)
 $curl_handle = curl_init();
 
-$url = "http://dummy.restapiexample.com/api/v1/employees";
-//$url = "https://api.github.com/users/Yann-dv/repos";
+//$url = "http://dummy.restapiexample.com/api/v1/employees"; // testing url
+$url = "https://api.github.com/users/Yann-dv/repos";
 // Set the curl URL option
 curl_setopt($curl_handle, CURLOPT_URL, $url);
 
 // This option will return data as a string instead of direct output
-curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, false);
 
-// Execute curl & store data in a variable + show into browser
+// Execute curl & store data in a variable + show into browser if CURLOPT_RETURNTRANSFER = false
 $curl_data = curl_exec($curl_handle);
+
 
 curl_close($curl_handle);
 
 // Decode JSON into PHP array
-$response_data = json_decode($curl_data);
-
+$projects_list = array();
+$projects_list = json_decode($curl_data, 1); // associative to false to transform in object response
+var_dump(json_decode($curl_data));
 // Print all data if needed
 //print_r($response_data);
 // die();
+//var_dump($response_data);
 
 // All user data exists in 'data' object
-$user_data = $response_data->data;
+//$user_data = $response_data->data;
 
 //var_dump($curl_data);
-
 // Extract only first 5 user data (or 5 array elements)
-$user_data = array_slice($user_data, 0, 4);
+//$user_data = array_slice($user_data, 0, 4);
 
-// Traverse array and print employee data
-/*foreach ($user_data as $user) {
-	echo "name: ".$user->employee_name;
-	echo "<br />";
+//if($projects_list != ""){
+  //if (isset($projects_list['id'])) {
+    for($i = 1; $i <= 10 ; $i++) {
+      echo "Project: ". $projects_list[$i]->data;
+      echo "<br />";
+    }
+  //}
+//}
+/*for ($i = 1; $i <= sizeof($response_data); $i++) {
+  echo $i;
 }*/
 
 ?>
