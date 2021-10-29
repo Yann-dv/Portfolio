@@ -4,7 +4,7 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-image: url('../image/code-944499.jpg');
+    background-image: url('../image/main_bg_code.jpg');
 }
 
 body {
@@ -29,7 +29,9 @@ nav ul {
 }
 
 .navbar {
+    font-weight: bold;
     display: flex;
+    z-index: 100;
     position: sticky;
     top: 0;
 }
@@ -44,11 +46,21 @@ nav ul {
     background-color: #8f8f8fdc;
 }
 
+@keyframes onHoverNav {
+    0% {
+        background: #8f8f8fdc;
+    }
+    100% {
+        color: #8f5bfd;
+        background: linear-gradient(to top,#8f5bfd 0%, #000000 6%) no-repeat left bottom/100% 100%;
+    }
+}
+
 .navbar li:hover {
-    transition-duration: .5s;
-    background-color: rgba(0, 0, 0, 0.795);
-    color: #8f5bfd;
-    background: linear-gradient(to top,#8f5bfd 0%, #8f5bfd 5%, transparent 5.01%) no-repeat left bottom/100% 100%;
+    animation-name: onHoverNav;
+    animation-duration: .350s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
 }
 
 a {
@@ -85,6 +97,11 @@ li {
     text-align: center;
 }
 
+.under_border {
+    width: 20%;
+    color: #8f5bfd;
+  }
+
 .sectionTitle {
     font-size: 1.8rem;
 }
@@ -94,9 +111,47 @@ li {
     justify-content: center;
 }
 
-.item-service {
-    display: grid;
-    grid-template-columns: 13% 79%;
+
+.projectsContainer {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5rem;
+}
+
+.projectsContainer a {
+    margin: .5rem;
+    text-align: center;
+}
+
+.projectsContainer a:hover {
+    transform: scale(1.08);
+    transition: .6s;
+}
+
+.projectsContainer .project {
+    background-color: darkgrey;
+    width: 250px;
+}
+
+.projectsContainer .project img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.project_title {
+    background-color: darkgrey;
+    color: black;
+    word-wrap: break-word;
+    padding-top: .3rem;
+    margin: .5rem;
+}
+
+.item-service h4:hover {
+    transition-duration: .3s;
+    transform: scale(1.2);
 }
 
 .iconBlock {
@@ -143,15 +198,14 @@ li {
 }
 
 .skillsList .item-skills:hover {
-    background-color: #8f5bfd;
+    background-color: #8e5bfd75;
     border-radius: 4px;
     padding: .2rem;
-    color: black;
     transition-duration: .450s;
 }
 
 .leftSkillsList .skillsList .item-skills {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .skillsList_dev .item-skills, .skillsList_design .item-skills {
@@ -205,3 +259,9 @@ progress {
 
 /* End of custom progress bar */
 
+.item {
+    background: rgb(128, 62, 158);
+    width: 200px;
+    Height: 200px;
+    margin: 1rem;
+}
