@@ -19,9 +19,14 @@
           //nothing
         }
         else {
-          echo '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
+          echo '<a href="https://yann-dv.github.io/' . $project['name'] . '">'
+          . '<div class="project" id="project_'. array_search($project, $projects_list) . '" ' 
+          . 'style=background-image:url("./public/image/mini_' . $project['name'] . '.jpg")>' 
           . '<p>' . $project['name'] . '</p>'
-          . '</div>';
+          . '<div class="project_details">' 
+          . '</div>'
+          . '</div>'
+          . '</a>';
         }
       }
     }

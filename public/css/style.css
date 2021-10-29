@@ -119,12 +119,24 @@ li {
     justify-content: center;
 }
 
-.projectsContainer div {
+.projectsContainer .project {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    word-break: break-all;
     background-color: darkgrey;
     height: 200px;
     width: 200px;
     margin: .5rem;
     padding: .5rem;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.project_details {
+    background-color: blue;
 }
 
 .item-service h4:hover {
