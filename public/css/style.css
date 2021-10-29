@@ -111,18 +111,20 @@ li {
     justify-content: center;
 }
 
+
 .projectsContainer {
+    margin-top: 2rem;
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: center;
 }
+
 .projectsContainer div {
-    background-color: #8f5bfd;
-    margin: 1rem;
-}
-.item-service {
-    display: grid;
-    grid-template-columns: 13% 79%;
+    background-color: darkgrey;
+    height: 200px;
+    width: 200px;
+    margin: .5rem;
+    padding: .5rem;
 }
 
 .item-service h4:hover {
