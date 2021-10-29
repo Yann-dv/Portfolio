@@ -111,15 +111,20 @@ li {
     justify-content: center;
 }
 
+
 .projectsContainer {
+    margin-top: 2rem;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.item-service {
-    display: grid;
-    grid-template-columns: 13% 79%;
+.projectsContainer div {
+    background-color: darkgrey;
+    height: 200px;
+    width: 200px;
+    margin: .5rem;
+    padding: .5rem;
 }
 
 .item-service h4:hover {
