@@ -31,6 +31,7 @@ body {
 }
 
 nav ul {
+    list-style-type: none;
     font-size: 1.3rem;
     margin-top: 0;
     margin-bottom: 0;
@@ -80,7 +81,7 @@ a {
     text-decoration: none;
 }
 
-li {
+.skillsList ul, .skillsLevel ul{
     list-style: none;
 }
 
@@ -151,6 +152,7 @@ li {
     display: block;
     max-width: 100%;
     height: auto;
+    background-color: var(--projects-bg-color);
 }
 
 .project_title {
@@ -159,6 +161,35 @@ li {
     word-wrap: break-word;
     padding-top: .3rem;
     margin: .5rem;
+}
+
+.pricesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.prices {
+    text-align: center;
+    background-color: var(--itemskill-hover-color);
+    margin: 1rem;
+    width: 17%;
+}
+
+.prices span {
+    display: block;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+}
+.second-priceList-color{
+    background-color: var(--progressbar-second-color);
+}
+.priceList li{
+    margin-bottom: .5rem;
+}
+
+.priceHeader {
+    padding: .2rem;
 }
 
 .item-service h4:hover {
