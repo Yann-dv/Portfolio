@@ -1,6 +1,16 @@
+:root {
+    --main-html-bg-color : #0D1117;
+    --main-body-bg-color : rgba(0, 0, 0, 0.795);
+    --main-body-txt-color : #FFF;
+    --nav-bg-color : #8f8f8fdc;
+    --main-items-color : #8f5bfd;
+    --progressbar-bg-color : #603daa;
+    --projects-bg-color : darkgrey;
+}
+
 html {
     background-clip: border-box;
-    background-color: black;
+    background-color: var(--main-html-bg-color);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -10,11 +20,11 @@ html {
 body {
     font-family: "Oswald", sans-serif;
     font-family: "Font Awesome 5 Free";
-    background-color: rgba(0, 0, 0, 0.795);
+    background-color: var(--main-body-bg-color);
     width: 100%;
     margin: 0;
     padding: 0;
-    color: white;
+    color: var(--main-body-txt-color);
     font-size: 18px;
 }
 
@@ -37,21 +47,21 @@ nav ul {
 }
 
 .rightHolder, .leftHolder {
-    background-color: #8f8f8fdc;
+    background-color: var(--nav-bg-color);
     flex-grow: 1;
 }
 
 .navbar li {
     padding: 1rem;
-    background-color: #8f8f8fdc;
+    background-color: var(--nav-bg-color);
 }
 
 @keyframes onHoverNav {
     0% {
-        background: #8f8f8fdc;
+        background: var(--nav-bg-color);
     }
     100% {
-        color: #8f5bfd;
+        color: var(--main-items-color);
         background: linear-gradient(to top,#8f5bfd 0%, #000000 6%) no-repeat left bottom/100% 100%;
     }
 }
@@ -99,7 +109,7 @@ li {
 
 .under_border {
     width: 20%;
-    color: #8f5bfd;
+    color: var(--main-items-color);
   }
 
 .sectionTitle {
@@ -131,7 +141,7 @@ li {
 }
 
 .projectsContainer .project {
-    background-color: darkgrey;
+    background-color: var(--projects-bg-color);
     width: 250px;
 }
 
@@ -142,7 +152,7 @@ li {
 }
 
 .project_title {
-    background-color: darkgrey;
+    background-color: var(--projects-bg-color);
     color: black;
     word-wrap: break-word;
     padding-top: .3rem;
@@ -162,14 +172,14 @@ li {
 
 .iconBlock i {
     padding: .8rem;
-    color: #8f5bfd;
-    border: 1px solid #8f5bfd;
+    color: var(--main-items-color);
+    border: 1px solid var(--main-items-color);
     border-radius: 50%;
     vertical-align: center;
 }
 
 .iconBlock i:hover {
-    background-color: #8f5bfd;
+    background-color: var(--main-items-color);
     color: black;
     transition-duration: .3s;
 }
@@ -194,7 +204,7 @@ li {
     left: -1.5rem;
     margin-right: 0;
     content: "\f058";
-    color: #8f5bfd;
+    color: var(--main-items-color);
 }
 
 .skillsList .item-skills:hover {
@@ -221,18 +231,18 @@ li {
     background-color: rgba(255, 255, 255, 0.267);
 }
 .item-skills progress::-webkit-progress-bar {
-    background-color: #8f5bfd;
+    background-color: var(--main-items-color);
     height: 100%;
 }
 .item-skills progress::-webkit-progress-bar {
-    background-color: #8f5bfd;
+    background-color: var(--main-items-color);
 }
 .item-skills progress::-webkit-progress-value {
-    background-color: #8f5bfd;
-    box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
+    background-color: var(--main-items-color);
+    box-shadow: 1px 1px 5px 3px var(--main-items-color);
 }
 .item-skills progress::-moz-progress-bar {
-    background-color: #603daa;
+    background-color: var(--progressbar-bg-color);
 }
 
 .progress-bar span {
@@ -243,7 +253,7 @@ li {
     color: black;
     font-weight: bold;
     text-align: right;
-    background-color: #8f5bfd;
+    background-color: var(--main-items-color);
     height: 26px;
 }
 
