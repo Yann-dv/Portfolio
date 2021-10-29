@@ -6,9 +6,6 @@
         <hr class="under_border">
 </div>
 
-<div class="projectsContainer" id="portfolioList">
-</div>
-
 <?php echo '<script type="text/javascript" src="./app.js"></script>' ?>
 
 <?php
@@ -104,10 +101,15 @@ if (JSON_ERROR_NONE !== json_last_error()) {
     for($i=1; $i <= $len ;$i++){
       echo 'Project:' . $projects_list[0];
     }*/
-    
+   echo '<div class="projectsContainer" id="portfolioList">'; ?>
+   <?php
     foreach($projects_list as $key) {
-      print '-Project n°' . array_search($key, $projects_list) . ' : ' . $key['name'] . '<br/>';
+      echo '<div class="project" id="project_'. array_search($key, $projects_list) . '">' 
+      . '<p> -Project ' . $key['name'] . '</p>'
+      . '</div>';
     }
+    '</div>' // portfolio container end
+
   //}
 //}
 /*for ($i = 1; $i <= sizeof($response_data); $i++) {

@@ -113,10 +113,13 @@ li {
 
 .projectsContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
-
+.projectsContainer div {
+    background-color: #8f5bfd;
+    margin: 1rem;
+}
 .item-service {
     display: grid;
     grid-template-columns: 13% 79%;
