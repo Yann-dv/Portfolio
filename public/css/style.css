@@ -4,7 +4,7 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-image: url('../image/code-944499.jpg');
+    background-image: url('../image/main_bg_code.jpg');
 }
 
 body {
@@ -117,26 +117,36 @@ li {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 5rem;
+}
+
+.projectsContainer a {
+    margin: .5rem;
+    text-align: center;
+}
+
+.projectsContainer a:hover {
+    transform: scale(1.08);
+    transition: .6s;
 }
 
 .projectsContainer .project {
-    color: black;
-    font-size: 24px;
-    font-weight: bold;
-    word-break: break-all;
     background-color: darkgrey;
-    height: 200px;
-    width: 200px;
-    margin: .5rem;
-    padding: .5rem;
-    box-sizing: border-box;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 250px;
 }
 
-.project_details {
-    background-color: blue;
+.projectsContainer .project img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.project_title {
+    background-color: darkgrey;
+    color: black;
+    word-wrap: break-word;
+    padding-top: .3rem;
+    margin: .5rem;
 }
 
 .item-service h4:hover {

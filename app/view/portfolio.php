@@ -11,20 +11,18 @@
   <?php
    echo '<div class="projectsContainer" id="portfolioList">';
     foreach($projects_list as $project) {
-      if($project['private'] != false){
+      if($project['private'] !== false && $project['visibility'] !== 'public'){
         // Don't show privates projects if transmitted by error
       }
       else {
-        if (array_search($project, $projects_list) === 0 && $project['visibility'] === 'public') {
-          //nothing
+        if (($project['name'] === 'github-slideshow') || ($project['name'] === 'Portfolio')) {
+          //don't show it
         }
         else {
-          echo '<a href="https://yann-dv.github.io/' . $project['name'] . '">'
-          . '<div class="project" id="project_'. array_search($project, $projects_list) . '" ' 
-          . 'style=background-image:url("./public/image/mini_' . $project['name'] . '.jpg")>' 
-          . '<p>' . $project['name'] . '</p>'
-          . '<div class="project_details">' 
-          . '</div>'
+          echo '<a href="https://yann-dv.github.io/' . $project['name'] . '" target="_blank">'
+          . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
+          . '<h3 class="project_title">' . $project['name'] . '</h3>'
+          . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . '>'
           . '</div>'
           . '</a>';
         }
