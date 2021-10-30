@@ -10,6 +10,7 @@
     --progressbar-second-color: rgba(255, 255, 255, 0.267);
     --projects-bg-color : #a9a9a9;
     --itemskill-hover-color: #8e5bfd75;
+    --contactLink-color : #b61134;
 }
 
 html {
@@ -170,8 +171,8 @@ a {
 
 .prices span {
     display: block;
-    padding-top: .3rem;
-    padding-bottom: .3rem;
+    padding: .4em;
+    height: 5%;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -193,6 +194,16 @@ a {
     animation-duration: .250s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
+}
+
+.contactLink {
+    background-color: var(--contactLink-color);
+}
+
+.contactLink:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .3s;
 }
 
 .priceList li{
