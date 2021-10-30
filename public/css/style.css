@@ -1,3 +1,5 @@
+@import "keyframes.css";
+
 :root {
     --main-html-bg-color : #0D1117;
     --main-body-bg-color : rgba(0, 0, 0, 0.795);
@@ -59,19 +61,9 @@ nav ul {
     background-color: var(--nav-bg-color);
 }
 
-@keyframes onHoverNav {
-    0% {
-        background: var(--nav-bg-color);
-    }
-    100% {
-        color: var(--main-items-color);
-        background: linear-gradient(to top,#8f5bfd 0%, #000000 6%) no-repeat left bottom/100% 100%;
-    }
-}
-
 .navbar li:hover {
     animation-name: onHoverNav;
-    animation-duration: .350s;
+    animation-duration: .250s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
 }
@@ -171,19 +163,38 @@ a {
 
 .prices {
     text-align: center;
-    background-color: var(--itemskill-hover-color);
     margin: 1rem;
     width: 17%;
+    font-size: 95%;
 }
 
 .prices span {
     display: block;
     padding-top: .3rem;
     padding-bottom: .3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.first-priceList-color, .prices hr .under_border, .priceHeader {
+    background-color: var(--itemskill-hover-color);
 }
 .second-priceList-color{
     background-color: var(--progressbar-second-color);
 }
+.first-priceList-color:hover{
+    animation-name: onHoverPrices-one;
+    animation-duration: .250s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+.second-priceList-color:hover{
+    animation-name: onHoverPrices-two;
+    animation-duration: .250s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
 .priceList li{
     margin-bottom: .5rem;
 }
