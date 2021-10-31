@@ -9,7 +9,7 @@
       <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine personnalise') . '</span>' . '<hr class="under_border"/>'?>
 		<span class="first-priceList-color">À partir de 1000€ <abbr title="L'ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. Droit d'auteur & propriété intellectuelle : A l'issue de la production, vous êtes propriétaire de l'ensemble des ressources (fichiers) composant celui-ci. Paiment possible en plusieurs fois.">*</abbr></span>
 			<span class="second-priceList-color">
-				Développé sous Wordpress (Outil de gestion de contenu)
+				Développé sous Wordpress ou Wix
 			</span>
 			<span class="first-priceList-color">
 				
@@ -143,7 +143,7 @@
         <?php echo '<span class="priceHeader">' . strtoupper('Maintenance') . '<br/>' . strtoupper('de site') . '<br/>' . '</span> <hr class="under_border"/>' ?>
 		<span class="first-priceList-color">Forfait - 400€ **</span>
 			<span class="second-priceList-color">
-			    Développé sous Wordpress (Outil de gestion de contenu)
+			    Développé sous Wordpress 
 			</span>
 			<span class="first-priceList-color">
 				Charte graphique à partir d'une maquette pré-définie
