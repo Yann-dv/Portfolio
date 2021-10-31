@@ -139,55 +139,46 @@
 					</span>
 	    <span class="contactLink"><a href="contact.php" >DEMANDER UN DEVIS</a></span>
 	</div>
-    <div class="prices maintenance">
-        <?php echo '<span class="priceHeader">' . strtoupper('Maintenance') . '<br/>' . strtoupper('de site') . '<br/>' . '</span> <hr class="under_border"/>' ?>
-		<span class="first-priceList-color">Forfait - 400€ **</span>
-			<span class="second-priceList-color">
-			    Développé sous Wordpress 
-			</span>
-			<span class="first-priceList-color">
-				Charte graphique à partir d'une maquette pré-définie
-			</span>
-            <span class="second-priceList-color">
-				Sélection d'une palette de couleur
-            </span>
-            <span class="first-priceList-color">
-				Domaine + hébergement + e-mail pendant 12 mois
-			</span>						
-			<span class="second-priceList-color"> 
-			Interface administrateur - STANDARD
-					</span>
-					<span class="first-priceList-color">
-						
-						Site responsive (adapté tous supports)
-					</span>
-					<span class="second-priceList-color">
-						
-						Mise en place du contenu (textes &amp; images)
-					</span>
-					<span class="first-priceList-color">
-						
-						Formulaire de contact
-					</span>
-					<span class="second-priceList-color">
-						
-						Liens de partage sur les réseaux sociaux
-					</span>
-					<span class="first-priceList-color">
-						Optimisation du référencement
-					</span>
-					<span class="second-priceList-color">
-						Statistiques de visite
-					</span>
-					<span class="first-priceList-color">
-						Mise en ligne du site
-					</span>
-					<span class="second-priceList-color">
-						Formation à l'utilisation du site
-					</span>
-		
-	    <span class="contactLink"><a href="contact.php" >DEMANDER UN DEVIS</a></span>
+	<div class="prices">
+		<div class="maintenance">
+			<?php echo '<span class="priceHeader">' . strtoupper('Maintenance') . '<br/>' . strtoupper('de site') . '<br/>' . '</span> <hr class="under_border"/>' ?>
+			<span class="first-priceList-color">Forfait - 50€/heure <abbr title="Estimation du temps de travail appuyé par un devis.">**</abbr><br/>
+				ou 400€/an <abbr title="Maintenance annuelle (engagement 12 mois)">***</abbr></span>
+				<span class="second-priceList-color">
+					Mises à jour site et plugins
+				</span>
+				<span class="first-priceList-color">
+					Petits ajustements graphiques ou de contenu
+				</span>
+				<span class="second-priceList-color">
+					Sauvegardes mensuelles
+				</span>
+				<span class="first-priceList-color">
+					Optimisations de performances
+				</span>						
+				<span class="second-priceList-color"> 
+				Restauration de contenu
+				</span>
+			<span class="contactLink"><a href="contact.php">ME CONTACTER</a></span>
+		</div>
+
+		<div class="specials">
+			<?php echo '<span class="priceHeader">' . strtoupper('Developpement specifique') . '</span> <hr class="under_border"/>' ?>
+			<span class="second-priceList-color">Taux journalier moyen </br> 400€/Jour</span>
+			<span class="contactLink"><a href="contact.php">ME CONTACTER</a></span>
+		</div>
 	</div>
+</div>
+
+<a href="#demo">Ouvrir la modale</a>
+
+<div id="demo" class="modal">
+<div class="modal_content">
+<h1>Hello</h1>
+
+<p>Bienvenue sur la fenêtre modale !</p>
+
+<a href="#" class="modal_close">&times;</a>
 </div>
 			
 
