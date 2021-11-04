@@ -5,7 +5,7 @@
     --main-body-bg-color : rgba(0, 0, 0, 0.795);
     --main-body-txt-color : #FFF;
     --nav-bg-color : #8f8f8fdc;
-    --main-items-color : #8f5bfd;
+    --main-items-color : #7451EB;
     --progressbar-bg-color : #603daa;
     --progressbar-second-color: rgba(255, 255, 255, 0.267);
     --projects-bg-color : #a9a9a9;
@@ -220,6 +220,10 @@ a {
     padding: .2rem;
 }
 
+.item-service {
+    display: flex;
+}
+
 .item-service h4:hover {
     transition-duration: .3s;
     transform: scale(1.2);
@@ -228,21 +232,35 @@ a {
 .iconBlock {
     display: flex;
     align-items: center;
-    margin: .2rem;
+    margin: .7rem;
 }
-
-.iconBlock i {
-    padding: .8rem;
+.iconBlock span i {
     color: var(--main-items-color);
-    border: 1px solid var(--main-items-color);
-    border-radius: 50%;
-    vertical-align: center;
+    padding: .2rem;
+
 }
 
-.iconBlock i:hover {
-    background-color: var(--main-items-color);
-    color: black;
+.fa-circle-thin {
+    width: 79% !important;
+}
+
+.fa-stack-1x {
+    width: 82% !important;
+}
+
+
+.fa-stack:hover {
     transition-duration: .3s;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: black;
+}
+
+.fa-stack :nth-child(1n):hover {
+    transition-duration: .3s;
+    background-clip: content-box;
+    background-color: var(--main-items-color);
+    border-radius: 100px;
 }
 
 .leftServicesList, .rightServicesList {
