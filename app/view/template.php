@@ -32,7 +32,7 @@ require ('./app/textContent.php');
         <?php echo '<div class="contentBlock" id="services">' . $services . '</div>'?>
         <?php echo '<div class="contentBlock" id="skills">' . $skills . '</div>'?>
         <?php echo '<div class="contentBlock" id="portfolio">' . $portfolio . '</div>'?>
-        <?php echo '<div class="contentBlock" id="prices">' . $prices . '</div>'?>
+        <?php echo '<div class="contentBlock" id="myPrices">' . $prices . '</div>'?>
         <?php echo '<div class="contentBlock" id="about">' . $about . '</div>'?>
         <?php echo '<div class="contentBlock" id="contact">' . $contact . '</div>'?>
     </body>

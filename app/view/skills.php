@@ -37,7 +37,7 @@
 						<em class="skillsDesc">Codage à partir de 0 en respectant les standards du développement Web</em>
 					</li>
 					<li class="item-skills">
-						<strong>Dynamise des pages par <abbr title="Langage de développement web orienté client">JavaScript</abbr></strong> 
+						<strong>Dynamisme des pages par <abbr title="Langage de développement web orienté client">JavaScript</abbr></strong> 
 						<br>
 						<em class="skillsDesc">jQuery, Express, Node.Js, VueJS</em>
 					</li>
