@@ -3,5 +3,6 @@
         <h3 class="sectionTitle"><?php echo strtoupper('A propos') ?></h3>
         N'hésitez pas à demander un devis gratuit pour votre projet !
         <hr class="under_border">
+        <p>This is my about content</p>
 </div>
 <?php $about= ob_get_clean(); ?>
