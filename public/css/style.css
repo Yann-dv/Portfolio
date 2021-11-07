@@ -2,7 +2,7 @@
 
 :root {
     --main-html-bg-color : #0D1117;
-    --main-body-bg-color : rgba(0, 0, 0, 0.795);
+    --main-body-bg-color : rgba(0, 0, 0, 0.700);
     --main-body-txt-color : #FFF;
     --nav-bg-color : #8f8f8fdc;
     --main-items-color : #7451EB;
@@ -19,7 +19,7 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-image: url('../image/main_bg_code.jpg');
+    background-image: url('../image/office-932926_1920.jpg');
 }
 
 body {
@@ -349,7 +349,6 @@ progress {
     flex-direction: column;
     align-items: center;
 }
-
 .aboutContainer img {
     border-radius: 20px;
     margin-top: 1.5rem;
@@ -362,6 +361,18 @@ progress {
 .external_link {
     color: var(--main-items-color);
     text-decoration: underline;
+}
+
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactContainer .contactLink {
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 20px;
 }
 
 .modal {
@@ -381,7 +392,7 @@ progress {
     visibility: visible;
     opacity: 1;
   }
-  .modal_content {
+  .modal_form {
     border-radius: 4px;
     position: relative;
     width: 500px;

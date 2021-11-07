@@ -4,4 +4,10 @@
         <p>Contactez moi si vous souhaitez des informations, un devis, etc.</p>
         <hr class="under_border">
 </div>
+
+<div class="contactContainer">
+        <span class="contactLink"><a href="contact.php" title="ouvrir le formulaire de contact">
+                FORMULAIRE DE CONTACT</a>
+        </span>
+</div>
 <?php $contact= ob_get_clean(); ?>

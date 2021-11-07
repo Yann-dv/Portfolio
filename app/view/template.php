@@ -26,6 +26,7 @@ require ('./app/textContent.php');
         <?php require('./app/view/prices.php'); ?>
         <?php require('./app/view/about.php'); ?>
         <?php require('./app/view/contact.php'); ?>
+        <?php require('./app/view/contactModalForm.php'); ?>
 
         <?php echo '<nav class="navbar" id="navbar">' . $navbar . '</nav>'?>
         <?php echo '<div class="header">' . $header . '</div>' ?>
@@ -35,6 +36,7 @@ require ('./app/textContent.php');
         <?php echo '<div class="contentBlock" id="myPrices">' . $prices . '</div>'?>
         <?php echo '<div class="contentBlock" id="about">' . $about . '</div>'?>
         <?php echo '<div class="contentBlock" id="contact">' . $contact . '</div>'?>
+        <?php echo '<div class="modal" id="contactModal">' . $contactModalForm . '</div>'?>
     </body>
 </html>
 
