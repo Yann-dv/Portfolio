@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <div class="sectionHeader">
         <h3 class="sectionTitle"><?php echo strtoupper('Tarifs') ?></h3>
-        N'hésitez pas à demander un devis gratuit pour votre projet !
+        <p>N'hésitez pas à demander un devis gratuit pour votre projet !</p>
         <hr class="under_border">
 </div>
 <div class="pricesContainer">
