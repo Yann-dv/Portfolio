@@ -1,10 +1,10 @@
 
 <?php ob_start(); ?>
 <div class="modal_form">
-<a href="javascript:history.go(-1)" class="modal_close">&times;</a>
+<a href="javascript:history.go(-1)" id="clode_modal_btn" class="modal_close">&times;</a>
 	<form id="contactForm" action="" class="contact-form">
 	    <fieldset>
-			<div class="">
+			<div class="inputCheck">
 				<h2>Vos coordonnées</h2>
 				<hr>
 	            <div class="">
@@ -32,6 +32,7 @@
 					</div>
 	            </div>
 	            <div id="blocCompagny" class="form-group input-group">
+                    <span class="input-group-addon"><i class="fas fa-building"></i></span>
                     <input type="text" name="compagnyName" class="form-control" placeholder="Société / Association :" autocomplete="off"> 
 	            </div>
 	            <div class="form-group input-group">
@@ -47,14 +48,13 @@
 	            	<span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
 	                <input type="text" name="urlDevis" class="form-control" placeholder="Adresse site internet (si existant)" autocomplete="off"> 
 	            </div>
-	    		<div class="i-checks">
-				<div class="">
-						<div class="icheckbox_minimal-grey"><input type="checkbox" id="idChkRGPDDevis" name="chkRGPDDevis" value="1"> 
-					</div>
-					<div class="">
-						<label class="label_rgpd" for="idChkRGPDDevis">En soumettant ce formulaire, j'accepte que les informations saisies soient exploitées dans le cadre de la demande de devis et de la relation commerciale qui peut en découler.</label>
-					</div>
-				</div>
+	    		<div class="rgpd_security_checking">
+				    <label class="rgpd_check">En soumettant ce formulaire, j'accepte que les informations 
+                        saisies soient exploitées dans le cadre d'une demande de devis et de la relation 
+                        commerciale pouvant en découler.
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                    </label>
 				<div class="form-group input-group">
 	            	<span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
 	                <input type="text" name="captchaDevis" class="form-control" placeholder="5 + 4 = ?" autocomplete="off"> 

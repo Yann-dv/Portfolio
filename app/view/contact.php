@@ -6,7 +6,7 @@
 </div>
 
 <div class="contactContainer">
-        <span class="contactLink"><a href="contact.php" title="ouvrir le formulaire de contact">
+        <span class="contactLink"><a href="#contactModal" title="ouvrir le formulaire de contact">
                 FORMULAIRE DE CONTACT</a>
         </span>
 </div>
