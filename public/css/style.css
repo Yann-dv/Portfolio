@@ -389,22 +389,49 @@ progress {
   }
 
   .modal:target {
+    display: flex;
+    position: fixed;
+    padding-top: 6rem;
     visibility: visible;
     opacity: 1;
   }
-  .modal_form {
-    border-radius: 4px;
+
+  .modal_form { 
     position: relative;
-    width: 500px;
+    border-radius: 4px;
+    width: 60%;
+    height: 90%;
     max-width: 90%;
     background: white;
     padding: 1.5em 2em;
   }
+
+  .contactForm {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .contactForm fieldset div {
+    margin: 3rem;
+    }
   
+    #contactModal {
+        color: black;
+    }
+    #contactModal input{
+        margin: .4rem;
+    }
+
   .modal_close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    background-color: #603daa;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    top: .1rem;
+    right: .1rem;
     color: black;
     text-decoration: none;
   }
