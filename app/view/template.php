@@ -13,6 +13,7 @@ require ('./app/textContent.php');
         <title><?php echo $title ?></title>
         <link href="./public/css/style.css" rel="stylesheet"/>
         <script src="https://kit.fontawesome.com/158c254b57.js"></script>
+        <script src="./app.js" defer></script>
     </head>
         
     <!--<body onselectstart="return false" oncontextmenu="return false" 
@@ -26,15 +27,17 @@ require ('./app/textContent.php');
         <?php require('./app/view/prices.php'); ?>
         <?php require('./app/view/about.php'); ?>
         <?php require('./app/view/contact.php'); ?>
+        <?php require('./app/view/contactModalForm.php'); ?>
 
         <?php echo '<nav class="navbar" id="navbar">' . $navbar . '</nav>'?>
         <?php echo '<div class="header">' . $header . '</div>' ?>
         <?php echo '<div class="contentBlock" id="services">' . $services . '</div>'?>
         <?php echo '<div class="contentBlock" id="skills">' . $skills . '</div>'?>
         <?php echo '<div class="contentBlock" id="portfolio">' . $portfolio . '</div>'?>
-        <?php echo '<div class="contentBlock" id="myPrices">' . $prices . '</div>'?>
+        <?php echo '<div class="contentBlock" id="prices">' . $prices . '</div>'?>
         <?php echo '<div class="contentBlock" id="about">' . $about . '</div>'?>
         <?php echo '<div class="contentBlock" id="contact">' . $contact . '</div>'?>
+        <?php echo '<div class="modal" id="contactModal">' . $contactModalForm . '</div>'?>
     </body>
 </html>
 
