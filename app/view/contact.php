@@ -6,8 +6,9 @@
 </div>
 
 <div class="contactContainer">
-        <span class="contactLink"><a href="#contactModal" title="ouvrir le formulaire de contact">
-                FORMULAIRE DE CONTACT</a>
-        </span>
+        <a href="#contactModal" title="ouvrir le formulaire de contact">
+                <span class="contactLink">FORMULAIRE DE CONTACT</span>
+        </a>
+        
 </div>
 <?php $contact= ob_get_clean(); ?>
