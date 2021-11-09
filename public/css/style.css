@@ -28,7 +28,7 @@ body {
     background-color: var(--main-body-bg-color);
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding-bottom: 5rem;
     color: var(--main-body-txt-color);
     font-size: 18px;
 }
@@ -94,6 +94,7 @@ a {
 }
 
 .contentBlock {
+    height: auto;
     padding-left: 2rem;
     padding-right: 2rem;
     margin-top: 7rem;
@@ -372,6 +373,9 @@ progress {
 
 .contactLink {
     padding: 2rem;
+}
+
+.rounded {
     border-radius: 20px;
 }
 
@@ -389,7 +393,8 @@ progress {
   }
 
   .disable_overflow {
-    overflow-y: hidden;
+    position: fixed;
+    overflow-y: scroll;
     transition-duration: .5s;
   }
 
