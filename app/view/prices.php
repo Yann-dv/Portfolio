@@ -48,7 +48,7 @@
 					<span class="second-priceList-color">
 						Formation à l'utilisation du site
 					</span>
-	    <span class="contactLink"><a href="contact.php" >DEMANDER UN DEVIS</a></span>
+	    <a href="#contactModal"><span class="contactLink">DEMANDER UN DEVIS</span></a>
 	</div>
     <div class="prices custom_website">
         <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine personnalise') . '<br/>' . '</span> <hr class="under_border"/>'?>
@@ -93,7 +93,7 @@
 					<span class="second-priceList-color">
 						Formation à l'utilisation du site
 					</span>
-	    <span class="contactLink"><a href="contact.php" >DEMANDER UN DEVIS</a></span>
+	    <a href="#contactModal"><span class="contactLink">DEMANDER UN DEVIS</span></a>
 	</div>
     <div class="prices ecommerce">
         <?php echo '<span class="priceHeader">' . strtoupper('Site') . '<br/>' . strtoupper('e-commerce') . '<br/>' . '</span> <hr class="under_border"/>' ?>
@@ -137,7 +137,7 @@
 					<span class="second-priceList-color">
 						Formation à l'utilisation du site
 					</span>
-	    <span class="contactLink"><a href="contact.php" >DEMANDER UN DEVIS</a></span>
+	    <a href="#contactModal" ><span class="contactLink">DEMANDER UN DEVIS</span></a>
 	</div>
 	<div class="prices">
 		<div class="maintenance">
@@ -159,26 +159,15 @@
 				<span class="second-priceList-color"> 
 				Restauration de contenu
 				</span>
-			<span class="contactLink"><a href="contact.php">ME CONTACTER</a></span>
+			<a href="#contactModal"><span class="contactLink">ME CONTACTER</span></a>
 		</div>
 
 		<div class="specials">
 			<?php echo '<span class="priceHeader">' . strtoupper('Developpement specifique') . '</span> <hr class="under_border"/>' ?>
 			<span class="second-priceList-color">Taux journalier moyen </br> 400€/Jour</span>
-			<span class="contactLink"><a href="contact.php">ME CONTACTER</a></span>
+			<a href="#contactModal"><span class="contactLink">ME CONTACTER</span></a>
 		</div>
 	</div>
-</div>
-
-<a href="#demo">Ouvrir la modale</a>
-
-<div id="demo" class="modal">
-<div class="modal_content">
-<h1>Hello</h1>
-
-<p>Bienvenue sur la fenêtre modale !</p>
-
-<a href="#" class="modal_close">&times;</a>
 </div>
 			
 

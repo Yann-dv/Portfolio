@@ -2,7 +2,7 @@
 
 :root {
     --main-html-bg-color : #0D1117;
-    --main-body-bg-color : rgba(0, 0, 0, 0.795);
+    --main-body-bg-color : rgba(0, 0, 0, 0.700);
     --main-body-txt-color : #FFF;
     --nav-bg-color : #8f8f8fdc;
     --main-items-color : #7451EB;
@@ -14,12 +14,12 @@
 }
 
 html {
-    background-clip: border-box;
+    background-clip: padding-box;
     background-color: var(--main-html-bg-color);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-image: url('../image/main_bg_code.jpg');
+    background-image: url('../image/office-932926_1920.jpg');
 }
 
 body {
@@ -28,7 +28,7 @@ body {
     background-color: var(--main-body-bg-color);
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding-bottom: 5rem;
     color: var(--main-body-txt-color);
     font-size: 18px;
 }
@@ -94,6 +94,7 @@ a {
 }
 
 .contentBlock {
+    height: auto;
     padding-left: 2rem;
     padding-right: 2rem;
     margin-top: 7rem;
@@ -248,15 +249,15 @@ a {
 }
 
 
-.fa-stack:hover {
-    transition-duration: .3s;
+.fa-stack :nth-child(2n):hover {
+    transition-duration: .4s;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: black;
 }
 
 .fa-stack :nth-child(1n):hover {
-    transition-duration: .3s;
+    transition-duration: .4s;
     background-clip: content-box;
     background-color: var(--main-items-color);
     border-radius: 100px;
@@ -349,7 +350,6 @@ progress {
     flex-direction: column;
     align-items: center;
 }
-
 .aboutContainer img {
     border-radius: 20px;
     margin-top: 1.5rem;
@@ -364,8 +364,23 @@ progress {
     text-decoration: underline;
 }
 
-.modal {
-    visibility: hidden;
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.contactLink {
+    padding: 2rem;
+}
+
+.rounded {
+    border-radius: 20px;
+}
+
+#contactModal {
+    max-height: 0;
     opacity: 0;
     position: absolute;
     top: 0; right: 0;
@@ -373,27 +388,180 @@ progress {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(77, 77, 77, .7);
-    transition: all .4s;
+    background: rgba(77, 77, 77, 0.911);
+    transition: all .5s;
   }
 
-  .modal:target {
-    visibility: visible;
-    opacity: 1;
+  .disable_overflow {
+    position: fixed;
+    overflow-y: scroll;
+    transition-duration: .5s;
   }
-  .modal_content {
-    border-radius: 4px;
+
+  .hidden {
+      opacity: 0;
+      visibility: hidden;
+      transition-duration: .5s;
+  }
+
+  #contactModal:target {
+    display: flex;
+    position: fixed;
+    padding: .3rem;
+    opacity: 1;
+    max-height: 100%;
+  }
+
+  .modal_form { 
     position: relative;
-    width: 500px;
+    overflow: auto;
+    border-radius: 4px;
+    width: 60%;
+    max-height: 90%;
     max-width: 90%;
     background: white;
     padding: 1.5em 2em;
   }
-  
+  .modal_form::-webkit-scrollbar-thumb {
+      border-radius: 20px;
+  }
+
+  .gridForm {
+    display: grid;
+    grid-template-columns: 45% 45%;
+  }
+
+    .contactForm fieldset div {
+    margin: 3rem;
+    }
+    #contactModal {
+        color: black;
+    }
+    #contactModal input{
+        margin: .4rem;
+        padding: .3rem;
+    }
+    .form-control{
+        width:65%;
+    }
+
+    .projectDescText {
+        width: 95%;
+    }
+
   .modal_close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    background-color: #603daa;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    top: .1rem;
+    right: .1rem;
     color: black;
     text-decoration: none;
+  }
+  
+  #idRadioS ~ #blocCompagny{
+    display: block;
+    }
+
+    #idRadioP:checked ~ #blocCompagny{
+        display: none;
+    }
+
+ /* Customize the label (the container) */
+ .rgpd_check {
+    display: block;
+    margin-top: 2rem;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 90%;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .rgpd_check input {
+    position: absolute;
+    opacity: 0;
+    cursor: default;
+    height: 0;
+    width: 0;
+  }
+
+  .mathCheck {
+    width: 45%;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .rgpd_check:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .rgpd_check input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .rgpd_check input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .rgpd_check .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  } 
+
+  .projectDescription {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+  }
+
+  .sendFormBtn {
+      cursor: pointer;
+      background-color: var(--contactLink-color);
+      color: white;
+      font-weight: bold;
+      padding: .5rem;
+      box-shadow: 1px 1px 1px black;
+      border-radius: 10px;
+      border: none;
+  }
+
+  .sendFormBtn:hover {
+    transform: scale(1.08);
+    transition: .4s;
   }
