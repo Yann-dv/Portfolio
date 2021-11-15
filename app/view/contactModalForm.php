@@ -92,7 +92,7 @@
 						</span>
 					</div>
 				<div class="form-group input-group projectDescription">
-					<textarea class="projectDescText" rows="7" name="descDevis" placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin afin de faciliter nos futurs échanges."></textarea>	
+					<textarea class="projectDescText" rows="7" name="descDevis" placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin."></textarea>	
 				</div>
 					<div class="form-group">
 						<button class="btn btn-f-info sendFormBtn" id="idBtnDevis" name="btnDevis">
