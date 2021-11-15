@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
 <div class="modal_form">
 <a href="javascript:history.go(-1)" id="clode_modal_btn" class="modal_close">&times;</a>
-	<form id="contactForm" action="" class="contact-form">
+	<form id="contactForm" action="" class="contact-form" method="POST">
 	    <fieldset>
 		<h2>Vos coordonnées</h2>
 				<hr>
@@ -60,11 +60,7 @@
 							commerciale pouvant en découler.
 						<input type="checkbox" checked="checked">
 						<span class="checkmark"></span>
-						</label>
-				<div class="form-group input-group mathCheck">
-						<span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-						<input type="text" name="captchaDevis" class="form-control" placeholder="5 + 4 = ?" autocomplete="off"> 
-					</div>							
+						</label>							
 				<div class="msgFormDevis">
 						<p class="alert alert-info">
 							<i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -94,10 +90,16 @@
 				<div class="form-group input-group projectDescription">
 					<textarea class="projectDescText" rows="7" name="descDevis" placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin."></textarea>	
 				</div>
-					<div class="form-group">
-						<button class="btn btn-f-info sendFormBtn" id="idBtnDevis" name="btnDevis">
-							<i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Envoyer ma demande de devis
-						</button>
+					<div class="form-group sendBtns">
+						<div>
+							<button class="btn btn-f-info sendFormBtn" id="idBtnDevis" name="btnDevis">
+							<i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Envoyer ma demande de devis/contact
+							</button>
+						</div>
+						<div class="form-group input-group captchaSecure">
+							<span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+							<div class="g-recaptcha" data-sitekey="6LfNJTcdAAAAAG56njwYXkIbybIkLKlIlN5XFQ7F"></div>
+						</div>
 					</div>				            
 				</div>
 		</fieldset>			
