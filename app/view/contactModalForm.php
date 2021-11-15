@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
 <div class="modal_form">
 <a href="javascript:history.go(-1)" id="clode_modal_btn" class="modal_close">&times;</a>
-	<form id="contactForm" action="" class="contact-form" method="POST">
+	<form id="contactForm" action="formSending.php" class="contact-form" method="POST">
 	    <fieldset>
 		<h2>Vos coordonnées</h2>
 				<hr>
@@ -11,7 +11,7 @@
 					<div class="userProfile">
 						<div class="form-group input-group">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input type="text" name="nomDevis" class="form-control" placeholder="Nom / Prénom" autocomplete="off"> 
+							<input type="text" name="nomDevis" class="form-control" placeholder="Nom / Prénom" autocomplete="off" required> 
 						</div>
 						<div class="userOption">
 								<div class="i-checks">
@@ -42,15 +42,15 @@
 				<div class="userContact">
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
-						<input type="email" name="emailDevis" class="form-control" placeholder="E-mail" autocomplete="off"> 
+						<input type="email" name="emailDevis" class="form-control" placeholder="E-mail" autocomplete="off" required> 
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-						<input type="text" name="telDevis" class="form-control" placeholder="Téléphone" autocomplete="off"> 
+						<input type="text" name="telDevis" class="form-control" placeholder="Téléphone" autocomplete="off" required> 
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
-						<input type="text" name="urlDevis" class="form-control" placeholder="Adresse site internet (si existant)" autocomplete="off"> 
+						<input type="text" name="urlDevis" class="form-control" placeholder="Adresse site internet (si existant)" autocomplete="off" required> 
 					</div>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 						<label class="rgpd_check">En soumettant ce formulaire, j'accepte que les informations 
 							saisies soient exploitées dans le cadre d'une demande de devis et de la relation 
 							commerciale pouvant en découler.
-						<input type="checkbox" checked="checked">
+						<input type="checkbox" checked="checked" required>
 						<span class="checkmark"></span>
 						</label>							
 				<div class="msgFormDevis">
@@ -75,7 +75,7 @@
 							<span class="jcf-select-text">
 								<span class="">Type de projet : </span>
 							</span>
-							<select name="typeProjetDevis" class="jcf-reset-appearance">
+							<select name="typeProjetDevis" class="jcf-reset-appearance" required>
 							<option value="" selected="" disabled=""> Type de projet</option>
 							<option value="Site vitrine standard">Site vitrine [Standard]</option>
 							<option value="Site vitrine personnalisé">Site vitrine [Personnalisé]</option>
