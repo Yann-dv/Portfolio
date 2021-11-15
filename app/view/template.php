@@ -14,7 +14,6 @@ require ('./app/textContent.php');
         <link href="./public/css/style.css" rel="stylesheet"/>
         <script src="https://kit.fontawesome.com/158c254b57.js"></script>
         <script src="./app.js" defer></script>
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
         
     <!--<body onselectstart="return false" oncontextmenu="return false" 

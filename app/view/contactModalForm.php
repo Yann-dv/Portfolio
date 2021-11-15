@@ -1,8 +1,14 @@
 
 <?php ob_start(); ?>
 <div class="modal_form">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <a href="javascript:history.go(-1)" id="clode_modal_btn" class="modal_close">&times;</a>
-	<form id="contactForm" action="formSending.php" class="contact-form" method="POST">
+	<form id="contactForm" class="contact-form" method="POST" action="traitement.php">
+	<script type="text/javascript">
+ 		function submitForm(token) {
+    	document.getElementById('contactForm').submit();
+		}
+	</script>
 	    <fieldset>
 		<h2>Vos coordonnées</h2>
 				<hr>
@@ -42,15 +48,15 @@
 				<div class="userContact">
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
-						<input type="email" name="emailDevis" class="form-control" placeholder="E-mail" autocomplete="off" required> 
+						<input type="email" name="email" class="form-control" placeholder="E-mail" autocomplete="off" required> 
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-						<input type="text" name="telDevis" class="form-control" placeholder="Téléphone" autocomplete="off" required> 
+						<input type="text" name="phone" class="form-control" placeholder="Téléphone" autocomplete="off"> 
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
-						<input type="text" name="urlDevis" class="form-control" placeholder="Adresse site internet (si existant)" autocomplete="off" required> 
+						<input type="text" name="url" class="form-control" placeholder="Adresse site internet (si existant)" autocomplete="off"> 
 					</div>
 				</div>
 			</div>
@@ -58,10 +64,10 @@
 						<label class="rgpd_check">En soumettant ce formulaire, j'accepte que les informations 
 							saisies soient exploitées dans le cadre d'une demande de devis et de la relation 
 							commerciale pouvant en découler.
-						<input type="checkbox" checked="checked" required>
+						<input type="checkbox" checked="" required>
 						<span class="checkmark"></span>
 						</label>							
-				<div class="msgFormDevis">
+					<div class="msgFormDevis">
 						<p class="alert alert-info">
 							<i class="fa fa-info-circle" aria-hidden="true"></i>
 							<b>Demande de devis gratuit.</b> Réponse moyenne sous 72h.
@@ -75,7 +81,7 @@
 							<span class="jcf-select-text">
 								<span class="">Type de projet : </span>
 							</span>
-							<select name="typeProjetDevis" class="jcf-reset-appearance" required>
+							<select name="subject" class="jcf-reset-appearance" required>
 							<option value="" selected="" disabled=""> Type de projet</option>
 							<option value="Site vitrine standard">Site vitrine [Standard]</option>
 							<option value="Site vitrine personnalisé">Site vitrine [Personnalisé]</option>
@@ -87,21 +93,15 @@
 							</select>
 						</span>
 					</div>
-				<div class="form-group input-group projectDescription">
-					<textarea class="projectDescText" rows="7" name="descDevis" placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin."></textarea>	
-				</div>
-					<div class="form-group sendBtns">
-						<div>
-							<button class="btn btn-f-info sendFormBtn" id="idBtnDevis" name="btnDevis">
+					<div class="form-group input-group projectDescription">
+					<textarea class="message" rows="7" name="message" placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin."></textarea>	
+					</div>
+					<div type="hidden" class="g-recaptcha" data-sitekey="6Leq4zcdAAAAAPa_leI_3gkj94kVyvbXdZ-a265l" data-callback="submitForm"></div>
+					<button class="btn btn-f-info sendFormBtn" id="idBtnDevis" name="btnDevis">
 							<i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Envoyer ma demande de devis/contact
-							</button>
-						</div>
-						<div class="form-group input-group captchaSecure">
-							<span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<div class="g-recaptcha" data-sitekey="6LfNJTcdAAAAAG56njwYXkIbybIkLKlIlN5XFQ7F"></div>
-						</div>
-					</div>				            
-				</div>
+					</button>
+					
+			    <div>
 		</fieldset>			
 	</form>
 </div>
