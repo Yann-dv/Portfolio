@@ -23,7 +23,3 @@ document.addEventListener("click", function (e) {
         //nothing to do
     }
 });
-
-   function onSubmit(token) {
-     document.getElementById("demo-form").submit();
-   };
