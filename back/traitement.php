@@ -73,11 +73,11 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
         }
     }
     else{
-        echo '<script type="text/javascript">alert("Prière de remplir les champs obligatoires !");</script>';
+        echo '<script type="text/javascript">alert("Veuillez remplir les champs obligatoires !");</script>';
     }
     
 } else {
-    echo '<script type="text/javascript">alert("Erreur lors de l\'envoi du formulaire, vouls allez être redirigé en page d\'accueil!");</script>';
+    echo '<script type="text/javascript">alert("Erreur lors de l\'envoi du formulaire, redirection vers la page d\'accueil!");</script>';
 }
 
 ?>
