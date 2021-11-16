@@ -1,4 +1,4 @@
-<?php require_once('./captcha_k.php'); ?>
+<?php require('captcha_k.php'); ?>
 
 <?php
 // Min score returned from reCAPTCHA to allow form submission
