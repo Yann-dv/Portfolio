@@ -12,7 +12,9 @@
 if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     $name = data_secure($_POST['userName']);
     $compagny = data_secure($_POST['compagny']);
-    $subject = data_secure($_POST['subject']);
+    if($_POST['subject']) 
+        { $subject = data_secure($_POST['subject']); 
+        };
     $email = data_secure($_POST['email']);
     $phone = data_secure($_POST['phone']);
     $message = data_secure($_POST['message']);
@@ -24,6 +26,27 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     && filter_var($email, FILTER_VALIDATE_EMAIL)) 
     {
         try{
+        /*$to      = 'h.yann_pro@yahoo.fr';
+        $headers = 'From: ' . $email . "\r\n" .
+        'Reply-To: yh-dev@protonmail.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+        mail($to, $subject, $message, $headers);*/
+        ini_set("SMTP", "smtp.free.fr");
+
+        $to = 'yh-dev@protonmail.com';
+        $expediteur = $email;
+        date("D, j M Y H:i:s"); //date
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+   
+        // En-têtes additionnels
+        $headers[] = 'To: yh-dev@protonmail.com';
+        $headers[] = 'From: ' . $email;
+   
+        // Envoi
+        mail($to, $subject, $message, implode("\r\n", $headers));
+        
         echo $name;
         if(!empty($compagny)) {echo $compagny;}
         if(!empty($subject)) {echo $subject;}

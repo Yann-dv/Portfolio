@@ -97,23 +97,23 @@
 					<button class="btn btn-f-info sendFormBtn" id="idBtnDevis" name="btnDevis">
 							<i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Envoyer ma demande de devis/contact
 					</button>-->
-                    <!--<button class="g-recaptcha" 
+                    <button class="g-recaptcha" 
 						data-sitekey="<?php echo $reCAPTCHA_site_key ?>"
 						data-callback='onSubmit' 
 						data-action='submit'>Submit</button>
-			    	<div>-->
-					<button class="g-recaptcha" 
+			    	<div>
+					<!--<button class="g-recaptcha" 
 					type= "submit"
 					form= "contactForm" 
 				
 					onclick= 'formSubmitBtn(event)'
 						data-sitekey="<?php echo $reCAPTCHA_site_key ?>"
 						data-action='submit'>Submit</button>
-			    	<div>
+			    	<div>-->
 					
 		</fieldset>			
 	</form>
-	<script>
+	<!--<script>
 	/**
      * Handles form submissions for Google recaptcha v3.
      * Allows for HTML5 form validation to complete before processing.
@@ -146,11 +146,11 @@
             });
         });
     }
-	</script>
-	<!--<script>
+	</script>-->
+	<script>
    		function onSubmit(token) {
      	document.getElementById("contactForm").submit();
    		}	
- 	</script>-->
+ 	</script>
 </div>
 <?php $contactModalForm= ob_get_clean(); ?>
