@@ -1,7 +1,9 @@
-<?php
+<?php require_once('./captcha_k.php'); ?>
 
+<?php
 // Min score returned from reCAPTCHA to allow form submission
 $g_recaptcha_allowable_score = 0.5; //Number between 0 and 1. Setting a number closer to 0 will let through more spam, closer to 1 and you may start to block valid submissions.
+
 
 
 function check_token($token, $secret_key) {
