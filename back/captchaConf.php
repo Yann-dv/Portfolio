@@ -1,13 +1,9 @@
-<?php
+<?php require_once('./captcha_k.php'); ?>
 
-// Google reCAPTCHA v3 keys
-// For reducing spam contact form submissions
-// Site key (public)
-$reCAPTCHA_site_key = '6LfwFTodAAAAAPbm9xt35Aii4wLakp-0faCPRdYh';
-// Secret key
-$reCAPTCHA_secret_key = '6LfwFTodAAAAABh2a6qd7DG6YfCaziHGcs_5ng1B';
+<?php
 // Min score returned from reCAPTCHA to allow form submission
 $g_recaptcha_allowable_score = 0.5; //Number between 0 and 1. Setting a number closer to 0 will let through more spam, closer to 1 and you may start to block valid submissions.
+
 
 
 function check_token($token, $secret_key) {
