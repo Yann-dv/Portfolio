@@ -43,8 +43,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
         $subject = "Contact form";
     }
 
-    if($_POST['phone']) {
-        $phone = data_secure($_POST['phone']);
+    if($_POST['tel']) {
+        $phone = data_secure($_POST['tel']);
     }
     if($_POST['userUrl']) {
     $userUrl = data_secure($_POST['userUrl']);

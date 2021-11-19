@@ -33,6 +33,10 @@ body {
     font-size: 18px;
 }
 
+    input:invalid {
+        border: 1px solid red;
+    }
+
 nav ul {
     list-style-type: none;
     font-size: 1.3rem;
