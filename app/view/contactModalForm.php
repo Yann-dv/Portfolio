@@ -100,7 +100,9 @@
                     <button class="g-recaptcha" 
 						data-sitekey="<?php echo $reCAPTCHA_site_key ?>"
 						data-callback='onSubmit' 
-						data-action='submit'>Submit</button>
+						data-action='submit'
+						value = send>Submit
+						</button>
 			    	<div>
 					<!--<button class="g-recaptcha" 
 					type= "submit"
