@@ -445,8 +445,26 @@ progress {
         width:65%;
     }
 
-    .message {
+    #message {
         width: 95%;
+    }
+
+    .projectCheck {
+        text-align: center;
+    }
+
+    #sendEmailBtn {
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        background-color: var(--contactLink-color);
+        color: white;
+        padding: 1rem 3rem;
+        font-size: 20px;
+        font-weight: bold;  
+    }
+    #sendEmailBtn:hover {
+        cursor: pointer;
     }
 
   .modal_close {

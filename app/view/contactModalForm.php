@@ -93,24 +93,15 @@
 					<div class="form-group input-group projectDescription">
 					<textarea id="message" rows="7" name="message" placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin."></textarea>	
 					</div>
-					<!--<div type="hidden" class="g-recaptcha" data-sitekey="6Leq4zcdAAAAAPa_leI_3gkj94kVyvbXdZ-a265l" data-callback="submitForm"></div>
-					<button class="btn btn-f-info sendFormBtn" id="idBtnDevis" name="btnDevis">
-							<i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Envoyer ma demande de devis/contact
-					</button>-->
-                    <button class="g-recaptcha" 
+
+                    <button id="sendEmailBtn"
+						class="g-recaptcha" 
 						data-sitekey="<?php echo $reCAPTCHA_site_key ?>"
 						data-callback='onSubmit' 
-						data-action='submit'>Submit</button>
+						data-action='submit'
+						value = send>Submit
+					</button>
 			    	<div>
-					<!--<button class="g-recaptcha" 
-					type= "submit"
-					form= "contactForm" 
-				
-					onclick= 'formSubmitBtn(event)'
-						data-sitekey="<?php echo $reCAPTCHA_site_key ?>"
-						data-action='submit'>Submit</button>
-			    	<div>-->
-					
 		</fieldset>			
 	</form>
 	<!--<script>

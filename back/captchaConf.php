@@ -1,4 +1,4 @@
-<?php require_once('./captcha_k.php'); ?>
+<?php require('captcha_k.php'); ?>
 
 <?php
 // Min score returned from reCAPTCHA to allow form submission
@@ -25,13 +25,13 @@ function check_token($token, $secret_key) {
         }
 
         if(empty($response) || is_null($response)){
-            header('Location: .././index.php');
+            header('Location: /');
         } else {
                 $data = json_decode($response);
                 if($data->success){
                     return $data->success;
                 }else{
-                    header('Location: .././index.php');
+                    header('Location: /');
                 }
             }
     } else {

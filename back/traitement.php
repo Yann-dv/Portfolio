@@ -2,6 +2,22 @@
 
 <?php 
 
+//Load Composer's autoloader
+require '../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+
+//Create an instance; passing `true` enables exceptions
+
+?>
+<?php 
+
     function data_secure($data){
         $data = trim($data);
         $data = stripslashes($data);
@@ -17,9 +33,16 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     if($_POST['compagny']) {
         $compagny = data_secure($_POST['compagny']);
     }
-    if($_POST['subject']) 
-        { $subject = data_secure($_POST['subject']); 
-        };
+    else {
+        $compagny = "-";
+    }
+    if($_POST['subject']) {
+        $subject = data_secure($_POST['subject']); 
+        }
+    else{
+        $subject = "Contact form";
+    }
+
     if($_POST['phone']) {
         $phone = data_secure($_POST['phone']);
     }
@@ -33,40 +56,47 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     && filter_var($email, FILTER_VALIDATE_EMAIL)) 
     {
         try{
-        ini_set("SMTP", "smtp.free.fr");
+            $mailContent = '<html><body>';
+            $mailContent .= '<h3 style="color:blue;">Demande de contact de ' . $name .'</h3>';
+            $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
+            $mailContent .= '<p style="font-size:16px;text-decoration:underline;">Objet : ' . $subject . '</p>';
+            $mailContent .= '<p style="font-size:16px;">Message : ' . $message . '</p>';
+            $mailContent .= '<p style="font-size:16px;">Contact : ' . $email . '</p>';
+            $mailContent .= '<p style="font-size:12px;">Envoyé le : ' .date("r (T)") . '</p>';
+            $mailContent .= '</body></html>';
 
-        $encoding = "utf-8";
-        // Mail header
+            //PHPMailer config
+            $mail = new PHPMailer(true);
+            $to = 'yh-dev@protonmail.com';
 
-        $to = 'yh-dev@protonmail.com';
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=' . $encoding;
-        $headers[] = "Content-Transfer-Encoding: 8bit";
-        $headers[] = 'X-Mailer: PHP/' . phpversion();
-        $headers[] = 'Date: ".date("r (T)").';
-   
-        // En-têtes additionnels
-        $headers[] = 'To: ' . $to;
-        $headers[] = 'From: ' . $email;
-   
-        $mailContent = '<html><body>';
-        $mailContent .= '<h3 style="color:blue;">Demande de contact de ' . $name .'</h3>';
-        $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
-        $mailContent .= '<p style="font-size:16px;text-decoration:underline;">Objet : ' . $subject . '</p><br/>';
-        $mailContent .= '<p style="font-size:16px;">Message : ' . $message . '</p><br/>';
-        $mailContent .= '<p style="font-size:16px;">Contact : ' . $email . '</p>';
-        $mailContent .= '<p style="font-size:12px;">Envoyé le : ' .date("r (T)") . '</p>';
-        $mailContent .= '</body></html>';
-        // Envoi
-        mail($to, $subject, $mailContent, implode("\r\n", $headers));
+            $mail->IsSMTP(); 
+            //$mail->SMTPAuth = true;
+            $mail->Username = "h.yann_pro@yahoo.fr";
+            $mail->Host = 'smtp.free.fr';
+            $mail->setFrom($email);
+            $mail->addAddress($to);
+            // For debug only
+            $mail->SMTPDebug = 2; 
+            $mail->CharSet = 'UTF-8';
 
-        echo $name;
-        if(!empty($compagny)) {echo $compagny;}
-        if(!empty($subject)) {echo $subject;}
-        echo $email;
-        echo $message;
-        if(!empty($phone)) {echo $phone;}
-        if(!empty($userUrl)) {echo $userUrl;}
+            //Set the subject line
+            $mail->Subject = $subject;
+
+            $mail->isHTML(true);  
+            $mail->Body = $mailContent;
+            //For non-html mailers
+            $mail->AltBody = 'Demande de contact de ' . $name . ' , société : ' . $compagny . '. Object :  '
+            . $subject . '. Message : ' . $message . '. Contact : ' . $email . '. Envoyé le : ' .date("r (T)");
+
+            //send the message, check for errors
+            if (!$mail->send()) {
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message sent successfully !';
+                echo $to;
+                echo $mailContent;
+            }
+
         }
         catch(error $e){
             echo 'Erreur : '.$e->getMessage();
