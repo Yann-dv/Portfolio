@@ -1,4 +1,4 @@
-<?php require_once('./captchaConf.php'); ?>
+<?php require('./captchaConf.php'); ?>
 
 <?php 
 

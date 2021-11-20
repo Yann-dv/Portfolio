@@ -1,6 +1,6 @@
 
 <?php require_once('./back/captchaConf.php'); ?>
-<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+<?php echo'<script src="https://www.google.com/recaptcha/api.js?render=' . $reCAPTCHA_site_key . '"></script>'?>
 
 <?php ob_start(); ?>
 <div class="modal_form">
@@ -101,7 +101,7 @@
                     <button id="sendEmailBtn"
 						class="g-recaptcha" 
 						data-sitekey="<?php echo $reCAPTCHA_site_key ?>"
-						data-callback='onSubmit' 
+						
 						data-action='submit'
 						onclick='formSubmitBtn(event)'
 						value = send>Submit
@@ -110,7 +110,9 @@
 		</fieldset>			
 	</form>
 	<script>
+	var sitekey = $reCAPTCHA_site_key;
 	/**
+	 * 
      * Handles form submissions for Google recaptcha v3.
      * Allows for HTML5 form validation to complete before processing.
      */
@@ -120,16 +122,16 @@
          * Return if invalid; HTML5 validation errors should display.
          */
         if (!$event.target.form.checkValidity()) {
-			alert("Remplissez les champs");
+			$event.target.form.reportValidity();
             return;
-			
-        }
+		}	
+        
         /**
          * Form is client-side valid; taking over the remainder of processing.
          */
         $event.preventDefault();
         grecaptcha.ready(function() {
-            grecaptcha.execute($reCAPTCHA_site_key, { action: 'submit' }).then(function(token) {
+            grecaptcha.execute(sitekey, { action: 'submit' }).then(function(token) {
                 /**
                  * Adds the token g-recaptcha-response token to our hidden form element.
                  * ** Notice ** we our referencing the specific form's input element by name here (do not use IDs).
