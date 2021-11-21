@@ -59,7 +59,6 @@ window.addEventListener('scroll', (event) => {
 window.addEventListener('load', (event) => {
     //Index redirection
     window.location="#";    
-    var fadeObject = [];
     var fadeObject = document.querySelectorAll('.fadeLoad');
     var delay = 300;
     fadeObject.forEach(function(element, index) {
