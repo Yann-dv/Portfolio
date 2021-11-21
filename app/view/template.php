@@ -28,18 +28,16 @@ require ('./app/textContent.php');
         <?php require('./app/view/about.php'); ?>
         <?php require('./app/view/contact.php'); ?>
         <?php require('./app/view/contactModalForm.php'); ?>
-        <?php require('./app/view/success.php'); ?>
 
-        <?php echo '<nav class="navbar" id="navbar">' . $navbar . '</nav>'?>
-        <?php echo '<div class="header">' . $header . '</div>' ?>
-        <?php echo '<div class="contentBlock" id="services">' . $services . '</div>'?>
-        <?php echo '<div class="contentBlock" id="skills">' . $skills . '</div>'?>
-        <?php echo '<div class="contentBlock" id="portfolio">' . $portfolio . '</div>'?>
-        <?php echo '<div class="contentBlock" id="prices">' . $prices . '</div>'?>
-        <?php echo '<div class="contentBlock" id="about">' . $about . '</div>'?>
-        <?php echo '<div class="contentBlock" id="contact">' . $contact . '</div>'?>
+        <?php echo '<nav class="navbar fadeLoad" id="navbar">' . $navbar . '</nav>'?>
+        <?php echo '<div class="header fadeLoad" id="header">' . $header . '</div>' ?>
+        <?php echo '<div class="contentBlock fadeLoad" id="services">' . $services . '</div>'?>
+        <?php echo '<div class="contentBlock fadeLoad" id="skills">' . $skills . '</div>'?>
+        <?php echo '<div class="contentBlock fadeLoad" id="portfolio">' . $portfolio . '</div>'?>
+        <?php echo '<div class="contentBlock fadeLoad" id="prices">' . $prices . '</div>'?>
+        <?php echo '<div class="contentBlock fadeLoad" id="about">' . $about . '</div>'?>
+        <?php echo '<div class="contentBlock fadeLoad" id="contact">' . $contact . '</div>'?>
         <?php echo '<div class="modal" id="contactModal">' . $contactModalForm . '</div>'?>
-        <?php echo '<div class="successMsg" id="success">' . $success . '</div>'?>
     </body>
 </html>
 

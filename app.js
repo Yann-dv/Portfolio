@@ -5,7 +5,15 @@ const nav = document.getElementById('navbar');
 
 window.addEventListener('load', (event) => {
     //Index redirection
-    window.location="#";
+    window.location="#";    
+    var fadeObject = [];
+    var fadeObject = document.querySelectorAll('.fadeLoad');
+    var delay = 300;
+    fadeObject.forEach(function(element, index) {
+        setTimeout(() => {
+            element.classList.add("loaded");
+        }, index * delay)
+    });
   });
 
 

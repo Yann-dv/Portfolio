@@ -1,0 +1,12 @@
+:root {
+    --main-html-bg-color : #0D1117;
+    --main-body-bg-color : rgba(0, 0, 0, 0.700);
+    --main-body-txt-color : #FFF;
+    --nav-bg-color : #8f8f8fdc;
+    --main-items-color : #7451EB;
+    --progressbar-bg-color : #603daa;
+    --progressbar-second-color: rgba(255, 255, 255, 0.267);
+    --projects-bg-color : #a9a9a9;
+    --itemskill-hover-color: #8e5bfd75;
+    --contactLink-color : #b61134;
+}

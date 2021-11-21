@@ -1,3 +1,6 @@
+<?php session_start(); ?>
+
+
 <?php require('./captchaConf.php'); ?>
 
 <?php 
@@ -57,7 +60,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     {
         try{
             $mailContent = '<html><body>';
-            $mailContent .= '<h3 style="color:blue;">Demande de contact de ' . $name .'</h3>';
+            $mailContent .= '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
             $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
             $mailContent .= '<p style="font-size:16px;text-decoration:underline;">Objet : ' . $subject . '</p>';
             $mailContent .= '<p style="font-size:16px;">Message : ' . $message . '</p>';
@@ -92,8 +95,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             } else {
+                $_SESSION['sendedContent'] = $mailContent;
                 sleep(1);
-                header('Location: /#success');
+                header('Location: /Portfolio/app/view/success.php');
                 exit();
             }
 

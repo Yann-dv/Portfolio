@@ -101,7 +101,7 @@
 
                     <button id="sendEmailBtn"
 						class="g-recaptcha" 
-						data-sitekey="<?php echo $reCAPTCHA_site_key ?>"
+						data-sitekey="<?php echo $reCAPTCHA_site_key; ?>"
 						data-action='submit'
 						onclick='formSubmitBtn(event)'
 						value = send>Submit
@@ -110,7 +110,6 @@
 		</fieldset>			
 	</form>
 	<script>
-	var sitekey = $reCAPTCHA_site_key;
 	/**
 	 * 
      * Handles form submissions for Google recaptcha v3.
@@ -131,7 +130,7 @@
          */
         $event.preventDefault();
         grecaptcha.ready(function() {
-            grecaptcha.execute(sitekey, { action: 'submit' }).then(function(token) {
+            grecaptcha.execute(<?php echo '"'. $reCAPTCHA_site_key . '"'; ?>, { action: 'submit' }).then(function(token) {
                 /**
                  * Adds the token g-recaptcha-response token to our hidden form element.
                  * ** Notice ** we our referencing the specific form's input element by name here (do not use IDs).
