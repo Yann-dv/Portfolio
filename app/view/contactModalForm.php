@@ -1,8 +1,11 @@
 
+<?php require_once('./back/captchaConf.php'); ?>
+<?php echo'<script src="https://www.google.com/recaptcha/api.js?render=' . $reCAPTCHA_site_key . '"></script>'?>
+
 <?php ob_start(); ?>
 <div class="modal_form">
 <a href="javascript:history.go(-1)" id="clode_modal_btn" class="modal_close">&times;</a>
-	<form id="contactForm" action="" class="contact-form">
+	<form id="contactForm" class="contact-form" method="POST" action="././back/traitement.php">
 	    <fieldset>
 		<h2>Vos coordonnées</h2>
 				<hr>
@@ -11,7 +14,7 @@
 					<div class="userProfile">
 						<div class="form-group input-group">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input type="text" name="nomDevis" class="form-control" placeholder="Nom / Prénom" autocomplete="off"> 
+							<input id="userName" type="text" name="userName" class="form-control" placeholder="Nom / Prénom" autocomplete="off" min-length="2" required> 
 						</div>
 						<div class="userOption">
 								<div class="i-checks">
@@ -32,7 +35,7 @@
 									<label id="idRadioP_label" for="idRadioP" class="bold">Particulier</label>
 									<div id="blocCompagny" class="form-group input-group">
 										<span class="input-group-addon"><i class="fas fa-building"></i></span>
-										<input type="text" name="compagnyName" class="form-control" placeholder="Société / Association :" autocomplete="off"> 
+										<input id="compagny" type="text" name="compagny" class="form-control" placeholder="Société / Association :" autocomplete="off" min-length="2"> 
 									</div>
 								</div>
 							</div>
@@ -42,15 +45,18 @@
 				<div class="userContact">
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
-						<input type="email" name="emailDevis" class="form-control" placeholder="E-mail" autocomplete="off"> 
+						<input type="email" name="email" id="email" class="form-control" placeholder="E-mail" autocomplete="off" min-length="2" required> 
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-						<input type="text" name="telDevis" class="form-control" placeholder="Téléphone" autocomplete="off"> 
+						<input id="phone" type="tel" name="tel" class="form-control" placeholder="Téléphone" 
+						pattern="^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$"
+						autocomplete="off" min-length="2"> 
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
-						<input type="text" name="urlDevis" class="form-control" placeholder="Adresse site internet (si existant)" autocomplete="off"> 
+						<input id="userUrl" type="url" name="userUrl" class="form-control" placeholder="https://my_project_url.com"
+       					pattern="https://.*" size="30" autocomplete="off" min-length="2"> 
 					</div>
 				</div>
 			</div>
@@ -58,14 +64,10 @@
 						<label class="rgpd_check">En soumettant ce formulaire, j'accepte que les informations 
 							saisies soient exploitées dans le cadre d'une demande de devis et de la relation 
 							commerciale pouvant en découler.
-						<input type="checkbox" checked="checked">
+						<input type="checkbox" checked="" required>
 						<span class="checkmark"></span>
-						</label>
-				<div class="form-group input-group mathCheck">
-						<span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-						<input type="text" name="captchaDevis" class="form-control" placeholder="5 + 4 = ?" autocomplete="off"> 
-					</div>							
-				<div class="msgFormDevis">
+						</label>							
+					<div class="msgFormDevis">
 						<p class="alert alert-info">
 							<i class="fa fa-info-circle" aria-hidden="true"></i>
 							<b>Demande de devis gratuit.</b> Réponse moyenne sous 72h.
@@ -79,7 +81,7 @@
 							<span class="jcf-select-text">
 								<span class="">Type de projet : </span>
 							</span>
-							<select name="typeProjetDevis" class="jcf-reset-appearance">
+							<select id="subject" name="subject" class="jcf-reset-appearance" required>
 							<option value="" selected="" disabled=""> Type de projet</option>
 							<option value="Site vitrine standard">Site vitrine [Standard]</option>
 							<option value="Site vitrine personnalisé">Site vitrine [Personnalisé]</option>
@@ -91,16 +93,56 @@
 							</select>
 						</span>
 					</div>
-				<div class="form-group input-group projectDescription">
-					<textarea class="projectDescText" rows="7" name="descDevis" placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin."></textarea>	
-				</div>
-					<div class="form-group">
-						<button class="btn btn-f-info sendFormBtn" id="idBtnDevis" name="btnDevis">
-							<i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Envoyer ma demande de devis
-						</button>
-					</div>				            
-				</div>
+					<div class="form-group input-group projectDescription">
+					<textarea id="message" rows="3" name="message" min-length="2" max-length="500" 
+					placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin." 
+					required></textarea>	
+					</div>
+
+                    <button id="sendEmailBtn"
+						class="g-recaptcha" 
+						data-sitekey="<?php echo $reCAPTCHA_site_key; ?>"
+						data-action='submit'
+						onclick='formSubmitBtn(event)'
+						value = send>Submit
+					</button>
+			    	<div>
 		</fieldset>			
 	</form>
+	<script>
+	/**
+	 * 
+     * Handles form submissions for Google recaptcha v3.
+     * Allows for HTML5 form validation to complete before processing.
+     */
+    function formSubmitBtn($event) {
+        /**
+         * Checks the validity of the form.
+         * Return if invalid; HTML5 validation errors should display.
+         */
+        if (!$event.target.form.checkValidity()) {
+			$event.target.form.reportValidity();
+            return;
+		}	
+        
+        /**
+         * Form is client-side valid; taking over the remainder of processing.
+         */
+        $event.preventDefault();
+        grecaptcha.ready(function() {
+            grecaptcha.execute(<?php echo '"'. $reCAPTCHA_site_key . '"'; ?>, { action: 'submit' }).then(function(token) {
+                /**
+                 * Adds the token g-recaptcha-response token to our hidden form element.
+                 * ** Notice ** we our referencing the specific form's input element by name here (do not use IDs).
+                 */
+                $event.target.form.elements['g-recaptcha-response'].value = token;
+                /**
+                 * Use the form API directly to submit the form.
+                 */
+                $event.target.form.submit();
+            });
+        });
+    }
+	</script>
 </div>
 <?php $contactModalForm= ob_get_clean(); ?>
