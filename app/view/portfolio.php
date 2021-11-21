@@ -29,6 +29,6 @@
       }
     }
     echo '</div>' // portfolio container end
-  ?>
+  ?>  
 
 <?php $portfolio= ob_get_clean(); ?>

@@ -1,4 +1,7 @@
-<?php require_once('./captchaConf.php'); ?>
+<?php session_start(); ?>
+
+
+<?php require('./captchaConf.php'); ?>
 
 <?php 
 
@@ -43,8 +46,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
         $subject = "Contact form";
     }
 
-    if($_POST['phone']) {
-        $phone = data_secure($_POST['phone']);
+    if($_POST['tel']) {
+        $phone = data_secure($_POST['tel']);
     }
     if($_POST['userUrl']) {
     $userUrl = data_secure($_POST['userUrl']);
@@ -57,7 +60,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     {
         try{
             $mailContent = '<html><body>';
-            $mailContent .= '<h3 style="color:blue;">Demande de contact de ' . $name .'</h3>';
+            $mailContent .= '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
             $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
             $mailContent .= '<p style="font-size:16px;text-decoration:underline;">Objet : ' . $subject . '</p>';
             $mailContent .= '<p style="font-size:16px;">Message : ' . $message . '</p>';
@@ -76,7 +79,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mail->setFrom($email);
             $mail->addAddress($to);
             // For debug only
-            $mail->SMTPDebug = 2; 
+            //$mail->SMTPDebug = 3; 
             $mail->CharSet = 'UTF-8';
 
             //Set the subject line
@@ -92,9 +95,10 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             } else {
-                echo 'Message sent successfully !';
-                echo $to;
-                echo $mailContent;
+                $_SESSION['sendedContent'] = $mailContent;
+                sleep(1);
+                header('Location: /Portfolio/app/view/success.php');
+                exit();
             }
 
         }

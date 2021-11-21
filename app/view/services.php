@@ -7,7 +7,7 @@
 
     <div class="servicesContainer">
         <div class="leftServicesList">
-            <div class="item-service">
+            <div class="item-service reduced">
                 <div class="iconBlock">
                     <span class="fa-stack">
                         <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -20,7 +20,7 @@
                     <p>Site vitrine, e-commerce, réseau social, évènementiel, corporate, application mobile</p>
                 </div>
             </div>
-            <div class="item-service">
+            <div class="item-service reduced">
                 <div class="iconBlock">
                 <span class="fa-stack">
                         <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -32,7 +32,7 @@
                     <p>Des intégrations (X)HTML / CSS respectueuses des standards du Web</p>
                 </div>
             </div>
-            <div class="item-service">
+            <div class="item-service reduced">
                 <div class="iconBlock">
                 <span class="fa-stack">
                         <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -44,7 +44,7 @@
                     <p>Affichage sémantique des informations, des pages propres pour un référencement optimal.</p>
                 </div>
             </div>
-            <div class="item-service">
+            <div class="item-service reduced">
                 <div class="iconBlock">
                 <span class="fa-stack">
                         <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="rightServicesList">
-        <div class="item-service">
+        <div class="item-service reduced">
                 <div class="iconBlock">
                 <span class="fa-stack">
                         <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -71,7 +71,7 @@
                     <p>Logos, templates Web, plaquettes publicitaires, cartes de visite, newsletters...</p>
                 </div>
             </div>
-            <div class="item-service">
+            <div class="item-service reduced">
                 <div class="iconBlock">
                 <span class="fa-stack">
                     <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -83,7 +83,7 @@
                     <p>Des animations de contenu non intrusives pour embellir votre projet.</p>
                 </div>
             </div>
-            <div class="item-service">
+            <div class="item-service reduced">
                 <div class="iconBlock">
                 <span class="fa-stack">
                     <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -95,7 +95,7 @@
                     <p>Outils spécifiques au bon fonctionnement de votre entreprise.</p>
                 </div>
             </div>
-            <div class="item-service">
+            <div class="item-service reduced">
                 <div class="iconBlock">
                 <span class="fa-stack">
                     <i class="fa fa-circle-thin fa-stack-2x"></i>
