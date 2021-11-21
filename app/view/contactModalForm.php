@@ -94,14 +94,14 @@
 						</span>
 					</div>
 					<div class="form-group input-group projectDescription">
-					<textarea id="message" rows="7" name="message" min-length="2" max-length="500" 
-					placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin."></textarea>	
+					<textarea id="message" rows="3" name="message" min-length="2" max-length="500" 
+					placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin." 
+					required></textarea>	
 					</div>
 
                     <button id="sendEmailBtn"
 						class="g-recaptcha" 
 						data-sitekey="<?php echo $reCAPTCHA_site_key ?>"
-						
 						data-action='submit'
 						onclick='formSubmitBtn(event)'
 						value = send>Submit
@@ -145,10 +145,5 @@
         });
     }
 	</script>
-	<!--<script>
-   		function onSubmit(token) {
-     	document.getElementById("contactForm").submit();
-   		}	
- 	</script>-->
 </div>
 <?php $contactModalForm= ob_get_clean(); ?>

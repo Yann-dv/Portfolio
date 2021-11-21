@@ -76,7 +76,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mail->setFrom($email);
             $mail->addAddress($to);
             // For debug only
-            $mail->SMTPDebug = 2; 
+            //$mail->SMTPDebug = 3; 
             $mail->CharSet = 'UTF-8';
 
             //Set the subject line
@@ -92,9 +92,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             } else {
-                echo 'Message sent successfully !';
-                echo $to;
-                echo $mailContent;
+                sleep(1);
+                header('Location: /#success');
+                exit();
             }
 
         }
