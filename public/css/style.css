@@ -36,7 +36,7 @@ body {
 }
 
 #portfolioList a {
-    transform: scale(0);
+    transform: scaleX(0);
 }
 
 .fadeLoad {
