@@ -3,11 +3,15 @@
 const closingBtn = document.getElementById('clode_modal_btn');
 const head = document.querySelector('#header');
 const serv = document.querySelector('#services');
+const skills = document.querySelector('#skills');
 const left_itemsList = document.querySelectorAll('.leftServicesList .item-service');
 const right_itemsList = document.querySelectorAll('.rightServicesList .item-service');
 const skillsLi = document.querySelectorAll('.skillsContainer li');
+const portfolioLinks = document.querySelectorAll('#portfolioList a');
+
 var headerHeight = head.clientHeight;
 var servicesHeight = serv.clientHeight;
+var skillsHeight = skills.clientHeight;
 
 
 window.addEventListener('scroll', (event) => {
@@ -54,7 +58,22 @@ window.addEventListener('scroll', (event) => {
             el.classList.remove('opened');
         });
     }
+
+    if(window.scrollY > skillsHeight) {
+        portfolioLinks.forEach(function(e, i) {
+            setTimeout(() => {
+                e.setAttribute("style", "transition: all .5s ease-out; transform: scale(1)");
+            }, i * 280)
+        });     
+    } 
+    else {
+        portfolioLinks.forEach(function(e) {
+            e.setAttribute("style", "transform: scale(0)");
+        });
+    }
 });
+
+
 
 window.addEventListener('load', (event) => {
     //Index redirection
