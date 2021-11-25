@@ -15,7 +15,7 @@ var skillsHeight = skills.clientHeight;
 
 
 window.addEventListener('scroll', (event) => {
-    //Scrolling effects
+    //Scrolling effects//
     if(window.scrollY > headerHeight) {
         left_itemsList.forEach(function(element, i) {
             setTimeout(() => {
