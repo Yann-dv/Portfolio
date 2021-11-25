@@ -104,4 +104,4 @@ document.addEventListener("click", function (e) {
     }
 });
 
-}
+}); //en doc.contentload
