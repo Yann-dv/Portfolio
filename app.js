@@ -1,5 +1,5 @@
 // Prevent scrolling when modal is open
-document.addEventListener("DOMContentLoaded", function(event) {
+window.addEventListener("load", function(event) {
 
 const closingBtn = document.getElementById('clode_modal_btn');
 const head = document.querySelector('#header');
