@@ -1,8 +1,7 @@
 // Prevent scrolling when modal is open
-document.addEventListener("DOMContentLoaded", function(event) {
-console.log('page loaded');
+
 const closingBtn = document.getElementById('clode_modal_btn');
-const head = document.querySelector('#header');
+const heading = document.querySelector('#header');
 const serv = document.querySelector('#services');
 const skills = document.querySelector('#skills');
 const left_itemsList = document.querySelectorAll('.leftServicesList .item-service');
@@ -10,7 +9,7 @@ const right_itemsList = document.querySelectorAll('.rightServicesList .item-serv
 const skillsLi = document.querySelectorAll('.skillsContainer li');
 const portfolioLinks = document.querySelectorAll('#portfolioList a');
 
-var headerHeight = head.clientHeight;
+var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
 
@@ -103,5 +102,3 @@ document.addEventListener("click", function (e) {
         //nothing to do
     }
 });
-
-}); //en doc.contentload
