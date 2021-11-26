@@ -13,7 +13,7 @@ require ('./app/textContent.php');
         <title><?php echo $title ?></title>
         <link href="./public/css/style.css" rel="stylesheet"/>
         <script src="https://kit.fontawesome.com/158c254b57.js"></script>
-        <script src="./app.js" async defer></script>
+        <script async src="./app.js" defer></script>
     </head>
         
     <!--<body onselectstart="return false" oncontextmenu="return false" 
