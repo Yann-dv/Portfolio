@@ -62,12 +62,13 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent = '<html><body>';
             $mailContent .= '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
             $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
+            $mailContent .= '<p style="font-size:16px;">Téléphone : ' . $phone . '</p>';
             $mailContent .= '<p style="font-size:16px;text-decoration:underline;">Objet : ' . $subject . '</p>';
             $mailContent .= '<p style="font-size:16px;">Message : ' . $message . '</p>';
             $mailContent .= '<p style="font-size:16px;">Contact : ' . $email . '</p>';
             $mailContent .= '<p style="font-size:12px;">Envoyé le : ' .date("r (T)") . '</p>';
             $mailContent .= '</body></html>';
-
+            /*
             //PHPMailer config
             $mail = new PHPMailer(true);
             $to = 'yh-dev@protonmail.com';
@@ -99,6 +100,34 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
                 sleep(1);
                 header('Location: /Portfolio/app/view/success.php');
                 exit();
+            }
+            */
+            /// TRUSTIFI FOR HEROKU APP ///
+            $curl = curl_init();
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => $_ENV['TRUSTIFI_URL'] . "/api/i/v1/email",
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "POST",
+                    CURLOPT_POSTFIELDS =>"{\"recipients\":[{\"email\":\"yh-dev@protonmail.com\"}],\"phone_number\":\"$Pphone\",\"from\":\"$email\",\"title\":\"$subject\",\"html\":\"$mailContent\"}",
+                    CURLOPT_HTTPHEADER => array(
+                        "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
+                        "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
+                        "content-type: application/json"
+                    )
+                ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            } else {
+                echo $response;
             }
 
         }
