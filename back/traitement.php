@@ -168,7 +168,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             "attachments": [],
             "title": "$title",
             "html": "$mailContent",
-            "from": "$email"
+            "from": "$email",
             "methods": { 
                 "postmark": false,
                 "secureSend": false,
