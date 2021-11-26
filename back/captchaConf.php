@@ -1,8 +1,8 @@
 <?php //require('captcha_k.php'); ?>
 
 <?php 
-$reCAPTCHA_site_key;
-$reCAPTCHA_secret_key; ?>
+$reCAPTCHA_site_key = $_ENV['SITE_KEY'];
+$reCAPTCHA_secret_key = $_ENV['SECRET_KEY']?>
 
 <?php
 // Min score returned from reCAPTCHA to allow form submission
