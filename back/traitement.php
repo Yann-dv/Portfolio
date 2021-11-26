@@ -8,13 +8,13 @@
 //Load Composer's autoloader
 require '../vendor/autoload.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
+/*use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
 require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../vendor/phpmailer/phpmailer/src/Exception.php';
-require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';*/
 
 //Create an instance; passing `true` enables exceptions
 
@@ -48,6 +48,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
 
     if($_POST['tel']) {
         $phone = data_secure($_POST['tel']);
+    }
+    else {
+        $phone = '-';
     }
     if($_POST['userUrl']) {
     $userUrl = data_secure($_POST['userUrl']);
@@ -113,7 +116,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
                     CURLOPT_FOLLOWLOCATION => true,
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => "POST",
-                    CURLOPT_POSTFIELDS =>"{\"recipients\":[{\"email\":\"yh-dev@protonmail.com\"}],\"phone_number\":\"$Pphone\",\"from\":\"$email\",\"title\":\"$subject\",\"html\":\"$mailContent\"}",
+                    CURLOPT_POSTFIELDS =>"{\"recipients\":[{\"email\":\"yh-dev@protonmail.com\"}],\"phone_number\":\"$phone\",\"from\":\"$email\",\"title\":\"$subject\",\"html\":\"$mailContent\"}",
                     CURLOPT_HTTPHEADER => array(
                         "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
                         "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
