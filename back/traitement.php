@@ -62,7 +62,6 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     && filter_var($email, FILTER_VALIDATE_EMAIL)) 
     {
         try{
-            //Mail body content
             $mailContent = '<html><body>';
             $mailContent .= '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
             $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
@@ -72,9 +71,42 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent .= '<p style="font-size:16px;">Contact : ' . $email . '</p>';
             $mailContent .= '<p style="font-size:12px;">Envoyé le : ' .date("r (T)") . '</p>';
             $mailContent .= '</body></html>';
+            /*
+            //PHPMailer config
+            $mail = new PHPMailer(true);
+            $to = 'yh-dev@protonmail.com';
 
+            $mail->IsSMTP(); 
+            //$mail->SMTPAuth = true;
+            $mail->Username = "h.yann_pro@yahoo.fr";
+            $mail->Host = 'smtp.free.fr';
+            $mail->setFrom($email);
+            $mail->addAddress($to);
+            // For debug only
+            //$mail->SMTPDebug = 3; 
+            $mail->CharSet = 'UTF-8';
+
+            //Set the subject line
+            $mail->Subject = $subject;
+
+            $mail->isHTML(true);  
+            $mail->Body = $mailContent;
+            //For non-html mailers
+            $mail->AltBody = 'Demande de contact de ' . $name . ' , société : ' . $compagny . '. Object :  '
+            . $subject . '. Message : ' . $message . '. Contact : ' . $email . '. Envoyé le : ' .date("r (T)");
+
+            //send the message, check for errors
+            if (!$mail->send()) {
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                $_SESSION['sendedContent'] = $mailContent;
+                sleep(1);
+                header('Location: /Portfolio/app/view/success.php');
+                exit();
+            }
+            */
             /// TRUSTIFI FOR HEROKU APP ///
-            $title = 'Demande de contact de ' . $name;
+            /*
             $curl = curl_init();
                 curl_setopt_array($curl, array(
                     CURLOPT_URL => $_ENV['TRUSTIFI_URL'] . "/api/i/v1/email",
@@ -86,12 +118,12 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => "POST",
                     CURLOPT_POSTFIELDS =>"{
-                        'recipients': [{'email': 'yh-dev@protonmail.com'}],
+                        'recipients': [{'email': 'yh-dev@protonmail.com', 'name': }],
                         'lists': [],
                         'contacts': [],
                         'attachments': [],
-                        'title': 'bodytitle',
-                        'html': 'bodytest',
+                        'title': 'test,
+                        'html': 'test,
                         'methods': { 
                           'postmark': false,
                           'secureSend': false,
@@ -115,6 +147,43 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
                 echo $response;
             }
 
+        }*/
+            $curl = curl_init();
+            
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://be.trustifi.com/api/i/v1/email',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS =>'{
+            "recipients": [{"email": "test@gmail.com"}],
+            "lists": [],
+            "contacts": [],
+            "attachments": [],
+            "title": "Title-test",
+            "html": "Body-test",
+            "methods": { 
+                "postmark": false,
+                "secureSend": false,
+                "encryptContent": false,
+                "secureReply": false 
+            }
+            }',
+            CURLOPT_HTTPHEADER => array(
+                "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
+                "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
+                "content-type: application/json"
+            ),
+            ));
+            
+            $response = curl_exec($curl);
+            
+            curl_close($curl);
+            echo $response;
         }
         catch(error $e){
             echo 'Erreur : '.$e->getMessage();
