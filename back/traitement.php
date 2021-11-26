@@ -63,15 +63,15 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     {
         try{
             //Mail body content
-        
-            $mailContent = '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
+            $mailContent = '<html><body>';
+            $mailContent .= '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
             $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
             $mailContent .= '<p style="font-size:16px;">Téléphone : ' . $phone . '</p>';
             $mailContent .= '<p style="font-size:16px;text-decoration:underline;">Objet : ' . $subject . '</p>';
             $mailContent .= '<p style="font-size:16px;">Message : ' . $message . '</p>';
             $mailContent .= '<p style="font-size:16px;">Contact : ' . $email . '</p>';
             $mailContent .= '<p style="font-size:12px;">Envoyé le : ' .date("r (T)") . '</p>';
-         
+            $mailContent .= '</body></html>';
 
             /// TRUSTIFI FOR HEROKU APP ///
             $title = 'Demande de contact de ' . $name;
@@ -90,8 +90,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
                         'lists': [],
                         'contacts': [],
                         'attachments': [],
-                        'title': $title,
-                        'html': $mailContent,
+                        'title': 'bodytitle',
+                        'html': 'bodytest',
                         'methods': { 
                           'postmark': false,
                           'secureSend': false,
