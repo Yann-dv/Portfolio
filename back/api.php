@@ -5,6 +5,10 @@ $curl_handle = curl_init();
 
 $url = "https://api.github.com/users/Yann-dv/repos";
 // Set the curl URL option
+// Disable SSL verif
+curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, false);
+//
 curl_setopt($curl_handle, CURLOPT_URL, $url);
 curl_setopt($curl_handle, CURLOPT_HEADER, 0);
 curl_setopt($curl_handle, CURLOPT_USERAGENT, 'Portfolio user');
