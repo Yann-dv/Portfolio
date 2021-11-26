@@ -1,6 +1,15 @@
 <?php
 
 require ('./app/textContent.php');
+require('./app/view/header.php'); 
+require('./app/view/navbar.php'); 
+require('./app/view/services.php');
+require('./app/view/skills.php'); 
+require('./app/view/portfolio.php');
+require('./app/view/prices.php'); 
+require('./app/view/about.php');
+require('./app/view/contact.php');
+require('./app/view/contactModalForm.php');
 
 ?>
 
@@ -20,15 +29,6 @@ require ('./app/textContent.php');
     ondragstart="return false" onMouseOver="window.status='No right click '; return true;">-->
     <body>
         <div class="mainContent">
-            <?php require('./app/view/header.php'); ?>
-            <?php require('./app/view/navbar.php'); ?>
-            <?php require('./app/view/services.php'); ?>
-            <?php require('./app/view/skills.php'); ?>
-            <?php require('./app/view/portfolio.php'); ?>
-            <?php require('./app/view/prices.php'); ?>
-            <?php require('./app/view/about.php'); ?>
-            <?php require('./app/view/contact.php'); ?>
-            <?php require('./app/view/contactModalForm.php'); ?>
 
             <?php echo '<nav class="navbar fadeLoad" id="navbar">' . $navbar . '</nav>'?>
             <?php echo '<div class="header fadeLoad" id="header">' . $header . '</div>' ?>
