@@ -20,6 +20,7 @@ require('./app/view/contactModalForm.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $title ?></title>
+        <link rel="icon" href="././public/image/favicon.ico">
         <link href="./public/css/style.css" rel="stylesheet"/>
         <script src="https://kit.fontawesome.com/158c254b57.js"></script>
         <script async src="./app.js" defer></script>
