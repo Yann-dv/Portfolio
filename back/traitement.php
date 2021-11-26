@@ -148,32 +148,42 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             }
 
         }*/
-            require_once 'HTTP/Request2.php';
-            $request = new HTTP_Request2();
-            $request->setUrl('https://be.trustifi.com/api/i/v1/email');
-            $request->setMethod(HTTP_Request2::METHOD_POST);
-            $request->setConfig(array(
-            'follow_redirects' => TRUE
-            ));
-            $request->setHeader(array(
-            'x-trustifi-key' => '{{trustifi_key}}',
-            'x-trustifi-secret' => '{{trustifi_secret}}',
-            'Content-Type' => 'application/json'
-            ));
-            $request->setBody('{\n  "recipients": [{"email": "yh-dev@protonmail.com", "name": "test", "phone":{"country_code":"+1","phone_number":"1111111111"}}],\n  "lists": [],\n  "contacts": [],\n  "attachments": [],\n  "title": "Title",\n  "html": "Body",\n  "methods": { \n    "postmark": false,\n    "secureSend": false,\n    "encryptContent": false,\n    "secureReply": false \n  }\n}');
-            try {
-                $response = $request->send();
-                if ($response->getStatus() == 200) {
-                    echo $response->getBody();
-                }
-                else {
-                    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
-                    $response->getReasonPhrase();
-                }
+            $curl = curl_init();
+            
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://be.trustifi.com/api/i/v1/email',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS =>'{
+            "recipients": [{"email": "yh-dev@protonmail.com", "name": "test", "phone":{"country_code":"+1","phone_number":"1111111111"}}],
+            "lists": [],
+            "contacts": [],
+            "attachments": [],
+            "title": "Title",
+            "html": "Body",
+            "methods": { 
+                "postmark": false,
+                "secureSend": false,
+                "encryptContent": false,
+                "secureReply": false 
             }
-            catch(HTTP_Request2_Exception $e) {
-            echo 'Error: ' . $e->getMessage();
-            }
+            }',
+            CURLOPT_HTTPHEADER => array(
+                'x-trustifi-key: {{trustifi_key}}',
+                'x-trustifi-secret: {{trustifi_secret}}',
+                'Content-Type: application/json'
+            ),
+            ));
+            
+            $response = curl_exec($curl);
+            
+            curl_close($curl);
+            echo $response;
         }
         catch(error $e){
             echo 'Erreur : '.$e->getMessage();
