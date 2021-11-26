@@ -62,7 +62,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     && filter_var($email, FILTER_VALIDATE_EMAIL)) 
     {
         try{
-            $mailContent = '<html><body>';
+            //$mailContent = '<html><body>';
             $mailContent .= '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
             $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
             $mailContent .= '<p style="font-size:16px;">Téléphone : ' . $phone . '</p>';
@@ -70,7 +70,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent .= '<p style="font-size:16px;">Message : ' . $message . '</p>';
             $mailContent .= '<p style="font-size:16px;">Contact : ' . $email . '</p>';
             $mailContent .= '<p style="font-size:12px;">Envoyé le : ' .date("r (T)") . '</p>';
-            $mailContent .= '</body></html>';
+            //$mailContent .= '</body></html>';
             /*
             //PHPMailer config
             $mail = new PHPMailer(true);
@@ -148,6 +148,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             }
 
         }*/
+        $title = 'Message de ' . $name;
+
             $curl = curl_init();
             
             curl_setopt_array($curl, array(
@@ -159,20 +161,20 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>'{
-            "recipients": [{"email": "yh-dev@protonmail.com"}],
-            "lists": [],
-            "contacts": [],
-            "attachments": [],
-            "title": "Title-test",
-            "html": "Body-test",
-            "methods": { 
-                "postmark": false,
-                "secureSend": false,
-                "encryptContent": false,
-                "secureReply": false 
+            CURLOPT_POSTFIELDS =>"{
+            'recipients': [{'email': 'yh-dev@protonmail.com'}],
+            'lists': [],
+            'contacts': [],
+            'attachments': [],
+            'title': $title,
+            'html': $mailContent,
+            'methods': { 
+                'postmark': false,
+                'secureSend': false,
+                'encryptContent': false,
+                'secureReply': false 
             }
-            }',
+            }",
             CURLOPT_HTTPHEADER => array(
                 "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
                 "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
