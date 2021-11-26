@@ -160,7 +160,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS =>'{
-            "recipients": [{"email": "test@gmail.com"}],
+            "recipients": [{"email": "yh-dev@protonmail.com"}],
             "lists": [],
             "contacts": [],
             "attachments": [],
