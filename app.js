@@ -92,11 +92,11 @@ document.addEventListener("click", function (e) {
     let isContacLink = e.target.classList.contains('contactLink');
     if(isContacLink) {
         document.body.classList.toggle("disable_overflow");
-        nav.classList.toggle("hidden");
+        navbar.classList.toggle("hidden");
     }
     else if(e.target === closingBtn ) {
         document.body.classList.toggle("disable_overflow");
-        nav.classList.toggle("hidden");
+        navbar.classList.toggle("hidden");
     }
     else {
         //nothing to do
