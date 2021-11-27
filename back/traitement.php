@@ -153,19 +153,6 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $curl = curl_init();
             
             $title = 'Demande de contact de ' . $name;
-            $postFields = '"recipients": [{"email": "yh-dev@protonmail.com"}],';
-            $postFields .= '"lists": [],';
-            $postFields .= '"contacts": [],';
-            $postFields .= '"attachments": [],';
-            $postFields .= '"title":" ' . $title . '",';
-            $postFields .= '"html":" ' . $mailContent . '",';
-            $postFields .= '"from":" ' . $email . '",';
-            $postFields .= '"methods": { 
-                "postmark": false,
-                "secureSend": false,
-                "encryptContent": false,
-                "secureReply": false 
-            }';
 
             curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://be.trustifi.com/api/i/v1/email',
@@ -176,7 +163,16 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => $postFields,
+            CURLOPT_POSTFIELDS => array(
+            "recipients: " . "yh-dev@protonmail.com",
+            "lists: " . "[]",
+            "contacts: " . "[]",
+            "attachments: " . "[]",
+            "title:" . $title,
+            "html: " . $mailContent,
+            "from: " . $email,
+            "methods: " . '{ "postmark": false, "secureSend": false, "encryptContent": false, "secureReply": false}'
+            ),
             CURLOPT_HTTPHEADER => array(
                 "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
                 "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
