@@ -62,7 +62,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     && filter_var($email, FILTER_VALIDATE_EMAIL)) 
     {
         try{
-            $mailContent = '<html><body>';
+            //$mailContent = '<html><body>';
             $mailContent .= '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
             $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
             $mailContent .= '<p style="font-size:16px;">Téléphone : ' . $phone . '</p>';
@@ -70,7 +70,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent .= '<p style="font-size:16px;">Message : ' . $message . '</p>';
             $mailContent .= '<p style="font-size:16px;">Contact : ' . $email . '</p>';
             $mailContent .= '<p style="font-size:12px;">Envoyé le : ' .date("r (T)") . '</p>';
-            $mailContent .= '</body></html>';
+            //$mailContent .= '</body></html>';
             /*
             //PHPMailer config
             $mail = new PHPMailer(true);
@@ -166,9 +166,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             "lists": [],
             "contacts": [],
             "attachments": [],
-            "title": "$title",
-            "html": "$mailContent",
-            "from": "$email",
+            "title": $title,
+            "html": $mailContent,
+            "from": $email,
             "methods": { 
                 "postmark": false,
                 "secureSend": false,
