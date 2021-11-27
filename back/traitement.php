@@ -166,9 +166,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             "lists": [],
             "contacts": [],
             "attachments": [],
-            "title": "' . $title '",
-            "html": "' . $mailcontent'",
-            "from": "' . $email'",
+            "title": "' . $title . '",
+            "html": "' . $mailcontent .'",
+            "from": "' . $email . '",
             "methods": { 
                 "postmark": false,
                 "secureSend": false,
