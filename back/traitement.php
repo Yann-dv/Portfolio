@@ -148,11 +148,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             }
 
         }*/
-        $title = 'Message de ' . $name;
+            $title = 'Message de ' . $name;
 
             $curl = curl_init();
-            
-            $title = 'Demande de contact de ' . $name;
 
             curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://be.trustifi.com/api/i/v1/email',
