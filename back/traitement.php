@@ -167,8 +167,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             "contacts": [],
             "attachments": [],
             "title": "' . $title . '",
-            "html": "<h3> Damned it !</h3>",
-            "from": "$email",
+            "html": "' . $mailContent . '",
+            "from": "' . $email . '",
             "methods": { 
                 "postmark": false,
                 "secureSend": false,
