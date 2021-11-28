@@ -167,7 +167,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             \"contacts\": [],
             \"attachments\": [],
             \"title\":\"" . $title . "\",
-            \"html\":\"" . $mailContent . "\",
+            \"html\":\"<h3 style=\"color:blue;\">Demande de contact de : " . $name ."</h3>\",
             \"from\":\"" . $email . "\",
             \"methods\": { 
                 \"postmark\": false,
