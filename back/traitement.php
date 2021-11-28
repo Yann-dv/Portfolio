@@ -167,13 +167,13 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             "contacts": [],
             "attachments": [],
             "title":"' . $title . '",
-            "html": "<h3 style="color:blue;">Demande de contact de : "' . $name . '"</h3>
-                    <p style="font-size:16px;">Société : "' . $compagny . '"</p>
-                    <p style="font-size:16px;">Téléphone : "' . $phone . '"</p>
-                    <p style="font-size:16px;text-decoration:underline;">Objet : "' . $subject . '"</p>
-                    <p style="font-size:16px;">Message : "' . $message . '"</p>
-                    <p style="font-size:16px;">Contact : "' . $email . '"</p>
-                    <p style="font-size:12px;">Envoyé le : "' .date("r (T)") . '"</p>
+            "html": "<h3 style=\"color:blue;\">Demande de contact de : "' . $name . '"</h3>
+                    <p style=\"font-size:16px;\">Société : "' . $compagny . '"</p>
+                    <p style=\"font-size:16px;\">Téléphone : "' . $phone . '"</p>
+                    <p style=\"font-size:16px;text-decoration:underline;\">Objet : "' . $subject . '"</p>
+                    <p style=\"font-size:16px;\">Message : "' . $message . '"</p>
+                    <p style=\"font-size:16px;\">Contact : "' . $email . '"</p>
+                    <p style=\"font-size:12px;\">Envoyé le : "' .date("r (T)") . '"</p>
             ",
             "from":"' . $email . '",
             "methods": { 
