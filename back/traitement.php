@@ -63,7 +63,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     {
         try{
             //$mailContent = '<html><body>';
-            $mailContent .= '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
+            $mailContent = '<h3 style="color:blue;">Demande de contact de : ' . $name .'</h3>';
             $mailContent .= '<p style="font-size:16px;">Société : ' . $compagny . '</p>';
             $mailContent .= '<p style="font-size:16px;">Téléphone : ' . $phone . '</p>';
             $mailContent .= '<p style="font-size:16px;text-decoration:underline;">Objet : ' . $subject . '</p>';
@@ -167,8 +167,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             "contacts": [],
             "attachments": [],
             "title": "' . $title . '",
-            "html": "' . $mailcontent .'",
-            "from": "' . $email . '",
+            "html": "<h3> Damned it !</h3>",
+            "from": "$email",
             "methods": { 
                 "postmark": false,
                 "secureSend": false,

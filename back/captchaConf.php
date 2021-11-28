@@ -1,6 +1,7 @@
-<?php //require('captcha_k.php'); ?>
-
 <?php 
+
+//require('captcha_k.php');
+
 $reCAPTCHA_site_key = $_ENV['SITE_KEY'];
 $reCAPTCHA_secret_key = $_ENV['SECRET_KEY'];
 ?>
