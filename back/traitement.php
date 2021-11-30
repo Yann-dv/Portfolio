@@ -152,7 +152,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
 
             $curl = curl_init();
             
-            $postData = [ "recipients" => "[\"email\":\"yh-dev@protonmail.com\"]",
+            $postData = [ "recipients" => "[{\"email\":\"yh-dev@protonmail.com\"}]",
             "title" => $title,
             "html" => "Body-test",
             ];
