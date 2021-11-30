@@ -196,7 +196,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email->setSubject('Message de ' . $name);
             $email->addTo("yh-dev@protonmail.com", "Example Receiver");
             $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-            $email->addContent(json_decode($mailContent));
+            $email->addContent(
+                "text/html", $mailContent
+            );
             $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
             try {
                 $response = $sendgrid->send($email);
