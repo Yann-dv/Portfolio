@@ -192,7 +192,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
 
             $email = new Mail();
 
-            $email->setFrom($email, "Example Sender");
+            $email->setFrom("yhagege.osteo@gmail.com", "Example Sender");
             $email->setSubject("Sending with SendGrid is Fun");
             $email->addTo("yh-dev@protonmail.com", "Example Receiver");
             $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
