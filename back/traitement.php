@@ -156,7 +156,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $postFields['title'] = 'Message de ' . $name;
             $postFields['recipients'] = array(
                 array('email' => 'yh-dev@protonmail.com')
-            );   
+            );
+            $postFields['html'] = 'Body testin';
 
             $data_string_postFields = json_encode($postFields);
 
@@ -170,7 +171,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POST=> 1,
-            CURLOPT_POSTFIELDS => json_encode($data_string_postFields),
+            CURLOPT_POSTFIELDS => $data_string_postFields,
             CURLOPT_HTTPHEADER => array(
                 "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
                 "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
