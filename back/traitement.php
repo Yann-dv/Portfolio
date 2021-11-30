@@ -167,8 +167,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             "contacts": [],
             "attachments": [],
             "title":"' . $title . '",
-            "html": "<h3>Demande de contact de : "' . $name . '"</h3>
-                    <p>Société : "' . $compagny . '"</p>
+            "html": "<h3>Demande de contact de name</h3>
+                    <p>Société : inconnnue"</p>
                     ",
             "from":"' . $email . '",
             "methods": { 
