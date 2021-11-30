@@ -67,9 +67,10 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email->setFrom("yhagege.osteo@gmail.com", "Example Sender");
             $email->setSubject('Message de ' . $name);
             $email->addTo("yh-dev@protonmail.com", "Moi");
-            $email->addContent("text/plain", "Alt content");
-            /*'Demande de contact de ' . $name . ' , société : ' . $compagny . '. Object :  '
-            . $subject . '. Message : ' . $message . '. Contact : ' . $email . '. Envoyé le : ' .date("r (T)"));*/
+            $email->addContent("text/plain", 
+                "Demande de contact de " . $name . " , société : " . $compagny . ". Object :  "
+                . $subject . " . Message : " . $message . ". Contact : " . $email
+            );
             $email->addContent(
                 "text/html", $mailContent
             );
