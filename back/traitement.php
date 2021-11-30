@@ -82,6 +82,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
                 . '<h2>Demande de contact envoyée avec succès ! Vous allez être redirigé vers la page principale... </h2>'
                 . '</div>'
                 . '</body>';
+                echo sleep(5);
+                header('Location: /');
                 // Display for debug //
                 /*$response = $sendgrid->send($email);
                 print $response->statusCode() . "\n";

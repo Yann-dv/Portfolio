@@ -23,6 +23,15 @@ body {
     font-size: 18px;
 }
 
+body .success {
+    background-color: var(--main-body-bg-color);
+    text-align: center;
+}
+
+.successContent {
+    color: var(--main-items-color);
+}
+
 .reduced {
     opacity: 0;
     transition: all .5s;
