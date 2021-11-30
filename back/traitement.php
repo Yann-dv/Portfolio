@@ -83,7 +83,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
                 . '<h2>Demande de contact envoyée avec succès ! Vous allez être redirigé vers la page principale... </h2>'
                 . '</div>'
                 . '</body>';
-                echo sleep(6);
+                sleep(6);
                 header('Location: /');
                 // Display for debug //
                 /*
