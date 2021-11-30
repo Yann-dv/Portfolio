@@ -1,3 +1,5 @@
+<?php declare(strict_types=1); ?>
+<?php require '../vendor/autoload.php';?>
 <?php session_start(); ?>
 
 
@@ -5,8 +7,8 @@
 
 <?php 
 
-//Load Composer's autoloader
-require '../vendor/autoload.php';
+use \SendGrid\Mail\Mail;
+
 
 /*use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -70,6 +72,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent .= "<p style=\"font-size:16px;\">Message : " . $message . "</p>";
             $mailContent .= "<p style=\"font-size:16px;\">Contact : " . $email . "</p>";
             $mailContent .= "<p style=\"font-size:12px;\">Envoyé le : " .date("r (T)") . "</p>";
+            
             //$mailContent .= </body></html>';
             /*
             //PHPMailer config
@@ -147,9 +150,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
                 echo $response;
             }
 
-        }*/
+         }*/
 
-            $curl = curl_init();
+           /* $curl = curl_init();
 
             $postFields = array();
 
@@ -183,7 +186,39 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $response = curl_exec($curl);
             
             curl_close($curl);
-            echo $response;
+            echo $response;*/
+
+            //Sendgrid using
+
+            $email = new Mail();
+            // Replace the email address and name with your verified sender
+            $email->setFrom(
+                $email,
+                'Example Sender'
+            );
+            $email->setSubject('Sending with Twilio SendGrid is Fun');
+            // Replace the email address and name with your recipient
+            $email->addTo(
+                'yh-dev@protonmail.com',
+                'Example Receiver'
+            );
+            $email->addContent(
+                'text/html',
+                '<strong>and easy to do anywhere, even with PHP</strong>'
+            );
+            $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+            try {
+                $response = $sendgrid->send($email);
+                printf("Response status: %d\n\n", $response->statusCode());
+
+                $headers = array_filter($response->headers());
+                echo "Response Headers\n\n";
+                foreach ($headers as $header) {
+                    echo '- ' . $header . "\n";
+                }
+            } catch (Exception $e) {
+                echo 'Caught exception: '. $e->getMessage() ."\n";
+            }
         }
         catch(error $e){
             echo 'Erreur : '.$e->getMessage();
