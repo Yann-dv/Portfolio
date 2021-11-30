@@ -164,18 +164,12 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_POSTFIELDS =>"{
             \"recipients\":[{\"email\":\"yh-dev@protonmail.com\"}],
             \"title\":\"Title\",
-            \"html\":\"Body\",
-            \"methods\": { 
-                \"postmark\": false,
-                \"secureSend\": false,
-                \"encryptContent\": false,
-                \"secureReply\": false 
-                }
-              }',
+            \"html\":\"Body\"
+            }",
             CURLOPT_HTTPHEADER => array(
-                \"x-trustifi-key\": " . $_ENV['TRUSTIFI_KEY']",
-                \"x-trustifi-secret\": " . $_ENV['TRUSTIFI_SECRET']",
-                \"content-type\": application/json"
+                "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
+                "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
+                "content-type: application/json"
             ),
             ));
             
