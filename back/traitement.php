@@ -64,8 +64,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
     && filter_var($email, FILTER_VALIDATE_EMAIL)) 
     {
         try{
-            //$mailContent = '<html><body>';
-            $mailContent = "<h3 style=\"color:blue;\">Demande de contact de : " . $name ."</h3>";
+            $mailContent = '<html><body>';
+            $mailContent .= "<h3 style=\"color:blue;\">Demande de contact de : " . $name ."</h3>";
             $mailContent .= "<p style=\"font-size:16px;\">Société : " . $compagny . "</p>";
             $mailContent .= "<p style=\"font-size:16px;\">Téléphone : " . $phone . "</p>";
             $mailContent .= "<p style=\"font-size:16px;text-decoration:underline;\">Objet : " . $subject . "</p>";
@@ -73,7 +73,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent .= "<p style=\"font-size:16px;\">Contact : " . $email . "</p>";
             $mailContent .= "<p style=\"font-size:12px;\">Envoyé le : " .date("r (T)") . "</p>";
             
-            //$mailContent .= </body></html>';
+            $mailContent .= '</body></html>';
             /*
             //PHPMailer config
             $mail = new PHPMailer(true);
@@ -193,12 +193,10 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email = new Mail();
 
             $email->setFrom("yhagege.osteo@gmail.com", "Example Sender");
-            $email->setSubject("Sending with SendGrid is Fun");
+            $email->setSubject('Message de ' . $name);
             $email->addTo("yh-dev@protonmail.com", "Example Receiver");
             $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-            $email->addContent(
-                "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
-            );
+            $email->addContent($mailContent);
             $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
             try {
                 $response = $sendgrid->send($email);
