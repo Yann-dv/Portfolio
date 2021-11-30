@@ -161,24 +161,21 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>'{
-                "recipients": [{"email": "yh-dev@protonmail.com", "name": }],
-                "lists": [],
-                "contacts": [],
-                "attachments": [],
-                "title": "test",
-                "html": "test,
-                "methods": { 
-                  "postmark": false,
-                  "secureSend": false,
-                  "encryptContent": false,
-                  "secureReply": false 
+            CURLOPT_POSTFIELDS =>"{
+            \"recipients\":[{\"email\":\"yh-dev@protonmail.com\"}],
+            \"title\":\"Title\",
+            \"html\":\"Body\",
+            \"methods\": { 
+                \"postmark\": false,
+                \"secureSend\": false,
+                \"encryptContent\": false,
+                \"secureReply\": false 
                 }
               }',
             CURLOPT_HTTPHEADER => array(
-                "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
-                "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
-                "content-type: application/json"
+                \"x-trustifi-key: " . $_ENV['TRUSTIFI_KEY']",
+                \"x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET']",
+                \"content-type: application/json\"
             ),
             ));
             
