@@ -5,22 +5,8 @@
 
 <?php require('./captchaConf.php'); ?>
 
-<?php 
+<?php use \SendGrid\Mail\Mail; ?>
 
-use \SendGrid\Mail\Mail;
-
-
-/*use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-
-require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../vendor/phpmailer/phpmailer/src/Exception.php';
-require '../vendor/phpmailer/phpmailer/src/SMTP.php';*/
-
-//Create an instance; passing `true` enables exceptions
-
-?>
 <?php 
 
     function data_secure($data){
@@ -74,119 +60,6 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent .= "<p style=\"font-size:12px;\">Envoyé le : " .date("r (T)") . "</p>";
             
             $mailContent .= '</body></html>';
-            /*
-            //PHPMailer config
-            $mail = new PHPMailer(true);
-            $to = 'yh-dev@protonmail.com';
-
-            $mail->IsSMTP(); 
-            //$mail->SMTPAuth = true;
-            $mail->Username = "h.yann_pro@yahoo.fr";
-            $mail->Host = 'smtp.free.fr';
-            $mail->setFrom($email);
-            $mail->addAddress($to);
-            // For debug only
-            //$mail->SMTPDebug = 3; 
-            $mail->CharSet = 'UTF-8';
-
-            //Set the subject line
-            $mail->Subject = $subject;
-
-            $mail->isHTML(true);  
-            $mail->Body = $mailContent;
-            //For non-html mailers
-            $mail->AltBody = 'Demande de contact de ' . $name . ' , société : ' . $compagny . '. Object :  '
-            . $subject . '. Message : ' . $message . '. Contact : ' . $email . '. Envoyé le : ' .date("r (T)");
-
-            //send the message, check for errors
-            if (!$mail->send()) {
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-                $_SESSION['sendedContent'] = $mailContent;
-                sleep(1);
-                header('Location: /Portfolio/app/view/success.php');
-                exit();
-            }
-            */
-            /// TRUSTIFI FOR HEROKU APP ///
-            /*
-            $curl = curl_init();
-                curl_setopt_array($curl, array(
-                    CURLOPT_URL => $_ENV['TRUSTIFI_URL'] . "/api/i/v1/email",
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => "",
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => "POST",
-                    CURLOPT_POSTFIELDS =>"{
-                        'recipients': [{'email': 'yh-dev@protonmail.com', 'name': }],
-                        'lists': [],
-                        'contacts': [],
-                        'attachments': [],
-                        'title': 'test,
-                        'html': 'test,
-                        'methods': { 
-                          'postmark': false,
-                          'secureSend': false,
-                          'encryptContent': false,
-                          'secureReply': false 
-                        }
-                      }",
-                    CURLOPT_HTTPHEADER => array(
-                        "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
-                        "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
-                        "content-type: application/json"
-                    )
-                ));
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-            curl_close($curl);
-            if ($err) {
-                echo "cURL Error #:" . $err;
-            } else {
-                echo $response;
-            }
-
-         }*/
-
-           /* $curl = curl_init();
-
-            $postFields = array();
-
-            $postFields['title'] = 'Message de ' . $name;
-            $postFields['recipients'] = array(
-                array('email' => 'yh-dev@protonmail.com')
-            );
-            $postFields['html'] = $mailContent;
-
-            $data_string_postFields = json_encode($postFields);
-
-            curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://be.trustifi.com/api/i/v1/email',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POST=> 1,
-            CURLOPT_POSTFIELDS => $data_string_postFields,
-            CURLOPT_HTTPHEADER => array(
-                "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
-                "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
-                "content-type: application/json",
-                "content-length: " . strlen($data_string_postFields) . ""
-            ),
-            ));
-            
-            $response = curl_exec($curl);
-            
-            curl_close($curl);
-            echo $response;*/
 
             //Sendgrid using
 
@@ -194,8 +67,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
 
             $email->setFrom("yhagege.osteo@gmail.com", "Example Sender");
             $email->setSubject('Message de ' . $name);
-            $email->addTo("yh-dev@protonmail.com", "Example Receiver");
-            $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+            $email->addTo("yh-dev@protonmail.com", "Moi");
+            $email->addContent("text/plain", 'Demande de contact de ' . $name . ' , société : ' . $compagny . '. Object :  '
+            . $subject . '. Message : ' . $message . '. Contact : ' . $email . '. Envoyé le : ' .date("r (T)"));
             $email->addContent(
                 "text/html", $mailContent
             );
