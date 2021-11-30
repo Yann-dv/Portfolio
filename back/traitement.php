@@ -161,23 +161,20 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>'{
-            "recipients": [{"email": "yh-dev@protonmail.com"}],
-            "lists": [],
-            "contacts": [],
-            "attachments": [],
-            "title":"' . $title . '",
-            "html": "<h3>Demande de contact de name</h3>
-                    <p>Société : inconnnue"</p>
-                    ",
-            "from":"' . $email . '",
-            "methods": { 
-                "postmark": false,
-                "secureSend": false,
-                "encryptContent": false,
-                "secureReply": false 
-            }
-            }',
+            CURLOPT_POSTFIELDS =>"{
+                'recipients': [{'email': 'yh-dev@protonmail.com', 'name': }],
+                'lists': [],
+                'contacts': [],
+                'attachments': [],
+                'title': 'test',
+                'html': 'test,
+                'methods': { 
+                  'postmark': false,
+                  'secureSend': false,
+                  'encryptContent': false,
+                  'secureReply': false 
+                }
+              }",
             CURLOPT_HTTPHEADER => array(
                 "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
                 "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
