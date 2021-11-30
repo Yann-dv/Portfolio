@@ -163,7 +163,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS =>"{
             \"recipients\":[{\"email\":\"yh-dev@protonmail.com\"}],
-            \"title\": " . $title . ",
+            \"title\": $title,
             \"html\":\"Body\"
             }",
             CURLOPT_HTTPHEADER => array(
