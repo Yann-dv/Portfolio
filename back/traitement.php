@@ -157,7 +157,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $postFields['recipients'] = array(
                 array('email' => 'yh-dev@protonmail.com')
             );
-            $postFields['html'] = 'Body testin';
+            $postFields['html'] = $mailContent;
 
             $data_string_postFields = json_encode($postFields);
 
