@@ -14,7 +14,7 @@
 					<div class="userProfile">
 						<div class="form-group input-group">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input id="userName" type="text" name="userName" class="form-control" placeholder="Nom / Prénom" autocomplete="off" min-length="2" required> 
+							<input id="userName" type="text" name="userName" class="form-control" placeholder="Nom / Prénom" autocomplete="off" min-length="2" required>
 						</div>
 						<div class="userOption">
 								<div class="i-checks">
@@ -52,11 +52,12 @@
 						<input id="phone" type="tel" name="tel" class="form-control" placeholder="Téléphone" 
 						pattern="^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$"
 						autocomplete="off" min-length="2"> 
+						
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
 						<input id="userUrl" type="url" name="userUrl" class="form-control" placeholder="https://my_project_url.com"
-       					pattern="https://.*" size="30" autocomplete="off" min-length="2"> 
+       					pattern="https://.*" size="30" autocomplete="off" min-length="2">
 					</div>
 				</div>
 			</div>
@@ -94,9 +95,9 @@
 						</span>
 					</div>
 					<div class="form-group input-group projectDescription">
-					<textarea id="message" rows="3" name="message" min-length="2" max-length="500" 
+					<textarea id="message" rows="5" name="message" min-length="2" max-length="600" 
 					placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin." 
-					required></textarea>	
+					required></textarea>
 					</div>
 
                     <button id="sendEmailBtn"
@@ -115,12 +116,17 @@
      * Handles form submissions for Google recaptcha v3.
      * Allows for HTML5 form validation to complete before processing.
      */
+
+	 /*const emailInput = document.getElementById('email');
+	 const userInput = document.getElementById('userName');*/
+
     function formSubmitBtn($event) {
         /**
          * Checks the validity of the form.
          * Return if invalid; HTML5 validation errors should display.
          */
         if (!$event.target.form.checkValidity()) {
+			//emailInput.setCustomValidity('Email needed bitchiz');
 			$event.target.form.reportValidity();
             return;
 		}	
