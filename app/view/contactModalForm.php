@@ -126,7 +126,7 @@
          * Return if invalid; HTML5 validation errors should display.
          */
         if (!$event.target.form.checkValidity()) {
-			//emailInput.setCustomValidity('Email needed bitchiz');
+			//emailInput.setCustomValidity('Veuillez saisir un email au format : "user@eee.com"');
 			$event.target.form.reportValidity();
             return;
 		}	

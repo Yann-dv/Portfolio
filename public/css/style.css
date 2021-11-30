@@ -1,8 +1,6 @@
 @import "keyframes.css";
 @import "colors.css";
 
-
-
 html{
     scroll-behavior: smooth;
     background-clip: padding-box;
