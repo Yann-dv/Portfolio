@@ -60,6 +60,12 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent .= "<p style=\"font-size:12px;\">Envoyé le : " .date("r (T)") . "</p>";
             $mailContent .= '</body></html>';
 
+            $altContent = "Demande de contact de " . $name;
+            $altContent .= " .Société : " . $compagny;
+            $altContent .= ". Object :  " . $subject;
+            $altContent .=  ". Message : " .  $message;
+            $altContent .=  ". Contact : " .  $email;
+
             //Sendgrid using
 
             $email = new Mail();
@@ -67,13 +73,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email->setFrom("yhagege.osteo@gmail.com", "Example Sender");
             $email->setSubject('Message de ' . $name);
             $email->addTo("yh-dev@protonmail.com", "Moi");
-            $email->addContent("text/plain", 
-                "Demande de contact de " . $name . " , société : " . $compagny . ". Object :  "
-                . $subject . " . Message : " . $message . ". Contact : " . $email
-            );
-            $email->addContent(
-                "text/html", $mailContent
-            );
+            $email->addContent("text/plain", $altContent);
+            $email->addContent("text/html", $mailContent);
             $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
             try {
                 $response = $sendgrid->send($email);
