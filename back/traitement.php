@@ -58,7 +58,6 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $mailContent .= "<p style=\"font-size:16px;\">Message : " . $message . "</p>";
             $mailContent .= "<p style=\"font-size:16px;\">Contact : " . $email . "</p>";
             $mailContent .= "<p style=\"font-size:12px;\">Envoyé le : " .date("r (T)") . "</p>";
-            
             $mailContent .= '</body></html>';
 
             //Sendgrid using
@@ -68,8 +67,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email->setFrom("yhagege.osteo@gmail.com", "Example Sender");
             $email->setSubject('Message de ' . $name);
             $email->addTo("yh-dev@protonmail.com", "Moi");
-            $email->addContent("text/plain", 'Demande de contact de ' . $name . ' , société : ' . $compagny . '. Object :  '
-            . $subject . '. Message : ' . $message . '. Contact : ' . $email . '. Envoyé le : ' .date("r (T)"));
+            $email->addContent("text/plain", "Alt content");
+            /*'Demande de contact de ' . $name . ' , société : ' . $compagny . '. Object :  '
+            . $subject . '. Message : ' . $message . '. Contact : ' . $email . '. Envoyé le : ' .date("r (T)"));*/
             $email->addContent(
                 "text/html", $mailContent
             );
