@@ -191,31 +191,20 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             //Sendgrid using
 
             $email = new Mail();
-            // Replace the email address and name with your verified sender
-            $email->setFrom(
-                $email,
-                'Example Sender'
-            );
-            $email->setSubject('Sending with Twilio SendGrid is Fun');
-            // Replace the email address and name with your recipient
-            $email->addTo(
-                'yh-dev@protonmail.com',
-                'Example Receiver'
-            );
+
+            $email->setFrom($email, "Example Sender");
+            $email->setSubject("Sending with SendGrid is Fun");
+            $email->addTo("yh-dev@protonmail.com", "Example Receiver");
+            $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
             $email->addContent(
-                'text/html',
-                '<strong>and easy to do anywhere, even with PHP</strong>'
+                "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
             );
             $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
             try {
                 $response = $sendgrid->send($email);
-                printf("Response status: %d\n\n", $response->statusCode());
-
-                $headers = array_filter($response->headers());
-                echo "Response Headers\n\n";
-                foreach ($headers as $header) {
-                    echo '- ' . $header . "\n";
-                }
+                print $response->statusCode() . "\n";
+                print_r($response->headers());
+                print $response->body() . "\n";
             } catch (Exception $e) {
                 echo 'Caught exception: '. $e->getMessage() ."\n";
             }
