@@ -151,6 +151,11 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $title = 'Message de ' . $name;
 
             $curl = curl_init();
+            
+            $postData = [ "recipients" => "yh-dev@protonmail.com.",
+            "title" => $title,
+            "html" => "Body-test",
+            ];
 
             curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://be.trustifi.com/api/i/v1/email',
@@ -161,11 +166,12 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>"{
+            CURLOPT_POSTFIELDS => json_encode($postData),
+            /*CURLOPT_POSTFIELDS =>"{
             \"recipients\":[{\"email\":\"yh-dev@protonmail.com\"}],
             \"title\": $title,
             \"html\":\"Body\"
-            }",
+            }",*/
             CURLOPT_HTTPHEADER => array(
                 "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
                 "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
