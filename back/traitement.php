@@ -169,7 +169,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POST=> 1,
-            CURLOPT_POSTFIELDS => $postFields,
+            CURLOPT_POSTFIELDS => json_encode($postField),
             CURLOPT_HTTPHEADER => array(
                 "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
                 "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
