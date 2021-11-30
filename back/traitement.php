@@ -151,13 +151,14 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
 
             $curl = curl_init();
 
-            $postfields = array();
+            $postFields = array();
 
             $postFields['title'] = 'Message de ' . $name;
-            $postFields['recipients'] = array (
+            $postFields['recipients'] = array(
                 array('email' => 'yh-dev@protonmail.com')
             );   
-        
+
+            $data_string_postFields = json_encode($postFields);
 
             curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://be.trustifi.com/api/i/v1/email',
@@ -169,11 +170,12 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POST=> 1,
-            CURLOPT_POSTFIELDS => json_encode($postField),
+            CURLOPT_POSTFIELDS => json_encode($data_string_postFields),
             CURLOPT_HTTPHEADER => array(
                 "x-trustifi-key: " . $_ENV['TRUSTIFI_KEY'],
                 "x-trustifi-secret: " . $_ENV['TRUSTIFI_SECRET'],
-                "content-type: application/json"
+                "content-type: application/json",
+                "content-length: " . strlen($data_string_postFields) . ""
             ),
             ));
             
