@@ -77,15 +77,16 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email->addContent("text/html", $mailContent);
             $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
             try {
+                $response = $sendgrid->send($email);
                 echo '<body>'
                 . '<div class="successContent">'
                 . '<h2>Demande de contact envoyée avec succès ! Vous allez être redirigé vers la page principale... </h2>'
                 . '</div>'
                 . '</body>';
-                echo sleep(5);
+                echo sleep(6);
                 header('Location: /');
                 // Display for debug //
-                /*$response = $sendgrid->send($email);
+                /*
                 print $response->statusCode() . "\n";
                 print_r($response->headers());
                 print $response->body() . "\n";*/
