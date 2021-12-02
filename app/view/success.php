@@ -26,7 +26,7 @@
         //Index redirection
         setTimeout(() => {
             window.location="https://portfolio-yh-dev.herokuapp.com";  
-        }, 2500);
+        }, 3500);
     });
 </script>
 
