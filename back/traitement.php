@@ -77,14 +77,10 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email->addContent("text/html", $mailContent);
             $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
             try {
+                $_SESSION['sendedContent'] = $mailContent;
                 $response = $sendgrid->send($email);
-                echo '<body>'
-                . '<div class="successContent">'
-                . '<h2>Demande de contact envoyée avec succès ! Vous allez être redirigé vers la page principale... </h2>'
-                . '</div>'
-                . '</body>';
-                sleep(6);
-                header('Location: /');
+                sleep(1);
+                header('Location: ../app/view/success.php');
                 // Display for debug //
                 /*
                 print $response->statusCode() . "\n";
@@ -98,14 +94,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             echo 'Erreur : '.$e->getMessage();
         }
     }
-}
-    /*}
-    else{
-        echo '<script type="text/javascript">alert("Veuillez remplir les champs obligatoires !");</script>';
-    }
-    
 } else {
-    echo '<script type="text/javascript">alert("Erreur lors de l\'envoi du formulaire, redirection vers la page d\'accueil!");</script>';
-}*/
+    //echo '<script type="text/javascript">alert("Erreur lors de l\'envoi du formulaire, redirection vers la page d\'accueil!");</script>';
+}
 
 ?>
