@@ -77,8 +77,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email->addContent("text/html", $mailContent);
             $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
             try {
+                $_SESSION['sendedContent'] = $mailContent;
                 $response = $sendgrid->send($email);
-                sleep(3);
+                sleep(2);
                 header('Location: ../app/view/success.php');
                 // Display for debug //
                 /*
