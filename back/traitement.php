@@ -79,7 +79,7 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             try {
                 $_SESSION['sendedContent'] = $mailContent;
                 $response = $sendgrid->send($email);
-                sleep(1);
+                sleep(.5);
                 header('Location: ../app/view/success.php');
                 // Display for debug //
                 /*
