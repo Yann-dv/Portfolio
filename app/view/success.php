@@ -20,3 +20,9 @@
         </div>
 </body>
 </html>
+
+<?php 
+
+sleep(3);
+header('Location: /');
+?>
