@@ -77,8 +77,9 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             $email->addContent("text/html", $mailContent);
             $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
             try {
+                $_SESSION['sendedContent'] = $mailContent;
                 $response = $sendgrid->send($email);
-                sleep(3);
+                sleep(1);
                 header('Location: ../app/view/success.php');
                 // Display for debug //
                 /*
@@ -93,14 +94,8 @@ if(check_token($_POST['g-recaptcha-response'], $reCAPTCHA_secret_key)) {
             echo 'Erreur : '.$e->getMessage();
         }
     }
-}
-    /*}
-    else{
-        echo '<script type="text/javascript">alert("Veuillez remplir les champs obligatoires !");</script>';
-    }
-    
 } else {
-    echo '<script type="text/javascript">alert("Erreur lors de l\'envoi du formulaire, redirection vers la page d\'accueil!");</script>';
-}*/
+    //echo '<script type="text/javascript">alert("Erreur lors de l\'envoi du formulaire, redirection vers la page d\'accueil!");</script>';
+}
 
 ?>

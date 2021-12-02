@@ -20,3 +20,15 @@
         </div>
 </body>
 </html>
+
+
+
+<?php
+    echo"<script language='text/javascript'>setTimeout(function(){ 
+                window.location.href = 'https://portfolio-yh-dev.herokuapp.com/'
+            }, 2500);
+        </script>
+        ";
+?>
+
+
