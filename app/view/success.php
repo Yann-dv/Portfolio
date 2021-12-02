@@ -21,8 +21,14 @@
 </body>
 </html>
 
-<?php 
 
-sleep(3);
-header('Location: /');
+
+<?php
+    echo"<script language='text/javascript'>setTimeout(function(){ 
+                window.location.href = 'https://portfolio-yh-dev.herokuapp.com/'
+            }, 2500);
+        </script>
+        ";
 ?>
+
+
