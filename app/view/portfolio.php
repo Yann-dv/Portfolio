@@ -15,9 +15,20 @@
         // Don't show privates projects if transmitted by error
       }
       else {
-        if (($project['name'] === 'github-slideshow') || ($project['name'] === 'Portfolio')) {
+        if ( ($project['name'] === 'github-slideshow') || ($project['name'] === 'Portfolio') 
+        || (str_ends_with($project['name'], '-app')) ) {
           //don't show it
         }
+        else if(($project['name'] === 'Groupomania') || ($project['name'] === 'Pekocko')) {
+          echo '<a href="https://github.com/Yann-dv/' . $project['name'] . '" target="_blank" title="Cliquer pour visualiser">'
+          . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
+            . '<h3 class="project_title">' . $project['name'] . '</h3>'
+            . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . 'alt="Image du lien vers le projet ' . $project['name'] . '">'
+            . '</div>'
+          . '</a>';
+
+        }
+        //For page-deployed projects
         else {
           echo '<a href="https://yann-dv.github.io/' . $project['name'] . '" target="_blank" title="Cliquer pour visualiser">'
           . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
