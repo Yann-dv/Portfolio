@@ -29,16 +29,16 @@ require ('./app/textContent.php');
         <title><?php echo $title ?></title>
         <link rel="icon" href="././public/image/favicon.ico">
         <link href="./public/css/style_minified.css" rel="stylesheet"/>
-        <script nonce="rAnd0m" src="https://kit.fontawesome.com/158c254b57.js" defer></script>
-        <script nonce="rAnd0m" async src="./app.js" defer></script>
+        <script async defer src="https://kit.fontawesome.com/158c254b57.js"></script>
+        <script defer src="./app.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script nonce="rAnd0m" async src="https://www.googletagmanager.com/gtag/js?id=G-JRQKGGFVH4"></script>
-        <script nonce="rAnd0m">
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-JRQKGGFVH4');
+        <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JRQKGGFVH4"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JRQKGGFVH4');
         </script>
     </head>
 
