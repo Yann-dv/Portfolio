@@ -6,7 +6,6 @@
     </div>
 
     <div class="servicesContainer">
-        <div class="leftServicesList">
             <div class="item-service">
                 <div class="iconBlock">
                     <span class="fa-stack">
@@ -56,9 +55,9 @@
                     <p>Des outils adaptés à votre coeur de métier, applications & solutions personnalisées</p>
                 </div>
             </div>
-        </div>
 
-        <div class="rightServicesList">
+
+
         <div class="item-service ">
                 <div class="iconBlock">
                 <span class="fa-stack">
@@ -108,6 +107,6 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
 <?php $services= ob_get_clean(); ?>

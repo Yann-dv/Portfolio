@@ -2,7 +2,7 @@
 @import "colors.css";
 @import "mediaqueries.css";
 
-html{
+html {
     scroll-behavior: smooth;
     background-clip: padding-box;
     background-color: var(--main-html-bg-color);
@@ -19,7 +19,7 @@ body {
     font-family: "Oswald", sans-serif;
     font-family: "Font Awesome 5 Free";
     background-color: var(--main-body-bg-color);
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding-bottom: 5rem;
     color: var(--main-body-txt-color);
@@ -57,13 +57,14 @@ body .success {
     -ms-transition: opacity .5s ease-in;
     transition: opacity .5s ease-in;
 }
+
 .loaded {
     opacity: 1;
 }
 
-    input:invalid {
-        border: 1px solid red;
-    }
+input:invalid {
+    border: 1px solid red;
+}
 
 nav ul {
     list-style-type: none;
@@ -84,7 +85,8 @@ nav ul {
     top: 0;
 }
 
-.rightHolder, .leftHolder {
+.rightHolder,
+.leftHolder {
     background-color: var(--nav-bg-color);
     flex-grow: 1;
 }
@@ -106,7 +108,8 @@ a {
     text-decoration: none;
 }
 
-.skillsList ul, .skillsLevel ul{
+.skillsList ul,
+.skillsLevel ul {
     list-style: none;
 }
 
@@ -139,13 +142,20 @@ a {
 .under_border {
     width: 20%;
     color: var(--main-items-color);
-  }
+}
 
 .sectionTitle {
     font-size: 1.8rem;
 }
 
-.servicesContainer, .skillsContainer {
+.servicesContainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 300px));
+    grid-row-gap: 10px;
+    grid-column-gap: 50px;
+    justify-content: center;
+}
+.skillsContainer {
     display: flex;
     justify-content: center;
 }
@@ -214,20 +224,24 @@ a {
     margin-top: 3rem;
 }
 
-.first-priceList-color, .prices hr .under_border, .priceHeader {
+.first-priceList-color,
+.prices hr .under_border,
+.priceHeader {
     background-color: var(--itemskill-hover-color);
 }
-.second-priceList-color{
+
+.second-priceList-color {
     background-color: var(--progressbar-second-color);
 }
-.first-priceList-color:hover{
+
+.first-priceList-color:hover {
     animation-name: onHoverPrices-one;
     animation-duration: .250s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
 }
 
-.second-priceList-color:hover{
+.second-priceList-color:hover {
     animation-name: onHoverPrices-two;
     animation-duration: .250s;
     animation-timing-function: ease-in-out;
@@ -244,7 +258,7 @@ a {
     transition: .3s;
 }
 
-.priceList li{
+.priceList li {
     margin-bottom: .5rem;
 }
 
@@ -262,10 +276,11 @@ a {
 }
 
 .iconBlock {
-    display: flex;
+    display: grid;
     align-items: center;
     margin: .7rem;
 }
+
 .iconBlock span i {
     color: var(--main-items-color);
     padding: .2rem;
@@ -295,16 +310,6 @@ a {
     border-radius: 100px;
 }
 
-.leftServicesList, .rightServicesList {
-    max-width: 36%;
-    margin: 1rem;
-}
-
-.leftSkillsList, .rightSkillsList {
-    max-width: 45%;
-    margin: 1rem;
-}
-
 .skillsList ul li {
     position: relative;
 }
@@ -329,7 +334,8 @@ a {
     margin-bottom: 1.5rem;
 }
 
-.skillsList_dev .item-skills, .skillsList_design .item-skills {
+.skillsList_dev .item-skills,
+.skillsList_design .item-skills {
     margin-bottom: .5rem;
 }
 
@@ -341,13 +347,16 @@ a {
     border: none;
     background-color: var(--progressbar-second-color);
 }
+
 .item-skills progress::-webkit-progress-bar {
     background-color: var(--progressbar-second-color);
     height: 100%;
 }
+
 .item-skills progress::-webkit-progress-value {
     background-color: var(--progressbar-bg-color);
 }
+
 .item-skills progress::-moz-progress-bar {
     background-color: var(--progressbar-bg-color);
 }
@@ -382,6 +391,7 @@ progress {
     flex-direction: column;
     align-items: center;
 }
+
 .aboutContainer img {
     border-radius: 20px;
     margin-top: 1.5rem;
@@ -415,16 +425,18 @@ progress {
     max-height: 0;
     opacity: 0;
     position: absolute;
-    top: 0; right: 0;
-    bottom: 0; left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(77, 77, 77, 0.911);
     transition: all .3s;
-  }
+}
 
-  
+
 #contactModal:target {
     display: flex;
     position: fixed;
@@ -433,19 +445,19 @@ progress {
     max-height: 100%;
 }
 
-  .disable_overflow {
+.disable_overflow {
     position: fixed;
     overflow-y: scroll;
     transition-duration: .5s;
-  }
+}
 
-  .hidden {
-      opacity: 0;
-      visibility: hidden;
-      transition-duration: .5s;
-  }
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: .5s;
+}
 
-  .modal_form { 
+.modal_form {
     position: relative;
     overflow: auto;
     border-radius: 4px;
@@ -454,53 +466,58 @@ progress {
     max-width: 90%;
     background: white;
     padding: 1.5em 2em;
-  }
-  .modal_form::-webkit-scrollbar-thumb {
-      border-radius: 20px;
-  }
+}
 
-  .gridForm {
+.modal_form::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+}
+
+.gridForm {
     display: grid;
     grid-template-columns: 45% 45%;
-  }
+}
 
-    .contactForm fieldset div {
+.contactForm fieldset div {
     margin: 3rem;
-    }
-    #contactModal {
-        color: black;
-    }
-    #contactModal input{
-        margin: .4rem;
-        padding: .3rem;
-    }
-    .form-control{
-        width:65%;
-    }
+}
 
-    #message {
-        width: 95%;
-    }
+#contactModal {
+    color: black;
+}
 
-    .projectCheck {
-        text-align: center;
-    }
+#contactModal input {
+    margin: .4rem;
+    padding: .3rem;
+}
 
-    #sendEmailBtn {
-        border: none;
-        border-radius: 10px;
-        text-align: center;
-        background-color: var(--contactLink-color);
-        color: white;
-        padding: 1rem 3rem;
-        font-size: 20px;
-        font-weight: bold;  
-    }
-    #sendEmailBtn:hover {
-        cursor: pointer;
-    }
+.form-control {
+    width: 65%;
+}
 
-  .modal_close {
+#message {
+    width: 95%;
+}
+
+.projectCheck {
+    text-align: center;
+}
+
+#sendEmailBtn {
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    background-color: var(--contactLink-color);
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#sendEmailBtn:hover {
+    cursor: pointer;
+}
+
+.modal_close {
     position: absolute;
     background-color: #603daa;
     border-radius: 5px;
@@ -512,18 +529,18 @@ progress {
     right: .1rem;
     color: black;
     text-decoration: none;
-  }
-  
-  #idRadioS ~ #blocCompagny{
+}
+
+#idRadioS~#blocCompagny {
     display: block;
-    }
+}
 
-    #idRadioP:checked ~ #blocCompagny{
-        display: none;
-    }
+#idRadioP:checked~#blocCompagny {
+    display: none;
+}
 
- /* Customize the label (the container) */
- .rgpd_check {
+/* Customize the label (the container) */
+.rgpd_check {
     display: block;
     margin-top: 2rem;
     position: relative;
@@ -536,61 +553,61 @@ progress {
     -ms-user-select: none;
     user-select: none;
     width: 90%;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .rgpd_check input {
+}
+
+/* Hide the browser's default checkbox */
+.rgpd_check input {
     position: absolute;
     opacity: 0;
     cursor: default;
     height: 0;
     width: 0;
-  }
+}
 
-  .sendBtns {
+.sendBtns {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-  }
+}
 
-  .captchaSecure {
+.captchaSecure {
     width: 45%;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
+}
+
+/* Create a custom checkbox */
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
     height: 25px;
     width: 25px;
     background-color: #eee;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .rgpd_check:hover input ~ .checkmark {
+}
+
+/* On mouse-over, add a grey background color */
+.rgpd_check:hover input~.checkmark {
     background-color: #ccc;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .rgpd_check input:checked ~ .checkmark {
+}
+
+/* When the checkbox is checked, add a blue background */
+.rgpd_check input:checked~.checkmark {
     background-color: #2196F3;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .rgpd_check input:checked ~ .checkmark:after {
+}
+
+/* Show the checkmark when checked */
+.rgpd_check input:checked~.checkmark:after {
     display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .rgpd_check .checkmark:after {
+}
+
+/* Style the checkmark/indicator */
+.rgpd_check .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;
@@ -600,26 +617,26 @@ progress {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  } 
+}
 
-  .projectDescription {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-  }
+.projectDescription {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 
-  .sendFormBtn {
-      margin-top: 1rem;
-      cursor: pointer;
-      background-color: var(--contactLink-color);
-      color: white;
-      font-weight: bold;
-      padding: .9rem;
-      box-shadow: 1px 1px 1px black;
-      border-radius: 10px;
-      border: none;
-  }
+.sendFormBtn {
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: var(--contactLink-color);
+    color: white;
+    font-weight: bold;
+    padding: .9rem;
+    box-shadow: 1px 1px 1px black;
+    border-radius: 10px;
+    border: none;
+}
 
-  .sendFormBtn:hover {
+.sendFormBtn:hover {
     transform: scale(1.08);
     transition: .4s;
-  }
+}

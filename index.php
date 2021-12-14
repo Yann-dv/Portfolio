@@ -28,7 +28,7 @@ require ('./app/textContent.php');
 
         <title><?php echo $title ?></title>
         <link rel="icon" href="././public/image/favicon.ico">
-        <link href="./public/css/style_minified.css" rel="stylesheet"/>
+        <link href="./public/css/style.css" rel="stylesheet"/>
         <script async defer src="https://kit.fontawesome.com/158c254b57.js"></script>
         <script defer src="./app.js"></script>
 

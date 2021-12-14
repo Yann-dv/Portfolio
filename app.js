@@ -3,9 +3,8 @@
 const closingBtn = document.getElementById('clode_modal_btn');
 const heading = document.querySelector('#header');
 const serv = document.querySelector('#services');
+const serv_itemsList = document.querySelectorAll('.servicesContainer .item-service');
 const skills = document.querySelector('#skills');
-const left_itemsList = document.querySelectorAll('.leftServicesList .item-service');
-const right_itemsList = document.querySelectorAll('.rightServicesList .item-service');
 const skillsLi = document.querySelectorAll('.skillsContainer li');
 const portfolioLinks = document.querySelectorAll('#portfolioList a');
 
@@ -17,24 +16,14 @@ var skillsHeight = skills.clientHeight;
 window.addEventListener('scroll', (event) => {
     //Scrolling effects//
     if(window.scrollY > headerHeight) {
-        left_itemsList.forEach(function(element, i) {
+        serv_itemsList.forEach(function(element, i) {
             setTimeout(() => {
                 element.setAttribute("style", "transition: all .5s ease-out; transform: scaleX(1)");
             }, i * 150)
-        });
- 
-        right_itemsList.forEach(function(element, i) {
-            setTimeout(() => {
-                element.setAttribute("style", "transition: all .5s ease-out; transform: scaleX(1)");
-            }, i * 150)
-        });
-        
+        });      
     } 
     else {
-        left_itemsList.forEach(function(element) {
-            element.setAttribute("style", "transform: scaleX(0)");
-        });
-        right_itemsList.forEach(function(element) {
+        serv_itemsList.forEach(function(element) {
             element.setAttribute("style", "transform: scaleX(0)");
         });
     }
