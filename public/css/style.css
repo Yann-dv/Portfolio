@@ -8,11 +8,11 @@ html{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;   
-
 }
 
 body {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
     font-family: "Oswald", sans-serif;
     font-family: "Font Awesome 5 Free";
     background-color: var(--main-body-bg-color);
