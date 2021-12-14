@@ -29,7 +29,7 @@ require ('./app/textContent.php');
         <title><?php echo $title ?></title>
         <link rel="icon" href="././public/image/favicon.ico">
         <link href="./public/css/style_minified.css" rel="stylesheet"/>
-        <script nonce="rAnd0m" src="https://kit.fontawesome.com/158c254b57.js"></script>
+        <script nonce="rAnd0m" src="https://kit.fontawesome.com/158c254b57.js" defer></script>
         <script nonce="rAnd0m" async src="./app.js" defer></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->

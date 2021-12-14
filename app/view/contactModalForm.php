@@ -1,6 +1,6 @@
 
 <?php require_once('./back/captchaConf.php'); ?>
-<?php echo'<script src="https://www.google.com/recaptcha/api.js?render=' . $reCAPTCHA_site_key . '"></script>'?>
+<?php echo'<script nonce="rAnd0m" src="https://www.google.com/recaptcha/api.js?render=' . $reCAPTCHA_site_key . '" defer></script>'?>
 
 <?php ob_start(); ?>
 <div class="modal_form">
