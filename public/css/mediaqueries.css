@@ -1,0 +1,16 @@
+@media screen and (min-width: 1025px) {
+    html {
+        background-image:url('../image/main_bg_large.jpg'); 
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    html {
+        background-image:url('../image/main_bg_medium.jpg'); 
+    }
+}
+@media screen and (max-width: 768) {
+    html {
+        background-image:url('../image/main_bg_small.jpg'); 
+    }
+}

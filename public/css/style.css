@@ -1,5 +1,6 @@
 @import "keyframes.css";
 @import "colors.css";
+@import "mediaqueries.css";
 
 html{
     scroll-behavior: smooth;
@@ -7,7 +8,9 @@ html{
     background-color: var(--main-html-bg-color);
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;   
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100%;
 }
 
 body {

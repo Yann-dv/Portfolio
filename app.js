@@ -81,10 +81,7 @@ window.addEventListener('load', (event) => {
         setTimeout(() => {
             element.classList.add("loaded");
         }, index * delay)
-    });
-    var fullPage = document.querySelector('html');
-        fullPage.setAttribute("style", "background-image:url('./public/image/office-932926_1920.jpg');");
-      
+    });      
   });
 
 
