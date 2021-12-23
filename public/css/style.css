@@ -133,6 +133,7 @@ input:invalid {
     opacity: 1;
     visibility: visible;
     height: 100%;
+    font-size: 18px;
 }
 
 .rightHolder,
