@@ -10,6 +10,7 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
+    background-image:url('../image/main_bg_small.jpg'); 
     height: 100%;
 }
 
@@ -66,7 +67,15 @@ input:invalid {
     border: 1px solid red;
 }
 
-nav ul {
+.navbar {
+    font-weight: bold;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    display: none;
+}
+
+.navbar ul {
     list-style-type: none;
     font-size: 1.3rem;
     margin-top: 0;
@@ -77,13 +86,53 @@ nav ul {
     justify-content: center;
 }
 
-.navbar {
-    font-weight: bold;
-    display: flex;
+.navburger {
     z-index: 100;
     position: sticky;
     top: 0;
+    right: 0;
+}
+.navburger .burger_links
+{
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    transition: all .5s;
+}
+.navburger .burger_links a {
+    background-color: var(--nav-bg-color);
+    padding-left: .5rem;
+    border-radius: 20px;
+    padding: .4rem;
+    margin: .1rem;
+}
+
+.navburger .burger_links a:hover {
+    animation-name: onHoverNav;
+    animation-duration: .250s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+.navburger label 
+{
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    background-color: var(--nav-bg-color);
+    padding: .1rem .8rem;
+    border-radius: 20px;
+}
+.navburger #toggle
+{
     display: none;
+}
+.navburger #toggle:checked + .burger_links {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
 }
 
 .rightHolder,
@@ -219,7 +268,6 @@ a {
 .prices {
     text-align: center;
     margin: 1rem;
-    width: 21%;
     font-size: 95%;
     height: 100%;
 }
@@ -473,7 +521,6 @@ progress {
     position: relative;
     overflow: auto;
     border-radius: 4px;
-    width: 60%;
     max-height: 90%;
     max-width: 90%;
     background: white;
@@ -532,8 +579,8 @@ progress {
     font-weight: bold;
     padding-left: .4rem;
     padding-right: .4rem;
-    top: .1rem;
-    right: .1rem;
+    top: 1rem;
+    right: 1rem;
     color: black;
     text-decoration: none;
 }
@@ -646,33 +693,16 @@ progress {
     transform: scale(1.08);
     transition: .4s;
 }
-
-@media screen and (min-width: 1201px) {
-    html {
-        background-image:url('../image/main_bg_large.jpg'); 
-    }
-}
-
-@media screen and (min-width: 1023px) {
-    html {
-        background-image:url('../image/main_bg_medium.jpg'); 
-    }
-    .header {
-        margin: 3rem;
-    }
-    .servicesContainer{
-        grid-column-gap: 50px;
-    }
-}
 @media screen and (min-width: 768px) {
-    html {
-        background-image:url('../image/main_bg_small.jpg'); 
-    }
     body {
         font-size: 18px;
     }
     .navbar {
         display: flex;
+    }
+    .navburger
+    {
+        display: none;
     }
     .mainTitle {
         font-size: 4rem;
@@ -703,6 +733,9 @@ progress {
         padding-right: .4rem;
         height: 26px;
     }
+    .prices {
+        width: 21%;
+    }
     .gridForm {
         display: grid;
         grid-template-columns: 45% 45%;
@@ -710,5 +743,28 @@ progress {
     .rgpd_check {
         font-size: 16px;
         width: 90%;
+    }
+    .modal_close {
+        top: .1rem;
+        right: .1rem;
+    }
+    .modal_form {
+        width: 60%;
+    }
+}
+@media screen and (min-width: 1023px) {
+    html {
+        background-image:url('../image/main_bg_medium.jpg'); 
+    }
+    .header {
+        margin: 3rem;
+    }
+    .servicesContainer{
+        grid-column-gap: 50px;
+    }
+}
+@media screen and (min-width: 1201px) {
+    html {
+        background-image:url('../image/main_bg_large.jpg'); 
     }
 }

@@ -2,6 +2,7 @@
 
 require('./app/view/header.php'); 
 require('./app/view/navbar.php'); 
+require('./app/view/navBurger.php'); 
 require('./app/view/services.php');
 require('./app/view/skills.php'); 
 require('./app/view/portfolio.php');
@@ -17,6 +18,7 @@ require('./app/view/contactModalForm.php');
         <div class="mainContent">
 
             <?php echo '<nav class="navbar fadeLoad" id="navbar">' . $navbar . '</nav>'?>
+            <?php echo '<nav class="navburger fadeLoad" id="navBurger">' . $navburger . '</nav>'?>
             <?php echo '<div class="header fadeLoad" id="header">' . $header . '</div>' ?>
             <?php echo '<div class="contentBlock fadeLoad" id="services">' . $services . '</div>'?>
             <?php echo '<div class="contentBlock fadeLoad" id="skills">' . $skills . '</div>'?>

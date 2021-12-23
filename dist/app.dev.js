@@ -60,7 +60,16 @@ window.addEventListener('load', function (event) {
     setTimeout(function () {
       element.classList.add("loaded");
     }, index * delay);
-  });
+  }); //Closing burger timer    
+
+  setInterval(function () {
+    var burgerToggle = document.getElementById("toggle");
+
+    if (burgerToggle.checked = true) {
+      burgerToggle.checked = false;
+    } else {//Nothing to do
+    }
+  }, 10000);
 });
 document.addEventListener("click", function (e) {
   var isContacLink = e.target.classList.contains('contactLink');
@@ -68,9 +77,11 @@ document.addEventListener("click", function (e) {
   if (isContacLink) {
     document.body.classList.toggle("disable_overflow");
     navbar.classList.toggle("hidden");
+    navBurger.classList.toggle("hidden");
   } else if (e.target === closingBtn) {
     document.body.classList.toggle("disable_overflow");
     navbar.classList.toggle("hidden");
+    navBurger.classList.toggle("hidden");
   } else {//nothing to do
   }
 });
