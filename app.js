@@ -7,6 +7,9 @@ const serv_itemsList = document.querySelectorAll('.servicesContainer .item-servi
 const skills = document.querySelector('#skills');
 const skillsLi = document.querySelectorAll('.skillsContainer li');
 const portfolioLinks = document.querySelectorAll('#portfolioList a');
+const navBurger = document.querySelector('#navBurger');
+const burgerToggle = document.getElementById("toggle");
+const burgerLabel = document.querySelector('#navBurger > label:nth-child(1)');
 
 var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
@@ -70,22 +73,26 @@ window.addEventListener('load', (event) => {
         setTimeout(() => {
             element.classList.add("loaded");
         }, index * delay)
-    });  
-    //Closing burger timer    
-    setInterval(function() {
-        const burgerToggle = document.getElementById("toggle")
-        if(burgerToggle.checked = true) {
-            burgerToggle.checked = false
-        }
-        else {
-            //Nothing to do
-        }
-    }, 10000);
-  
+    });    
   });
 
 
 document.addEventListener("click", function (e) {
+    if(e.target === burgerToggle && burgerToggle.checked == true) { 
+            navBurger.setAttribute("style", "background-color: var(--main-body-bg-color)");
+            burgerLabel.setAttribute("style", "display: none");
+            //Closing burger timer   
+            setTimeout(function() {
+                burgerToggle.checked = false;
+                burgerLabel.setAttribute("style", "display: inline");
+                navBurger.setAttribute("style", "background-color: none");
+            }, 8000);
+        }
+    else if(e.target === burgerToggle && burgerToggle.checked == false) {
+        navBurger.setAttribute("style", "background-color: none");
+        burgerLabel.setAttribute("style", "display: inline");
+    }
+
     let isContacLink = e.target.classList.contains('contactLink');
     if(isContacLink) {
         document.body.classList.toggle("disable_overflow");
