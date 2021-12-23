@@ -647,18 +647,21 @@ progress {
     transition: .4s;
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1201px) {
     html {
         background-image:url('../image/main_bg_large.jpg'); 
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1023px) {
     html {
         background-image:url('../image/main_bg_medium.jpg'); 
     }
     .header {
         margin: 3rem;
+    }
+    .servicesContainer{
+        grid-column-gap: 50px;
     }
 }
 @media screen and (min-width: 768px) {
@@ -683,7 +686,6 @@ progress {
         margin-top: 7rem;
     }
     .servicesContainer {
-        grid-row-gap: 10px;
         grid-column-gap: 30px;
     }
     .iconBlock {
