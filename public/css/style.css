@@ -1,6 +1,6 @@
 @import "keyframes.css";
 @import "colors.css";
-@import "mediaqueries.css";
+
 
 html {
     scroll-behavior: smooth;
@@ -23,7 +23,7 @@ body {
     margin: 0;
     padding-bottom: 5rem;
     color: var(--main-body-txt-color);
-    font-size: 18px;
+    font-size: 14px;
 }
 
 body .success {
@@ -83,6 +83,7 @@ nav ul {
     z-index: 100;
     position: sticky;
     top: 0;
+    display: none;
 }
 
 .rightHolder,
@@ -115,12 +116,12 @@ a {
 
 .header {
     text-align: center;
-    margin: 3rem;
+    margin: 2rem;
 }
 
 .mainTitle {
     margin: .1rem;
-    font-size: 4rem;
+    font-size: 2rem;
 }
 
 .mainTitle:hover, .mainSubtitle:hover, h1:hover, .sectionTitle:hover {
@@ -135,14 +136,14 @@ a {
 
 .mainSubtitle {
     margin: .1rem;
-    font-size: 3rem;
+    font-size: 1.8rem;
 }
 
 .contentBlock {
     height: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-top: 7rem;
+    margin-top: 4rem;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .sectionHeader {
@@ -155,14 +156,15 @@ a {
 }
 
 .sectionTitle {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .servicesContainer {
+    margin-left: .2rem;
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 300px));
     grid-row-gap: 10px;
-    grid-column-gap: 50px;
+    grid-column-gap: 10px;
     justify-content: center;
 }
 .skillsContainer {
@@ -260,6 +262,7 @@ a {
 
 .contactLink {
     background-color: var(--contactLink-color);
+    padding: 1rem;
 }
 
 .contactLink:hover {
@@ -288,7 +291,7 @@ a {
 .iconBlock {
     display: grid;
     align-items: center;
-    margin: .7rem;
+    margin: .2rem;
 }
 
 .iconBlock span i {
@@ -352,10 +355,11 @@ a {
 /* Custom progress bar */
 .item-skills progress {
     -webkit-appearance: none;
-    height: 26px;
+    height: 32px;
     margin-bottom: 1rem;
     border: none;
     background-color: var(--progressbar-second-color);
+    margin-right: .5rem;
 }
 
 .item-skills progress::-webkit-progress-bar {
@@ -373,24 +377,25 @@ a {
 
 .progress-bar span {
     position: absolute;
-    padding-left: .4rem;
-    padding-right: .4rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
     display: inline-block;
     color: black;
     font-weight: bold;
     text-align: right;
     background-color: var(--main-items-color);
-    height: 26px;
+    height: 32px;
+    margin-right: .5rem;
 }
 
 .progress-bar {
     display: block;
     position: relative;
-    width: 100%;
+    width: 97%;
 }
 
 progress {
-    width: 100%;
+    width: 97%;
 }
 
 /* End of custom progress bar */
@@ -400,6 +405,7 @@ progress {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: .2rem;
 }
 
 .aboutContainer img {
@@ -421,10 +427,6 @@ progress {
     flex-direction: column;
     align-items: center;
     margin-top: 4rem;
-}
-
-.contactLink {
-    padding: 2rem;
 }
 
 .rounded {
@@ -480,11 +482,6 @@ progress {
 
 .modal_form::-webkit-scrollbar-thumb {
     border-radius: 20px;
-}
-
-.gridForm {
-    display: grid;
-    grid-template-columns: 45% 45%;
 }
 
 .contactForm fieldset div {
@@ -557,12 +554,11 @@ progress {
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 16px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 90%;
+    font-size: 12px;
 }
 
 /* Hide the browser's default checkbox */
@@ -649,4 +645,68 @@ progress {
 .sendFormBtn:hover {
     transform: scale(1.08);
     transition: .4s;
+}
+
+@media screen and (min-width: 1025px) {
+    html {
+        background-image:url('../image/main_bg_large.jpg'); 
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    html {
+        background-image:url('../image/main_bg_medium.jpg'); 
+    }
+    .header {
+        margin: 3rem;
+    }
+}
+@media screen and (min-width: 768px) {
+    html {
+        background-image:url('../image/main_bg_small.jpg'); 
+    }
+    body {
+        font-size: 18px;
+    }
+    .navbar {
+        display: flex;
+    }
+    .mainTitle {
+        font-size: 4rem;
+    }
+    .mainSubtitle {
+        font-size: 3rem;
+    }
+    .contentBlock {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-top: 7rem;
+    }
+    .servicesContainer {
+        grid-row-gap: 10px;
+        grid-column-gap: 30px;
+    }
+    .iconBlock {
+        margin: .7rem;
+    }
+    .aboutContainer{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .item-skills progress {
+        height: 26px;
+    }
+    .progress-bar span {
+        padding-left: .4rem;
+        padding-right: .4rem;
+        height: 26px;
+    }
+    .gridForm {
+        display: grid;
+        grid-template-columns: 45% 45%;
+    }
+    .rgpd_check {
+        font-size: 16px;
+        width: 90%;
+    }
 }
