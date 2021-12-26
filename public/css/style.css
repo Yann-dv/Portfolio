@@ -95,7 +95,7 @@ input:invalid {
 .navburger .burger_links
 {
     display: flex;
-    justify-content: stretch;
+    justify-content: center;
     flex-wrap: wrap;
     opacity: 0;
     height: 0;
@@ -273,6 +273,7 @@ a {
     margin: 1rem;
     font-size: 95%;
     height: 100%;
+    width: 60%;
 }
 
 .prices span {
@@ -456,7 +457,8 @@ progress {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: .2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .aboutContainer img {
