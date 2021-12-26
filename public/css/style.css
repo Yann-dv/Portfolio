@@ -127,6 +127,7 @@ input:invalid {
     cursor: pointer;
     background-color: var(--nav-bg-color);
     padding: .1rem .8rem;
+    margin-left: .5rem;
     border-radius: 20px;
 }
 .navburger #toggle
