@@ -2,6 +2,10 @@
 @import "colors.css";
 
 
+.grecaptcha-badge { 
+    visibility: hidden; 
+}
+
 html {
     scroll-behavior: smooth;
     background-clip: padding-box;
@@ -699,6 +703,9 @@ progress {
     transition: .4s;
 }
 @media screen and (min-width: 768px) {
+    .grecaptcha-badge { 
+        visibility: visible; 
+    }
     body {
         font-size: 18px;
     }
