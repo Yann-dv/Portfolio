@@ -252,6 +252,11 @@ a {
     width: 300px;
 }
 
+.projectsContainer .project:hover {
+    transform: scale(1.08);
+    transition: .3s;
+}
+
 .projectsContainer .project img {
     display: block;
     max-width: 100%;

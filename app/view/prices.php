@@ -6,7 +6,7 @@
 </div>
 <div class="pricesContainer">
     <div class="prices classic_website">
-      <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine personnalise') . '</span>' . '<hr class="under_border"/>'?>
+      <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine') . '<br/>' . strtoupper('standard') . '<br/>' . '</span>' . '<hr class="under_border"/>'?>
 		<span class="first-priceList-color">À partir de 1000€ <abbr title="L'ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. Droit d'auteur & propriété intellectuelle : A l'issue de la production, vous êtes propriétaire de l'ensemble des ressources (fichiers) composant celui-ci. Paiment possible en plusieurs fois.">*</abbr></span>
 			<span class="second-priceList-color">
 				Développé sous Wordpress ou Wix
@@ -51,7 +51,7 @@
 	    <a href="#contactModal"><span class="contactLink">DEMANDER UN DEVIS</span></a>
 	</div>
     <div class="prices custom_website">
-        <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine personnalise') . '<br/>' . '</span> <hr class="under_border"/>'?>
+        <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine') . '<br/>' . strtoupper('personnalise') . '<br/>' . '</span> <hr class="under_border"/>'?>
 		<span class="first-priceList-color">À partir de 1600€ <abbr title="L'ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. Droit d'auteur & propriété intellectuelle : A l'issue de la production, vous êtes propriétaire de l'ensemble des ressources (fichiers) composant celui-ci. Paiment possible en plusieurs fois.">*</abbr></span>
 			<span class="second-priceList-color">
 				 Développement sur mesure, avec ou sans framework
