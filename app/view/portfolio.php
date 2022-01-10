@@ -19,8 +19,9 @@
         || (str_ends_with($project['name'], '-app')) ) {
           //don't show it
         }
-        else if(($project['name'] === 'KeepTraining_wix')) {
-          echo '<a href="https://www.keeptraining.net" target="_blank" title="Cliquer pour visualiser">'
+        //For wix projects -> the url's are placed into the wix projects description on github repos
+        else if( (preg_match("/_wix/", $project['name'])) ) {
+          echo '<a href="' . $project['description'] . '" target="_blank" title="Cliquer pour visualiser">'
           . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
             . '<h3 class="project_title">' . $project['name'] . '</h3>'
             . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . 'alt="Image du lien vers le projet ' . $project['name'] . '">'
@@ -28,7 +29,7 @@
           . '</a>';
 
         }
-        //For wix projects
+        //For page-deployed projects
         else if(($project['name'] === 'Groupomania') || ($project['name'] === 'Pekocko')) {
           echo '<a href="https://github.com/Yann-dv/' . $project['name'] . '" target="_blank" title="Cliquer pour visualiser">'
           . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
@@ -37,7 +38,6 @@
             . '</div>'
           . '</a>';
         }
-        //For page-deployed projects
         else {
           echo '<a href="https://yann-dv.github.io/' . $project['name'] . '" target="_blank" title="Cliquer pour visualiser">'
           . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
