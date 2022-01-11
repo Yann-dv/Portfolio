@@ -1,9 +1,12 @@
 :root {
     --main-html-bg-color : #0D1117;
     --main-body-bg-color : rgba(0, 0, 0, 0.700);
+    --secondary-body-bg-color : rgba(156, 154, 154, 0.704);
     --main-body-txt-color : #FFF;
+    --secondary-body-txt-color : rgb(0, 0, 0);
     --nav-bg-color : #8f8f8fdc;
     --main-items-color : #7451EB;
+    --secondary-items-color : rgba(20, 20, 218, 0.904);
     --progressbar-bg-color : #603daa;
     --progressbar-second-color: rgba(255, 255, 255, 0.267);
     --projects-bg-color : #a9a9a9;

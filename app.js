@@ -16,6 +16,22 @@ var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
 
 
+(function() {
+   var bodycolors = document.body.style,
+        recolored = false,
+        mainBodyColor = 'var(--main-body-bg-color)',
+        secondBodyColor = 'var(--secondary-body-bg-color)',
+        whiteText = 'var(--main-body-txt-color)',
+        blackText = 'var(--secondary-body-txt-color)';
+
+    setInterval(function() {
+        bodycolors.backgroundColor = recolored ? mainBodyColor : secondBodyColor;
+        bodycolors.color = recolored ? whiteText : blackText;
+        document.querySelectorAll('.progress-bar span').color = recolored ? 'var(--secondary-items-color)' : 'var(--main-items-color)';
+        recolored = !recolored;
+    }, 10000);
+})();
+
 window.addEventListener('scroll', (event) => {
     //Scrolling effects//
     if(window.scrollY > headerHeight) {
