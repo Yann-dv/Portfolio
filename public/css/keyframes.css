@@ -4,7 +4,7 @@
     }
     100% {
         color: var(--main-items-color);
-        background: linear-gradient(to top,#8f5bfd 0%, #000000 6%) no-repeat left bottom/100% 100%;
+        background: linear-gradient(to top, var(--main-items-color) 0%, #000000 6%) no-repeat left bottom/100% 100%;
     }
 }
 

@@ -29,7 +29,7 @@ body {
     padding-bottom: 5rem;
     color: var(--main-body-txt-color);
     font-size: 14px;
-    transition: all 5s;
+    transition: all 3s;
 }
 
 body .success {
@@ -124,7 +124,7 @@ input:invalid {
 .navburger label 
 {
     font-size: 40px;
-    color: white;
+    color: var('--main-body-txt-color');
     cursor: pointer;
     background-color: var(--nav-bg-color);
     padding: .1rem .8rem;

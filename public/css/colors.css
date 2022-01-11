@@ -1,15 +1,25 @@
-:root {
+:root, :root.darkPurple {
     --main-html-bg-color : #0D1117;
     --main-body-bg-color : rgba(0, 0, 0, 0.700);
-    --secondary-body-bg-color : rgba(156, 154, 154, 0.704);
     --main-body-txt-color : #FFF;
-    --secondary-body-txt-color : rgb(0, 0, 0);
     --nav-bg-color : #8f8f8fdc;
     --main-items-color : #7451EB;
-    --secondary-items-color : rgba(20, 20, 218);
     --progressbar-bg-color : #603daa;
     --progressbar-second-color: rgba(255, 255, 255, 0.267);
     --projects-bg-color : #a9a9a9;
     --itemskill-hover-color: #8e5bfd75;
+    --contactLink-color : #b61134;
+}
+
+:root.lightBlue {
+    --main-html-bg-color : #0D1117;
+    --main-body-bg-color : rgba(156, 154, 154, 0.804);
+    --main-body-txt-color : #000;
+    --nav-bg-color : rgba(106, 130, 208, 0.801);
+    --main-items-color : rgb(20, 73, 218);
+    --progressbar-bg-color : rgba(38, 57, 140, 0.8);
+    --progressbar-second-color: rgba(255, 255, 255, 0.267);
+    --projects-bg-color : rgb(106, 125, 208);
+    --itemskill-hover-color : rgba(45, 73, 230, 0.7);
     --contactLink-color : #b61134;
 }

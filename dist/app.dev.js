@@ -14,24 +14,6 @@ var burgerLabel = document.querySelector('#navBurger > label:nth-child(1)');
 var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
-
-(function () {
-  var bodycolors = document.body.style,
-      recolored = false,
-      mainBodyColor = 'var(--main-body-bg-color)',
-      secondBodyColor = 'var(--secondary-body-bg-color)',
-      whiteText = 'var(--main-body-txt-color)',
-      blackText = 'var(--secondary-body-txt-color)';
-  setInterval(function () {
-    document.documentElement.style.setProperty('--main-items-color', 'rgba(20, 20, 218)');
-    /*bodycolors.backgroundColor = recolored ? mainBodyColor : secondBodyColor;
-    bodycolors.color = recolored ? whiteText : blackText;
-    document.querySelectorAll('.progress-bar span').color = recolored ? 'var(--secondary-items-color)' : 'var(--main-items-color)';*/
-
-    recolored = !recolored;
-  }, 10000);
-})();
-
 window.addEventListener('scroll', function (event) {
   //Scrolling effects//
   if (window.scrollY > headerHeight) {
@@ -74,6 +56,7 @@ window.addEventListener('scroll', function (event) {
 });
 window.addEventListener('load', function (event) {
   //Index redirection
+  window.localStorage.removeItem('colorTheme');
   window.location = "#";
   var fadeObject = document.querySelectorAll('.fadeLoad');
   var delay = 300;
@@ -82,6 +65,20 @@ window.addEventListener('load', function (event) {
       element.classList.add("loaded");
     }, index * delay);
   });
+  setTimeout(function () {
+    var colorTheme = window.localStorage.getItem('colorTheme');
+
+    if (!colorTheme || colorTheme !== 'lightBlue') {
+      document.documentElement.className = 'lightBlue';
+      window.localStorage.setItem('colorTheme', 'lightBlue');
+    } else if (colorTheme === 'lightBlue') {
+      document.documentElement.className = 'darkPurple';
+      window.localStorage.setItem('colorTheme', 'darkPurple');
+    } else {
+      document.documentElement.className = 'darkPurple';
+      window.localStorage.removeItem('colorTheme');
+    }
+  }, 180000);
 });
 document.addEventListener("click", function (e) {
   if (e.target === burgerToggle && burgerToggle.checked == true) {
