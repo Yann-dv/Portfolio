@@ -1,6 +1,7 @@
 :root, :root.darkPurple {
     --main-html-bg-color : #0D1117;
     --main-body-bg-color : rgba(0, 0, 0, 0.700);
+    --burger-bg-color : rgba(0, 0, 0, 0.700);
     --main-body-txt-color : #FFF;
     --progress-txt-color : #000;
     --nav-bg-color : #8f8f8fdc;
@@ -15,6 +16,7 @@
 :root.lightBlue {
     --main-html-bg-color : #0D1117;
     --main-body-bg-color : rgba(156, 154, 154, 0.804);
+    --burger-bg-color : rgba(0, 0, 0, 0.700);
     --main-body-txt-color : #000;
     --progress-txt-color : #FFF;
     --nav-bg-color : rgba(106, 130, 208, 0.801);
