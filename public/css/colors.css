@@ -2,6 +2,7 @@
     --main-html-bg-color : #0D1117;
     --main-body-bg-color : rgba(0, 0, 0, 0.700);
     --main-body-txt-color : #FFF;
+    --progress-txt-color : #000;
     --nav-bg-color : #8f8f8fdc;
     --main-items-color : #7451EB;
     --progressbar-bg-color : #603daa;
@@ -15,6 +16,7 @@
     --main-html-bg-color : #0D1117;
     --main-body-bg-color : rgba(156, 154, 154, 0.804);
     --main-body-txt-color : #000;
+    --progress-txt-color : #FFF;
     --nav-bg-color : rgba(106, 130, 208, 0.801);
     --main-items-color : rgb(20, 73, 218);
     --progressbar-bg-color : rgba(38, 57, 140, 0.8);

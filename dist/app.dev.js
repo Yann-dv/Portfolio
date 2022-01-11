@@ -1,7 +1,7 @@
 "use strict";
 
 // Prevent scrolling when modal is open
-var closingBtn = document.getElementById('clode_modal_btn');
+var closingBtn = document.getElementById('close_modal_btn');
 var heading = document.querySelector('#header');
 var serv = document.querySelector('#services');
 var serv_itemsList = document.querySelectorAll('.servicesContainer .item-service');

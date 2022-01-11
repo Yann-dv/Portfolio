@@ -1,6 +1,6 @@
 // Prevent scrolling when modal is open
 
-const closingBtn = document.getElementById('clode_modal_btn');
+const closingBtn = document.getElementById('close_modal_btn');
 const heading = document.querySelector('#header');
 const serv = document.querySelector('#services');
 const serv_itemsList = document.querySelectorAll('.servicesContainer .item-service');

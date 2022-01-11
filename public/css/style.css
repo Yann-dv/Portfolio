@@ -184,7 +184,7 @@ a {
 
 .mainTitle:hover, .mainSubtitle:hover, h1:hover, .sectionTitle:hover {
     transition: all .6s ease;
-    background-image: linear-gradient(45deg, #f3ec78, var(--main-items-color) 80%);
+    background-image: linear-gradient(45deg, #d0b065, var(--main-items-color) 80%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -326,12 +326,13 @@ a {
 .contactLink {
     background-color: var(--contactLink-color);
     padding: 1rem;
+    color: #FFF;
+    border: .09rem solid var(--contactLink-color);
 }
 
-.contactLink:hover {
+.contactLink:hover, #sendEmailBtn:hover {
     cursor: pointer;
-    transform: scale(1.1);
-    transition: .3s;
+    background-color: var(--main-html-bg-color);
 }
 
 .priceList li {
@@ -448,7 +449,7 @@ a {
     padding-left: .2rem;
     padding-right: .2rem;
     display: inline-block;
-    color: black;
+    color: var(--progress-txt-color);
     font-weight: bold;
     text-align: right;
     background-color: var(--main-items-color);
@@ -584,19 +585,16 @@ progress {
     border-radius: 10px;
     text-align: center;
     background-color: var(--contactLink-color);
+    border: .09rem solid var(--contactLink-color);
     color: white;
     padding: 1rem 3rem;
     font-size: 20px;
     font-weight: bold;
 }
 
-#sendEmailBtn:hover {
-    cursor: pointer;
-}
-
 .modal_close {
     position: absolute;
-    background-color: #603daa;
+    background-color: var(--progressbar-bg-color);
     border-radius: 5px;
     font-size: 2rem;
     font-weight: bold;
@@ -604,8 +602,13 @@ progress {
     padding-right: .4rem;
     top: 1rem;
     right: 1rem;
-    color: black;
+    color: var(--main-html-bg-color);
     text-decoration: none;
+}
+
+#close_modal_btn:hover {
+    background-color: var(--main-html-bg-color);
+    color: var(--progressbar-bg-color);
 }
 
 #idRadioS~#blocCompagny {

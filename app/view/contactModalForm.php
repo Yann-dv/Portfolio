@@ -4,7 +4,7 @@
 
 <?php ob_start(); ?>
 <div class="modal_form">
-<a href="javascript:history.go(-1)" id="clode_modal_btn" class="modal_close">&times;</a>
+<a href="javascript:history.go(-1)" id="close_modal_btn" class="modal_close">&times;</a>
 	<form id="contactForm" class="contact-form" method="POST" action="././back/traitement.php">
 	    <fieldset>
 		<h2>Vos coordonnées</h2>
