@@ -77,19 +77,30 @@ window.addEventListener('load', (event) => {
         }, index * delay)
     });  
     
-    setTimeout(function() {
+    //Coloring theme
+    setInterval(function() {
         var colorTheme = window.localStorage.getItem('colorTheme');
+
         if((!colorTheme) || (colorTheme !== 'lightBlue')) {
+            document.body.style.setProperty('transition-duration', '3s');
             document.documentElement.className = 'lightBlue';
             window.localStorage.setItem('colorTheme', 'lightBlue');
+            setTimeout(function(){
+                document.body.style.removeProperty('transition-duration');
+            }, 1000);  
         }
         else if(colorTheme === 'lightBlue') {
+            document.body.style.setProperty('transition-duration', '3s');
             document.documentElement.className = 'darkPurple';
             window.localStorage.setItem('colorTheme', 'darkPurple');
+            setTimeout(function(){
+                document.body.style.removeProperty('transition-duration');
+            }, 1000);  
         }
         else {
             document.documentElement.className = 'darkPurple';
             window.localStorage.removeItem('colorTheme');
+            document.body.style.removeProperty('transition-duration');
         }
     }, 180000);
 });
