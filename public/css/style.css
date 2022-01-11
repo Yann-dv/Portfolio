@@ -8,6 +8,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
     background-clip: padding-box;
     background-color: var(--main-html-bg-color);
     background-size: cover;

@@ -88,7 +88,7 @@ window.addEventListener('load', function (event) {
       window.localStorage.removeItem('colorTheme');
       document.body.style.removeProperty('transition-duration');
     }
-  }, 180000);
+  }, 240000);
 });
 document.addEventListener("click", function (e) {
   if (e.target === burgerToggle && burgerToggle.checked == true) {
