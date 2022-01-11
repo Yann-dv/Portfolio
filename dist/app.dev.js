@@ -23,9 +23,11 @@ var skillsHeight = skills.clientHeight;
       whiteText = 'var(--main-body-txt-color)',
       blackText = 'var(--secondary-body-txt-color)';
   setInterval(function () {
-    bodycolors.backgroundColor = recolored ? mainBodyColor : secondBodyColor;
+    document.documentElement.style.setProperty('--main-items-color', 'rgba(20, 20, 218)');
+    /*bodycolors.backgroundColor = recolored ? mainBodyColor : secondBodyColor;
     bodycolors.color = recolored ? whiteText : blackText;
-    document.querySelectorAll('.progress-bar span').color = recolored ? 'var(--secondary-items-color)' : 'var(--main-items-color)';
+    document.querySelectorAll('.progress-bar span').color = recolored ? 'var(--secondary-items-color)' : 'var(--main-items-color)';*/
+
     recolored = !recolored;
   }, 10000);
 })();
