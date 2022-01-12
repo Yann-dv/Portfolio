@@ -102,7 +102,7 @@ window.addEventListener('load', (event) => {
             window.localStorage.removeItem('colorTheme');
             document.body.style.removeProperty('transition-duration');
         }
-    }, 150000);
+    }, 120000);
 });
 
 
