@@ -109,21 +109,21 @@ window.addEventListener('load', (event) => {
 document.addEventListener("click", function (e) {
     if(e.target === burgerToggle && burgerToggle.checked == true) { 
             navBurger.setAttribute("style", "background-color: var(--main-body-bg-color);");
-            burgerLabel.setAttribute("style", "display: none"); // to modif
+            //burgerLabel.setAttribute("style", "display: none");
 
             const burgerlinks = document.querySelector('.navburger .burger_links');
             burgerlinks.setAttribute("style", "transition: all .5s;")
             //Closing burger timer   
             setTimeout(function() {
                 burgerToggle.checked = false;
-                burgerLabel.setAttribute("style", "display: contents"); // to modif
+                //burgerLabel.setAttribute("style", "display: inline");
                 navBurger.setAttribute("style", "background-color: none");
                 burgerlinks.removeAttribute('style');
             }, 8000);
         }
     else if(e.target === burgerToggle && burgerToggle.checked == false) {
         navBurger.setAttribute("style", "background-color: none");
-        burgerLabel.setAttribute("style", "display: contents"); // to modif
+        //burgerLabel.setAttribute("style", "display: inline");
     }
 
     let isContacLink = e.target.classList.contains('contactLink');
@@ -142,71 +142,69 @@ document.addEventListener("click", function (e) {
     }
 });
 
+//Draggable burger menu
 
 var dragItem = document.getElementById("draggable_burger");
-var container = document.getElementById("draggable_burger_container");
 
-    var active = false;
-    var currentX;
-    var currentY;
-    var initialX;
-    var initialY;
-    var xOffset = 0;
-    var yOffset = 0;
+var active = false;
+var currentX;
+var currentY;
+var initialX;
+var initialY;
+var xOffset = 0;
+var yOffset = 0;
 
-    container.addEventListener("touchstart", dragStart, false);
-    container.addEventListener("touchend", dragEnd, false);
-    container.addEventListener("touchmove", drag, false);
+navBurger.addEventListener("touchstart", dragStart, false);
+navBurger.addEventListener("touchend", dragEnd, false);
+navBurger.addEventListener("touchmove", drag, false);
+navBurger.addEventListener("mousedown", dragStart, false);
+navBurger.addEventListener("mouseup", dragEnd, false);
+navBurger.addEventListener("mousemove", drag, false);
 
-    container.addEventListener("mousedown", dragStart, false);
-    container.addEventListener("mouseup", dragEnd, false);
-    container.addEventListener("mousemove", drag, false);
-
-    function dragStart(e) {
-      if (e.type === "touchstart") {
-        initialX = e.touches[0].clientX - xOffset;
-        initialY = e.touches[0].clientY - yOffset;
-      } else {
-        initialX = e.clientX - xOffset;
-        initialY = e.clientY - yOffset;
-      }
-
-      if (e.target === dragItem) {
-        active = true;
-      }
+function dragStart(e) {
+  if (e.type === "touchstart") {
+    initialX = e.touches[0].clientX - xOffset;
+    initialY = e.touches[0].clientY - yOffset;
+  } else {
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
+  }
+  if (e.target === dragItem) {
+    active = true;
+  }
+}
+function dragEnd(e) {
+  if( e.target.getAttribute('data-boxtype') == navBurger.getAttribute('data-appendto') ) {
+    initialX = currentX;
+    initialY = currentY;
+    active = false;
+  }
+  else {
+    active = false;
+    setTranslate(0, 0, dragItem);
+  }
+}
+function drag(e) {
+  if (active) {
+    navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 2px dashed red;");
+  
+    e.preventDefault();
+  
+    if (e.type === "touchmove") {
+      currentX = e.touches[0].clientX - initialX;
+      currentY = e.touches[0].clientY - initialY;
+    } else {
+      currentX = e.clientX - initialX;
+      currentY = e.clientY - initialY;
     }
-
-    function dragEnd(e) {
-      initialX = currentX;
-      initialY = currentY;
-
-      active = false;
-    }
-
-    function drag(e) {
-      if (active) {
-        navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 2px dashed red;");
-      
-        e.preventDefault();
-      
-        if (e.type === "touchmove") {
-          currentX = e.touches[0].clientX - initialX;
-          currentY = e.touches[0].clientY - initialY;
-        } else {
-          currentX = e.clientX - initialX;
-          currentY = e.clientY - initialY;
-        }
-
-        xOffset = currentX;
-        yOffset = currentY;
-
-        setTranslate(currentX, currentY, dragItem);
-      }
-      else {
-        navBurger.setAttribute("style", "background-color: none; border: 2px dashed transparent;");
-      }
-    }
-
-    function setTranslate(xPos, yPos, el) {
-      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    }
+    xOffset = currentX;
+    yOffset = currentY;
+    setTranslate(currentX, currentY, dragItem);
+  }
+  else {
+    navBurger.setAttribute("style", "background-color: none; border: 2px dashed transparent;");
+  }
+}
+function setTranslate(xPos, yPos, el) {
+  el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+}

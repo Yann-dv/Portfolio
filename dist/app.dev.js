@@ -92,22 +92,19 @@ window.addEventListener('load', function (event) {
 });
 document.addEventListener("click", function (e) {
   if (e.target === burgerToggle && burgerToggle.checked == true) {
-    navBurger.setAttribute("style", "background-color: var(--main-body-bg-color);");
-    burgerLabel.setAttribute("style", "display: none"); // to modif
+    navBurger.setAttribute("style", "background-color: var(--main-body-bg-color);"); //burgerLabel.setAttribute("style", "display: none");
 
     var burgerlinks = document.querySelector('.navburger .burger_links');
     burgerlinks.setAttribute("style", "transition: all .5s;"); //Closing burger timer   
 
     setTimeout(function () {
-      burgerToggle.checked = false;
-      burgerLabel.setAttribute("style", "display: contents"); // to modif
+      burgerToggle.checked = false; //burgerLabel.setAttribute("style", "display: inline");
 
       navBurger.setAttribute("style", "background-color: none");
       burgerlinks.removeAttribute('style');
     }, 8000);
   } else if (e.target === burgerToggle && burgerToggle.checked == false) {
-    navBurger.setAttribute("style", "background-color: none");
-    burgerLabel.setAttribute("style", "display: contents"); // to modif
+    navBurger.setAttribute("style", "background-color: none"); //burgerLabel.setAttribute("style", "display: inline");
   }
 
   var isContacLink = e.target.classList.contains('contactLink');
@@ -122,9 +119,9 @@ document.addEventListener("click", function (e) {
     navBurger.classList.toggle("hidden");
   } else {//nothing to do
   }
-});
+}); //Draggable burger menu
+
 var dragItem = document.getElementById("draggable_burger");
-var container = document.getElementById("draggable_burger_container");
 var active = false;
 var currentX;
 var currentY;
@@ -132,12 +129,12 @@ var initialX;
 var initialY;
 var xOffset = 0;
 var yOffset = 0;
-container.addEventListener("touchstart", dragStart, false);
-container.addEventListener("touchend", dragEnd, false);
-container.addEventListener("touchmove", drag, false);
-container.addEventListener("mousedown", dragStart, false);
-container.addEventListener("mouseup", dragEnd, false);
-container.addEventListener("mousemove", drag, false);
+navBurger.addEventListener("touchstart", dragStart, false);
+navBurger.addEventListener("touchend", dragEnd, false);
+navBurger.addEventListener("touchmove", drag, false);
+navBurger.addEventListener("mousedown", dragStart, false);
+navBurger.addEventListener("mouseup", dragEnd, false);
+navBurger.addEventListener("mousemove", drag, false);
 
 function dragStart(e) {
   if (e.type === "touchstart") {
@@ -154,9 +151,14 @@ function dragStart(e) {
 }
 
 function dragEnd(e) {
-  initialX = currentX;
-  initialY = currentY;
-  active = false;
+  if (e.target.getAttribute('data-boxtype') == navBurger.getAttribute('data-appendto')) {
+    initialX = currentX;
+    initialY = currentY;
+    active = false;
+  } else {
+    active = false;
+    setTranslate(0, 0, dragItem);
+  }
 }
 
 function drag(e) {

@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
-<div id="draggable_burger_container">
-    <label for="toggle" draggable="true" id="draggable_burger">☰</label>
+<div id="draggable_burger_container" data-boxtype="drop">
+    <label for="toggle" draggable="true" id="draggable_burger" data-appendto="drop">☰</label>
         <input type="checkbox" id="toggle">
         <div class="burger_links">
             <a href="#services"><?php echo strtoupper('Services'); ?> </a>
