@@ -109,21 +109,21 @@ window.addEventListener('load', (event) => {
 document.addEventListener("click", function (e) {
     if(e.target === burgerToggle && burgerToggle.checked == true) { 
             navBurger.setAttribute("style", "background-color: var(--main-body-bg-color);");
-            burgerLabel.setAttribute("style", "display: none");
+            burgerLabel.setAttribute("style", "display: none"); // to modif
 
             const burgerlinks = document.querySelector('.navburger .burger_links');
             burgerlinks.setAttribute("style", "transition: all .5s;")
             //Closing burger timer   
             setTimeout(function() {
                 burgerToggle.checked = false;
-                burgerLabel.setAttribute("style", "display: inline");
+                burgerLabel.setAttribute("style", "display: contents"); // to modif
                 navBurger.setAttribute("style", "background-color: none");
                 burgerlinks.removeAttribute('style');
             }, 8000);
         }
     else if(e.target === burgerToggle && burgerToggle.checked == false) {
         navBurger.setAttribute("style", "background-color: none");
-        burgerLabel.setAttribute("style", "display: inline");
+        burgerLabel.setAttribute("style", "display: contents"); // to modif
     }
 
     let isContacLink = e.target.classList.contains('contactLink');
