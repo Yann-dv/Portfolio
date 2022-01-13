@@ -286,8 +286,8 @@ let yDown = null;
 let xDiff = null;
 let yDiff = null;
 let timeDown = null;
-const TIME_TRASHOLD = 200;
-const DIFF_TRASHOLD = 300;
+const TIME_TRASHOLD = 300;
+const DIFF_TRASHOLD = 130;
 
 function handleTouchEnd() {
 
@@ -321,24 +321,23 @@ if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
  timeDown = null; 
  console.log(xDiff, timeDiff)
 }
-function containsClassName (evntarget , classArr) {
- for (var i = classArr.length - 1; i >= 0; i--) {
-   if( evntarget.classList.contains(classArr[i]) ) {
-      return true;
-    }
-  }
-}
+// function containsClassName (evntarget , classArr) {
+//  for (var i = classArr.length - 1; i >= 0; i--) {
+//    if( evntarget.classList.contains(classArr[i]) ) {
+//       return true;
+//     }
+//   }
+// }
 function handleTouchStart(evt) {
-  let touchStartTarget = evt.target;
-  if( containsClassName(touchStartTarget, SWIPE_BLOCK_ELEMS) ) {
-    return;
-  }
+//   let touchStartTarget = evt.target;
+//   if( containsClassName(touchStartTarget, SWIPE_BLOCK_ELEMS) ) {
+//     return;
+//   }
   timeDown = Date.now()
   xDown = evt.touches[0].clientX;
   yDown = evt.touches[0].clientY;
   xDiff = 0;
   yDiff = 0;
-
 }
 
 function handleTouchMove(evt) {
