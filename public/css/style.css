@@ -91,11 +91,10 @@ input:invalid {
     justify-content: center;
 }
 
-.navburger {
+#navBurger {
     z-index: 100;
     position: sticky;
     top: 0;
-    right: 0;
 }
 
 #draggable_burger_container {
@@ -107,6 +106,12 @@ input:invalid {
     align-items: center;
     justify-content: center;
     border: 2px dashed transparent;
+}
+
+#draggable_burger {
+    position: absolute;
+    top: .5rem;
+    left: .1rem;
 }
 
 #draggable_burger:hover {

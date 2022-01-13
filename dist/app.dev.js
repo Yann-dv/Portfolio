@@ -1,6 +1,5 @@
 "use strict";
 
-// Prevent scrolling when modal is open
 var closingBtn = document.getElementById('close_modal_btn');
 var heading = document.querySelector('#header');
 var serv = document.querySelector('#services');
@@ -14,6 +13,7 @@ var burgerLabel = document.querySelector('#draggable_burger_container > label:nt
 var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
+var righted = false;
 window.addEventListener('scroll', function (event) {
   //Scrolling effects//
   if (window.scrollY > headerHeight) {
@@ -92,14 +92,14 @@ window.addEventListener('load', function (event) {
 });
 document.addEventListener("click", function (e) {
   if (e.target === burgerToggle && burgerToggle.checked == true) {
-    navBurger.setAttribute("style", "background-color: var(--main-body-bg-color);"); //burgerLabel.setAttribute("style", "display: none");
-
+    navBurger.setAttribute("style", "background-color: var(--main-body-bg-color);");
+    burgerLabel.setAttribute("style", "display: none");
     var burgerlinks = document.querySelector('.navburger .burger_links');
     burgerlinks.setAttribute("style", "transition: all .5s;"); //Closing burger timer   
 
     setTimeout(function () {
-      burgerToggle.checked = false; //burgerLabel.setAttribute("style", "display: inline");
-
+      burgerToggle.checked = false;
+      burgerLabel.setAttribute("style", "display: inline");
       navBurger.setAttribute("style", "background-color: none");
       burgerlinks.removeAttribute('style');
     }, 8000);
@@ -122,19 +122,24 @@ document.addEventListener("click", function (e) {
 }); //Draggable burger menu
 
 var dragItem = document.getElementById("draggable_burger");
-var active = false;
+/*var active = false;
 var currentX;
 var currentY;
 var initialX;
 var initialY;
 var xOffset = 0;
 var yOffset = 0;
+
 navBurger.addEventListener("touchstart", dragStart, false);
 navBurger.addEventListener("touchend", dragEnd, false);
 navBurger.addEventListener("touchmove", drag, false);
 navBurger.addEventListener("mousedown", dragStart, false);
 navBurger.addEventListener("mouseup", dragEnd, false);
 navBurger.addEventListener("mousemove", drag, false);
+
+navBurger.addEventListener('swiped-right', function(e) {
+    console.log(e.target); // the element that was swiped
+});
 
 function dragStart(e) {
   if (e.type === "touchstart") {
@@ -144,28 +149,27 @@ function dragStart(e) {
     initialX = e.clientX - xOffset;
     initialY = e.clientY - yOffset;
   }
-
   if (e.target === dragItem) {
     active = true;
   }
 }
-
 function dragEnd(e) {
-  if (e.target.getAttribute('data-boxtype') == navBurger.getAttribute('data-appendto')) {
+  if( e.target.getAttribute('data-boxtype') == navBurger.getAttribute('data-appendto') ) {
     initialX = currentX;
     initialY = currentY;
     active = false;
-  } else {
+  }
+  else {
     active = false;
     setTranslate(0, 0, dragItem);
   }
 }
-
 function drag(e) {
   if (active) {
     navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 2px dashed red;");
+  
     e.preventDefault();
-
+  
     if (e.type === "touchmove") {
       currentX = e.touches[0].clientX - initialX;
       currentY = e.touches[0].clientY - initialY;
@@ -173,15 +177,67 @@ function drag(e) {
       currentX = e.clientX - initialX;
       currentY = e.clientY - initialY;
     }
-
     xOffset = currentX;
     yOffset = currentY;
     setTranslate(currentX, currentY, dragItem);
-  } else {
+  }
+  else {
     navBurger.setAttribute("style", "background-color: none; border: 2px dashed transparent;");
   }
 }
-
 function setTranslate(xPos, yPos, el) {
   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+}*/
+
+dragItem.addEventListener('touchstart', handleTouchStart, false);
+dragItem.addEventListener('touchmove', handleTouchMove, false);
+var xDown = null;
+var yDown = null;
+
+function handleTouchStart(evt) {
+  xDown = evt.touches[0].clientX;
+  yDown = evt.touches[0].clientY;
 }
+
+;
+
+function handleTouchMove(evt) {
+  if (!xDown || !yDown) {
+    return;
+  }
+
+  var xUp = evt.touches[0].clientX;
+  var yUp = evt.touches[0].clientY;
+  var xDiff = xDown - xUp;
+  var yDiff = yDown - yUp;
+
+  if (Math.abs(xDiff) > Math.abs(yDiff)) {
+    /*most significant*/
+    if (xDiff > 0 && righted == false) {} else if (xDiff > 0 && righted == true) {
+      /* left swipe */
+      console.log(evt.target + ' left swiped');
+      dragItem.style.transform = "translateX(-5vw)";
+      righted = false;
+    } else {
+      /* right swipe */
+      console.log(evt.target + ' right swiped');
+      dragItem.style.transform = "translateX(100%)";
+      righted = true;
+    }
+  } else {
+    if (yDiff > 0) {
+      /* up swipe */
+      //console.log(evt.target + ' up swiped')
+    } else {
+        /* down swipe */
+        //console.log(evt.target + ' down swiped')
+      }
+  }
+  /* reset values */
+
+
+  xDown = null;
+  yDown = null;
+}
+
+;
