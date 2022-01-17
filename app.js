@@ -147,7 +147,7 @@ document.addEventListener("click", function (e) {
 var dragItem = document.getElementById("draggable_burger");
 
 // Custom function
-
+/*
 var active = false;
 var initialX;
 var initialY;
@@ -159,12 +159,14 @@ var yOffset = 0;
 dragItem.addEventListener("touchstart", dragStart, false);
 dragItem.addEventListener("touchend", dragEnd, false);
 dragItem.addEventListener("touchmove", drag, false);
+dragItem.addEventListener("touchleave", dragEnd, false); 
+
 dragItem.addEventListener("mousedown", dragStart, false);
 dragItem.addEventListener("mouseup", dragEnd, false);
 dragItem.addEventListener("mousemove", drag, false);
 
 function dragStart(e) {
-  if (e.target === dragItem) {
+  if (( e.target === dragItem) && active === false ){
     active = true;
     if (e.type === "touchstart") {
       initialX = e.touches[0].clientX - xOffset;
@@ -173,22 +175,24 @@ function dragStart(e) {
       initialX = e.clientX - xOffset;
       initialY = e.clientY - yOffset;
     }
-    console.log(initialX, initialY);
   }
   else {
     active = false;
     return;
   }
 }
+
 function dragEnd(e) {
-  if( e.target === navBurger) {
-    console.log('dragged');
+  if (active === true) {
+    if( e.target === navBurger) {
+      console.log('dragged');
+    }
+    else {
+      navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
+      console.log('dropped');
+    }
   }
-  else {
-    navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
-    active = false;
-    console.log('undragend');
-  }
+  active = false;
 }
 
 function drag(e) {
@@ -205,12 +209,14 @@ function drag(e) {
     }
     xOffset = currentX;
     yOffset = currentY;
+    console.log(currentX, currentY, active);
     //setTranslate(currentX, currentY, dragItem);
   }
   else {
     navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
+    console.log("unattributed");
   }
-}
+}*/
 
 
 /*
@@ -334,16 +340,10 @@ function handleTouchMove(evt) {
     xDown = null;
     yDown = null;                                             
 };
-
-/*dragItem.addEventListener('touchstart', handleTouchStart, false);
+*/
+dragItem.addEventListener('touchstart', handleTouchStart, false);
 dragItem.addEventListener('touchmove', handleTouchMove, false);
 dragItem.addEventListener('touchend', handleTouchEnd, false);     
-
-const SWIPE_BLOCK_ELEMS = [
-  'swipBlock',
-  'handle',
-  'drag-ruble'
-]
 
 let xDown = null;
 let yDown = null; 
@@ -351,7 +351,7 @@ let xDiff = null;
 let yDiff = null;
 let timeDown = null;
 const TIME_TRASHOLD = 300;
-const DIFF_TRASHOLD = 130;
+const DIFF_TRASHOLD = 110;
 
 function handleTouchEnd() {
 
@@ -359,44 +359,36 @@ let timeDiff = Date.now() - timeDown;
 if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
   if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
     if (xDiff > 0) {
-      console.log(xDiff, TIME_TRASHOLD, DIFF_TRASHOLD)
-      SWIPE_LEFT(LEFT) //left swipe 
+      //left swipe 
+      console.log('swipeX left', 'x-move:', xDiff, "in :", timeDiff, "ms");
     } else {
-      console.log(xDiff)
-      SWIPE_RIGHT(RIGHT) // right swipe 
+      // right swipe 
+      console.log('swipeX right', 'x-move:', xDiff, "in :", timeDiff, "ms");
     }
   } else {
-    console.log('swipeX trashhold')
+    console.log('swipeX trashhold');
   }
 } else {
   if (Math.abs(yDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
     if (yDiff > 0) {
-      / up swipe 
+      // up swipe 
+      console.log('swipeY right', 'y-move:', yDiff, "in :", timeDiff, "ms");
     } else {
       // down swipe 
+      console.log('swipeY down', 'y-move:', yDiff, "in :", timeDiff, "ms");
     }
   } else {
     console.log('swipeY trashhold')
   }
  }
  // reset values 
- console.log(xDiff, timeDiff)
  xDown = null;
  yDown = null;
  timeDown = null; 
+ navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
 }
-// function containsClassName (evntarget , classArr) {
-//  for (var i = classArr.length - 1; i >= 0; i--) {
-//    if( evntarget.classList.contains(classArr[i]) ) {
-//       return true;
-//     }
-//   }
-// }
+
 function handleTouchStart(evt) {
-//   let touchStartTarget = evt.target;
-//   if( containsClassName(touchStartTarget, SWIPE_BLOCK_ELEMS) ) {
-//     return;
-//   }
   timeDown = Date.now()
   xDown = evt.touches[0].clientX;
   yDown = evt.touches[0].clientY;
@@ -408,11 +400,10 @@ function handleTouchMove(evt) {
   if (!xDown || !yDown) {
     return;
   }
-
+  navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
   var xUp = evt.touches[0].clientX;
   var yUp = evt.touches[0].clientY;
 
-  console.log(xDiff, timeDiff)
   xDiff = xDown - xUp;
   yDiff = yDown - yUp;
-} */
+}
