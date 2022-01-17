@@ -105,13 +105,11 @@ input:invalid {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed transparent;
+    border: 1px dashed transparent;
 }
 
 #draggable_burger {
-    position: absolute;
-    top: .5rem;
-    left: .1rem;
+    margin: .5rem
 }
 
 #draggable_burger:hover {

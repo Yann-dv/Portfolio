@@ -146,13 +146,81 @@ document.addEventListener("click", function (e) {
 
 var dragItem = document.getElementById("draggable_burger");
 
-/*var active = false;
+// Custom function
+
+var active = false;
+var initialX;
+var initialY;
+var currentX;
+var currentY;
+var xOffset = 0;
+var yOffset = 0;
+
+dragItem.addEventListener("touchstart", dragStart, false);
+dragItem.addEventListener("touchend", dragEnd, false);
+dragItem.addEventListener("touchmove", drag, false);
+dragItem.addEventListener("mousedown", dragStart, false);
+dragItem.addEventListener("mouseup", dragEnd, false);
+dragItem.addEventListener("mousemove", drag, false);
+
+function dragStart(e) {
+  if (e.target === dragItem) {
+    active = true;
+    if (e.type === "touchstart") {
+      initialX = e.touches[0].clientX - xOffset;
+      initialY = e.touches[0].clientY - yOffset;
+    } else {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+    }
+    console.log(initialX, initialY);
+  }
+  else {
+    active = false;
+    return;
+  }
+}
+function dragEnd(e) {
+  if( e.target === navBurger) {
+    console.log('dragged');
+  }
+  else {
+    navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
+    active = false;
+    console.log('undragend');
+  }
+}
+
+function drag(e) {
+  if (active === true) {
+    navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
+    e.preventDefault();
+    
+    if (e.type === "touchmove") {
+      currentX = e.touches[0].clientX - initialX;
+      currentY = e.touches[0].clientY - initialY;
+    } else {
+      currentX = e.clientX - initialX;
+      currentY = e.clientY - initialY;
+    }
+    xOffset = currentX;
+    yOffset = currentY;
+    //setTranslate(currentX, currentY, dragItem);
+  }
+  else {
+    navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
+  }
+}
+
+
+/*
+var active = false;
 var currentX;
 var currentY;
 var initialX;
 var initialY;
-var xOffset = 0;
-var yOffset = 0;
+var xOffset = 100;
+var yOffset = 100;
 
 navBurger.addEventListener("touchstart", dragStart, false);
 navBurger.addEventListener("touchend", dragEnd, false);
@@ -160,10 +228,6 @@ navBurger.addEventListener("touchmove", drag, false);
 navBurger.addEventListener("mousedown", dragStart, false);
 navBurger.addEventListener("mouseup", dragEnd, false);
 navBurger.addEventListener("mousemove", drag, false);
-
-navBurger.addEventListener('swiped-right', function(e) {
-    console.log(e.target); // the element that was swiped
-});
 
 function dragStart(e) {
   if (e.type === "touchstart") {
@@ -190,7 +254,7 @@ function dragEnd(e) {
 }
 function drag(e) {
   if (active) {
-    navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 2px dashed red;");
+    navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
   
     e.preventDefault();
   
@@ -206,12 +270,13 @@ function drag(e) {
     setTranslate(currentX, currentY, dragItem);
   }
   else {
-    navBurger.setAttribute("style", "background-color: none; border: 2px dashed transparent;");
+    navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
   }
 }
 function setTranslate(xPos, yPos, el) {
   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-}*/
+} */
+
 /*dragItem.addEventListener('touchstart', handleTouchStart, false);        
 dragItem.addEventListener('touchmove', handleTouchMove, false);
 
@@ -245,7 +310,7 @@ function handleTouchMove(evt) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {//most significant
         if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
             if (( xDiff > 0 ) && (righted == false)) {
             } else if (( xDiff > 0 ) && (righted== true)) {
@@ -270,8 +335,7 @@ function handleTouchMove(evt) {
     yDown = null;                                             
 };
 
-*/
-dragItem.addEventListener('touchstart', handleTouchStart, false);
+/*dragItem.addEventListener('touchstart', handleTouchStart, false);
 dragItem.addEventListener('touchmove', handleTouchMove, false);
 dragItem.addEventListener('touchend', handleTouchEnd, false);     
 
@@ -292,14 +356,14 @@ const DIFF_TRASHOLD = 130;
 function handleTouchEnd() {
 
 let timeDiff = Date.now() - timeDown; 
-if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
+if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
   if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
     if (xDiff > 0) {
       console.log(xDiff, TIME_TRASHOLD, DIFF_TRASHOLD)
-      SWIPE_LEFT(LEFT) /* left swipe */
+      SWIPE_LEFT(LEFT) //left swipe 
     } else {
       console.log(xDiff)
-      SWIPE_RIGHT(RIGHT) /* right swipe */
+      SWIPE_RIGHT(RIGHT) // right swipe 
     }
   } else {
     console.log('swipeX trashhold')
@@ -307,19 +371,19 @@ if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
 } else {
   if (Math.abs(yDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
     if (yDiff > 0) {
-      /* up swipe */
+      / up swipe 
     } else {
-      /* down swipe */
+      // down swipe 
     }
   } else {
     console.log('swipeY trashhold')
   }
  }
- /* reset values */
+ // reset values 
+ console.log(xDiff, timeDiff)
  xDown = null;
  yDown = null;
  timeDown = null; 
- console.log(xDiff, timeDiff)
 }
 // function containsClassName (evntarget , classArr) {
 //  for (var i = classArr.length - 1; i >= 0; i--) {
@@ -348,7 +412,7 @@ function handleTouchMove(evt) {
   var xUp = evt.touches[0].clientX;
   var yUp = evt.touches[0].clientY;
 
-
+  console.log(xDiff, timeDiff)
   xDiff = xDown - xUp;
   yDiff = yDown - yUp;
-}
+} */

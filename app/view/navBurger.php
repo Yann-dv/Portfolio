@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<div id="draggable_burger_container" data-boxtype="drop">
+<div id="draggable_burger_container" data-boxtype="drop" data-appendto="true">
     <label for="toggle" draggable="true" id="draggable_burger">☰</label>
         <input type="checkbox" id="toggle">
         <div class="burger_links">
