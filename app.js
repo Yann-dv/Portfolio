@@ -5,7 +5,7 @@ const serv_itemsList = document.querySelectorAll('.servicesContainer .item-servi
 const skills = document.querySelector('#skills');
 const skillsLi = document.querySelectorAll('.skillsContainer li');
 const portfolioLinks = document.querySelectorAll('#portfolioList a');
-const navBurger = document.querySelector('#draggable_burger_container');
+const navBurger_container = document.querySelector('#draggable_burger_container');
 const burgerToggle = document.getElementById("toggle");
 const burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
 
@@ -281,7 +281,7 @@ function drag(e) {
 }
 function setTranslate(xPos, yPos, el) {
   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-} */
+} *///setTranslate(currentX, currentY, dragItem);
 
 /*dragItem.addEventListener('touchstart', handleTouchStart, false);        
 dragItem.addEventListener('touchmove', handleTouchMove, false);
@@ -350,8 +350,8 @@ let yDown = null;
 let xDiff = null;
 let yDiff = null;
 let timeDown = null;
-const TIME_TRASHOLD = 300;
-const DIFF_TRASHOLD = 110;
+const TIME_TRASHOLD = 400;
+const DIFF_TRASHOLD = 100;
 
 function handleTouchEnd() {
 
@@ -360,10 +360,14 @@ if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
   if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
     if (xDiff > 0) {
       //left swipe 
-      console.log('swipeX left', 'x-move:', xDiff, "in :", timeDiff, "ms");
+      // No yAxis transitions
+      console.log('swipeX left', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
     } else {
       // right swipe 
-      console.log('swipeX right', 'x-move:', xDiff, "in :", timeDiff, "ms");
+      // No yAxis transitions
+      //setTranslate(3, 0, dragItem);
+      console.log('swipeX right', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+      ndragItem.style.position = "absolute";
     }
   } else {
     console.log('swipeX trashhold');
@@ -372,10 +376,10 @@ if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
   if (Math.abs(yDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
     if (yDiff > 0) {
       // up swipe 
-      console.log('swipeY right', 'y-move:', yDiff, "in :", timeDiff, "ms");
+      console.log('swipeY right', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
     } else {
       // down swipe 
-      console.log('swipeY down', 'y-move:', yDiff, "in :", timeDiff, "ms");
+      console.log('swipeY down', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
     }
   } else {
     console.log('swipeY trashhold')
@@ -385,7 +389,7 @@ if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
  xDown = null;
  yDown = null;
  timeDown = null; 
- navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
+ navBurger_container.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
 }
 
 function handleTouchStart(evt) {
@@ -400,10 +404,14 @@ function handleTouchMove(evt) {
   if (!xDown || !yDown) {
     return;
   }
-  navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
+  navBurger_container.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
   var xUp = evt.touches[0].clientX;
   var yUp = evt.touches[0].clientY;
 
   xDiff = xDown - xUp;
   yDiff = yDown - yUp;
+}
+
+function setTranslate(xPos, yPos, el) {
+  el.style.transform = "translate3d(" + xPos + "rem, " + yPos + "px, 0)";
 }
