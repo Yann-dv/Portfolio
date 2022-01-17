@@ -365,9 +365,8 @@ if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
     } else {
       // right swipe 
       // No yAxis transitions
-      //setTranslate(3, 0, dragItem);
+      setTranslate(80, 0, dragItem);
       console.log('swipeX right', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
-      ndragItem.style.position = "absolute";
     }
   } else {
     console.log('swipeX trashhold');
@@ -413,5 +412,5 @@ function handleTouchMove(evt) {
 }
 
 function setTranslate(xPos, yPos, el) {
-  el.style.transform = "translate3d(" + xPos + "rem, " + yPos + "px, 0)";
+  el.style.transform = "translate3d(" + xPos + "vw, " + yPos + "px, 0)";
 }
