@@ -106,6 +106,7 @@ input:invalid {
     align-items: center;
     justify-content: center;
     border: 1px dashed transparent;
+    margin: 0;
 }
 
 #draggable_burger {
