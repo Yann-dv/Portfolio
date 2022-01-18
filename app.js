@@ -15,8 +15,6 @@ var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
 
-var lastPosition;
-
 window.addEventListener('scroll', (event) => {
     //Scrolling effects//
     if(window.scrollY > headerHeight) {
@@ -161,8 +159,6 @@ const DIFF_TRASHOLD = 100;
 
 function handleTouchEnd() {
   
-  lastPosition = burgerLabel.getBoundingClientRect().right;
-
   let timeDiff = Date.now() - timeDown; 
   if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
     if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {

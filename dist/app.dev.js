@@ -14,7 +14,6 @@ var dragItem = document.getElementById("draggable_burger");
 var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
-var lastPosition;
 window.addEventListener('scroll', function (event) {
   //Scrolling effects//
   if (window.scrollY > headerHeight) {
@@ -138,7 +137,6 @@ var TIME_TRASHOLD = 4000; // Extended time delay for better accessibility
 var DIFF_TRASHOLD = 100;
 
 function handleTouchEnd() {
-  lastPosition = burgerLabel.getBoundingClientRect().right;
   var timeDiff = Date.now() - timeDown;
 
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
