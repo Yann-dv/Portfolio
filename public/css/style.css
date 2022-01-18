@@ -171,7 +171,8 @@ input:invalid {
     visibility: visible;
     height: 100%;
     font-size: 18px;
-    padding: 0;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
 }
 
 .rightHolder,
