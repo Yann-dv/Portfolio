@@ -98,7 +98,7 @@ input:invalid {
 }
 
 #draggable_burger_container {
-    width: 99%;
+    width:100%;
     height: auto;
     touch-action: none;
     overflow: hidden;
@@ -572,7 +572,7 @@ progress {
 
 .hidden {
     opacity: 0;
-    visibility: collapse;
+    display: none;
     transition-duration: .5s;
 }
 
