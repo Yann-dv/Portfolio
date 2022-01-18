@@ -127,6 +127,54 @@ input:invalid {
     border: 2px dashed white;
 }
 
+#arrowAnim {
+    width: 0%;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    position: relative;
+  }
+  
+  .arrow {
+    width: 4vw;
+    height: 4vw;
+    border: 2vw solid;
+    border-color: var(--progressbar-bg-color) transparent transparent var(--progressbar-bg-color);
+    transform: rotate(135deg);
+  }
+
+  .inverted_arrow {
+    transform: rotate(-45deg);
+  }
+  
+  .arrowSliding {
+    position: absolute;
+    top: -.8rem;
+    left: -4rem;
+    animation-name: slide;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;  
+  }
+  
+  .delay1 {
+    -webkit-animation-delay: 1s; 
+      animation-delay: 1s;
+  }
+  .delay2 {
+    -webkit-animation-delay: 2s; 
+      animation-delay: 2s;
+  }
+  .delay3 {
+    -webkit-animation-delay: 3s; 
+      animation-delay: 3s;
+  }
+
 .navburger .burger_links
 {
     display: flex;
@@ -571,6 +619,7 @@ progress {
 }
 
 .hidden {
+    z-index: -100;
     opacity: 0;
     display: none;
     transition-duration: .5s;

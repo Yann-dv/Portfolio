@@ -11,6 +11,7 @@ var navBurger_container = document.querySelector('#draggable_burger_container');
 var burgerToggle = document.getElementById("toggle");
 var burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
 var dragItem = document.getElementById("draggable_burger");
+var arrows = document.querySelectorAll('div.arrowSliding > div.arrow');
 var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
@@ -170,6 +171,8 @@ function handleTouchEnd() {
   xDown = null;
   yDown = null;
   timeDown = null;
+  arrowAnim.classList.add('hidden');
+  arrowAnim.setAttribute("style", "width: 0%;");
   navBurger_container.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
 }
 
@@ -179,13 +182,50 @@ function handleTouchStart(evt) {
   yDown = evt.touches[0].clientY;
   xDiff = 0;
   yDiff = 0;
+  arrowAnim.classList.add('hidden');
 }
 
 function handleTouchMove(evt) {
+  var _this = this;
+
   if (!xDown || !yDown) {
     return;
   }
 
+  var righted;
+
+  if (dragItem.getBoundingClientRect().left >= 20) {
+    for (var i = 0; i < arrows.length; i++) {
+      arrows[i].classList.add('inverted_arrow');
+      setTimeout(function () {
+        _this.classList.remove('inverted_arrow');
+      }, 300);
+    }
+
+    righted = true;
+    arrowAnim.classList.toggle("hidden");
+    arrowAnim.setAttribute("style", "width: 100%; z-index: 1;");
+  } else if (righted = true) {
+    for (var i = 0; i < arrows.length; i++) {
+      arrows[i].classList.remove('inverted_arrow');
+    }
+
+    righted = false;
+    arrowAnim.classList.toggle("hidden");
+    arrowAnim.setAttribute("style", "width: 100%; z-index: 1;");
+  } else {
+    for (var i = 0; i < arrows.length; i++) {
+      arrows[i].classList.remove('inverted_arrow');
+    }
+
+    righted = false;
+    arrowAnim.classList.toggle("hidden");
+    arrowAnim.setAttribute("style", "width: 100%; z-index: 1;");
+  }
+
+  setTimeout(function () {
+    arrowAnim.classList.add("hidden");
+  }, 500);
   navBurger_container.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
   var xUp = evt.touches[0].clientX;
   var yUp = evt.touches[0].clientY;

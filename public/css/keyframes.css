@@ -26,3 +26,40 @@
         background-color: rgba(128, 128, 128, 0.267);
     }
 }
+
+@-webkit-keyframes slide {
+    0% { 
+        opacity:0; 
+        transform: translateX(-15vw); 
+    }	
+   20% { 
+       opacity:1; 
+       transform: translateX(-9vw); 
+    }	
+   80% { 
+       opacity:1; 
+       transform: translateX(9vw); 
+    }	
+  100% { 
+      opacity:0; 
+      transform: translateX(15vw); 
+    }	
+}
+@keyframes slide {
+    0% { 
+        opacity:0; 
+        transform: translateX(-15vw); 
+    }	
+   20% { 
+       opacity:1; 
+       transform: translateX(-9vw); 
+    }	
+   80% { 
+       opacity:1; 
+       transform: translateX(9vw); 
+    }	
+  100% { 
+      opacity:0; 
+      transform: translateX(15vw); 
+    }		
+}
