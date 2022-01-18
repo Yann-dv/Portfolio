@@ -200,7 +200,7 @@ function handleTouchEnd() {
   timeDown = null; 
   arrowAnim.classList.add('hidden');
   arrowAnim.setAttribute("style", "width: 0%;");
-  navBurger_container.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
+  navBurger_container.setAttribute("style", "background-color: none;");
 }
 
 function handleTouchStart(evt) {
@@ -252,7 +252,7 @@ function handleTouchMove(evt) {
   }, 500);
 
 
-  navBurger_container.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
+  navBurger_container.setAttribute("style", "background-color: var(--progress-txt-color);");
   var xUp = evt.touches[0].clientX;
   var yUp = evt.touches[0].clientY;
 

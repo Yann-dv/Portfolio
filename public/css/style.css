@@ -105,7 +105,6 @@ input:invalid {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px dashed transparent;
     margin: 0;
 }
 
