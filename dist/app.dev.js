@@ -10,10 +10,11 @@ var portfolioLinks = document.querySelectorAll('#portfolioList a');
 var navBurger_container = document.querySelector('#draggable_burger_container');
 var burgerToggle = document.getElementById("toggle");
 var burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
+var dragItem = document.getElementById("draggable_burger");
 var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
-var righted = false;
+var lastPosition;
 window.addEventListener('scroll', function (event) {
   //Scrolling effects//
   if (window.scrollY > headerHeight) {
@@ -92,19 +93,22 @@ window.addEventListener('load', function (event) {
 });
 document.addEventListener("click", function (e) {
   if (e.target === burgerToggle && burgerToggle.checked == true) {
-    navBurger.setAttribute("style", "background-color: var(--main-body-bg-color);");
-    burgerLabel.setAttribute("style", "display: none");
-    var burgerlinks = document.querySelector('.navburger .burger_links');
-    burgerlinks.setAttribute("style", "transition: all .5s;"); //Closing burger timer   
+    navBurger_container.setAttribute("style", "background-color: #000;");
+    dragItem.style.transition = "all 0s";
+    burgerLabel.classList.toggle("hidden");
+    var burgerlinks = document.querySelector('.navburger .burger_links'); //burgerlinks.setAttribute("style", "transition: all .5s;")
+    //Closing burger timer   
 
     setTimeout(function () {
       burgerToggle.checked = false;
-      burgerLabel.setAttribute("style", "display: inline");
-      navBurger.setAttribute("style", "background-color: none");
+      burgerLabel.classList.toggle("hidden");
+      navBurger_container.setAttribute("style", "background-color: none");
+      dragItem.style.transition = "all .5s";
       burgerlinks.removeAttribute('style');
     }, 8000);
   } else if (e.target === burgerToggle && burgerToggle.checked == false) {
-    navBurger.setAttribute("style", "background-color: none"); //burgerLabel.setAttribute("style", "display: inline");
+    navBurger.setAttribute("style", "background-color: none");
+    burgerLabel.setAttribute("style", "display: inline");
   }
 
   var isContacLink = e.target.classList.contains('contactLink');
@@ -121,7 +125,6 @@ document.addEventListener("click", function (e) {
   }
 }); //Draggable burger menu
 
-var dragItem = document.getElementById("draggable_burger");
 dragItem.addEventListener('touchstart', handleTouchStart, false);
 dragItem.addEventListener('touchmove', handleTouchMove, false);
 dragItem.addEventListener('touchend', handleTouchEnd, false);
@@ -130,10 +133,12 @@ var yDown = null;
 var xDiff = null;
 var yDiff = null;
 var timeDown = null;
-var TIME_TRASHOLD = 600;
+var TIME_TRASHOLD = 4000; // Extended time delay for better accessibility
+
 var DIFF_TRASHOLD = 100;
 
 function handleTouchEnd() {
+  lastPosition = burgerLabel.getBoundingClientRect().right;
   var timeDiff = Date.now() - timeDown;
 
   if (Math.abs(xDiff) > Math.abs(yDiff)) {

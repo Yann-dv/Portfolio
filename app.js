@@ -9,13 +9,13 @@ const navBurger_container = document.querySelector('#draggable_burger_container'
 const burgerToggle = document.getElementById("toggle");
 const burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
 
+const dragItem = document.getElementById("draggable_burger");
+
 var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
 var skillsHeight = skills.clientHeight;
 
-var righted = false;
-
-
+var lastPosition;
 
 window.addEventListener('scroll', (event) => {
     //Scrolling effects//
@@ -108,22 +108,25 @@ window.addEventListener('load', (event) => {
 
 document.addEventListener("click", function (e) {
     if(e.target === burgerToggle && burgerToggle.checked == true) { 
-            navBurger.setAttribute("style", "background-color: var(--main-body-bg-color);");
-            burgerLabel.setAttribute("style", "display: none");
-
+            navBurger_container.setAttribute("style", "background-color: #000;");
+            dragItem.style.transition = "all 0s";
+            burgerLabel.classList.toggle("hidden");
+            
             const burgerlinks = document.querySelector('.navburger .burger_links');
-            burgerlinks.setAttribute("style", "transition: all .5s;")
+            //burgerlinks.setAttribute("style", "transition: all .5s;")
+
             //Closing burger timer   
             setTimeout(function() {
                 burgerToggle.checked = false;
-                burgerLabel.setAttribute("style", "display: inline");
-                navBurger.setAttribute("style", "background-color: none");
+                burgerLabel.classList.toggle("hidden");
+                navBurger_container.setAttribute("style", "background-color: none");
+                dragItem.style.transition = "all .5s";
                 burgerlinks.removeAttribute('style');
             }, 8000);
         }
     else if(e.target === burgerToggle && burgerToggle.checked == false) {
         navBurger.setAttribute("style", "background-color: none");
-        //burgerLabel.setAttribute("style", "display: inline");
+        burgerLabel.setAttribute("style", "display: inline");
     }
 
     let isContacLink = e.target.classList.contains('contactLink');
@@ -144,8 +147,6 @@ document.addEventListener("click", function (e) {
 
 //Draggable burger menu
 
-var dragItem = document.getElementById("draggable_burger");
-
 dragItem.addEventListener('touchstart', handleTouchStart, false);
 dragItem.addEventListener('touchmove', handleTouchMove, false);
 dragItem.addEventListener('touchend', handleTouchEnd, false);     
@@ -155,48 +156,50 @@ let yDown = null;
 let xDiff = null;
 let yDiff = null;
 let timeDown = null;
-const TIME_TRASHOLD = 600;
+const TIME_TRASHOLD = 4000; // Extended time delay for better accessibility
 const DIFF_TRASHOLD = 100;
 
 function handleTouchEnd() {
+  
+  lastPosition = burgerLabel.getBoundingClientRect().right;
 
-let timeDiff = Date.now() - timeDown; 
-if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
-  if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
-    if (xDiff > 0 && dragItem.getBoundingClientRect().left >= 10) {
-      //left swipe 
-      // No yAxis transitions
-      //FOR DEBUG : console.log('swipeX left', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
-      setTranslate(1, 0, dragItem);
-      
+  let timeDiff = Date.now() - timeDown; 
+  if (Math.abs(xDiff) > Math.abs(yDiff)) { //most significant
+    if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
+      if (xDiff > 0 && dragItem.getBoundingClientRect().left >= 10) {
+        //left swipe 
+        // No yAxis transitions
+        //FOR DEBUG : console.log('swipeX left', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+        setTranslate(1, 0, dragItem);
+        
+      } else {
+        // right swipe 
+        //FOR DEBUG : console.log('swipeX right', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+        // No yAxis transitions
+        setTranslate(78, 0, dragItem);
+        
+      }
     } else {
-      // right swipe 
-      //FOR DEBUG : console.log('swipeX right', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
-      // No yAxis transitions
-      setTranslate(78, 0, dragItem);
-      
+      //FOR DEBUG : console.log('swipeX trashhold');
     }
   } else {
-    //FOR DEBUG : console.log('swipeX trashhold');
-  }
-} else {
-  if (Math.abs(yDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
-    if (yDiff > 0) {
-      // up swipe 
-      //FOR DEBUG : console.log('swipeY right', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+    if (Math.abs(yDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
+      if (yDiff > 0) {
+        // up swipe 
+        //FOR DEBUG : console.log('swipeY right', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+      } else {
+        // down swipe 
+        //FOR DEBUG : console.log('swipeY down', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+      }
     } else {
-      // down swipe 
-      //FOR DEBUG : console.log('swipeY down', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+      //FOR DEBUG : console.log('swipeY trashhold')
     }
-  } else {
-    //FOR DEBUG : console.log('swipeY trashhold')
   }
- }
- // reset values 
- xDown = null;
- yDown = null;
- timeDown = null; 
- navBurger_container.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
+  // reset values 
+  xDown = null;
+  yDown = null;
+  timeDown = null; 
+  navBurger_container.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
 }
 
 function handleTouchStart(evt) {

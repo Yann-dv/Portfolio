@@ -170,8 +170,7 @@ input:invalid {
     visibility: visible;
     height: 100%;
     font-size: 18px;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding: 0;
 }
 
 .rightHolder,
@@ -571,7 +570,7 @@ progress {
 
 .hidden {
     opacity: 0;
-    visibility: hidden;
+    visibility: collapse;
     transition-duration: .5s;
 }
 
