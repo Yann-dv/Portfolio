@@ -121,203 +121,7 @@ document.addEventListener("click", function (e) {
   }
 }); //Draggable burger menu
 
-var dragItem = document.getElementById("draggable_burger"); // Custom function
-
-/*
-var active = false;
-var initialX;
-var initialY;
-var currentX;
-var currentY;
-var xOffset = 0;
-var yOffset = 0;
-
-dragItem.addEventListener("touchstart", dragStart, false);
-dragItem.addEventListener("touchend", dragEnd, false);
-dragItem.addEventListener("touchmove", drag, false);
-dragItem.addEventListener("touchleave", dragEnd, false); 
-
-dragItem.addEventListener("mousedown", dragStart, false);
-dragItem.addEventListener("mouseup", dragEnd, false);
-dragItem.addEventListener("mousemove", drag, false);
-
-function dragStart(e) {
-  if (( e.target === dragItem) && active === false ){
-    active = true;
-    if (e.type === "touchstart") {
-      initialX = e.touches[0].clientX - xOffset;
-      initialY = e.touches[0].clientY - yOffset;
-    } else {
-      initialX = e.clientX - xOffset;
-      initialY = e.clientY - yOffset;
-    }
-  }
-  else {
-    active = false;
-    return;
-  }
-}
-
-function dragEnd(e) {
-  if (active === true) {
-    if( e.target === navBurger) {
-      console.log('dragged');
-    }
-    else {
-      navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
-      console.log('dropped');
-    }
-  }
-  active = false;
-}
-
-function drag(e) {
-  if (active === true) {
-    navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
-    e.preventDefault();
-    
-    if (e.type === "touchmove") {
-      currentX = e.touches[0].clientX - initialX;
-      currentY = e.touches[0].clientY - initialY;
-    } else {
-      currentX = e.clientX - initialX;
-      currentY = e.clientY - initialY;
-    }
-    xOffset = currentX;
-    yOffset = currentY;
-    console.log(currentX, currentY, active);
-    //setTranslate(currentX, currentY, dragItem);
-  }
-  else {
-    navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
-    console.log("unattributed");
-  }
-}*/
-
-/*
-var active = false;
-var currentX;
-var currentY;
-var initialX;
-var initialY;
-var xOffset = 100;
-var yOffset = 100;
-
-navBurger.addEventListener("touchstart", dragStart, false);
-navBurger.addEventListener("touchend", dragEnd, false);
-navBurger.addEventListener("touchmove", drag, false);
-navBurger.addEventListener("mousedown", dragStart, false);
-navBurger.addEventListener("mouseup", dragEnd, false);
-navBurger.addEventListener("mousemove", drag, false);
-
-function dragStart(e) {
-  if (e.type === "touchstart") {
-    initialX = e.touches[0].clientX - xOffset;
-    initialY = e.touches[0].clientY - yOffset;
-  } else {
-    initialX = e.clientX - xOffset;
-    initialY = e.clientY - yOffset;
-  }
-  if (e.target === dragItem) {
-    active = true;
-  }
-}
-function dragEnd(e) {
-  if( e.target.getAttribute('data-boxtype') == navBurger.getAttribute('data-appendto') ) {
-    initialX = currentX;
-    initialY = currentY;
-    active = false;
-  }
-  else {
-    active = false;
-    setTranslate(0, 0, dragItem);
-  }
-}
-function drag(e) {
-  if (active) {
-    navBurger.setAttribute("style", "background-color: var(--progress-txt-color); border: 1px dashed red;");
-  
-    e.preventDefault();
-  
-    if (e.type === "touchmove") {
-      currentX = e.touches[0].clientX - initialX;
-      currentY = e.touches[0].clientY - initialY;
-    } else {
-      currentX = e.clientX - initialX;
-      currentY = e.clientY - initialY;
-    }
-    xOffset = currentX;
-    yOffset = currentY;
-    setTranslate(currentX, currentY, dragItem);
-  }
-  else {
-    navBurger.setAttribute("style", "background-color: none; border: 1px dashed transparent;");
-  }
-}
-function setTranslate(xPos, yPos, el) {
-  el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-} */
-//setTranslate(currentX, currentY, dragItem);
-
-/*dragItem.addEventListener('touchstart', handleTouchStart, false);        
-dragItem.addEventListener('touchmove', handleTouchMove, false);
-
-const SWIPE_BLOCK_ELEMS = [
-    'swipBlock',
-    'handle',
-    'drag-ruble'
-  ]
-
-var xDown = null;                                                        
-var yDown = null;   
-let timeDown = null;
-const  TIME_TRASHOLD = 200;
-const  DIFF_TRASHOLD = 130;
-
-let timeDiff = Date.now() - timeDown;
-
-function handleTouchStart(evt) {                                         
-    xDown = evt.touches[0].clientX;                                      
-    yDown = evt.touches[0].clientY;                                      
-};                                                
-
-function handleTouchMove(evt) {
-    if ( ! xDown || ! yDown ) {
-        return;
-    }
-
-    var xUp = evt.touches[0].clientX;                                    
-    var yUp = evt.touches[0].clientY;
-
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
-
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {//most significant
-        if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
-            if (( xDiff > 0 ) && (righted == false)) {
-            } else if (( xDiff > 0 ) && (righted== true)) {
-                 left swipe console.log(evt.target + ' left swiped');
-                
-                dragItem.style.transform = "translateX(-1px)";
-                righted = false;
-            } else {
-                right swipe console.log(evt.target + ' right swiped');
-                dragItem.style.transform = "translateX(500%)";
-                righted = true;
-            }                       
-    } else {
-        if ( yDiff > 0 ) {
-             up swipe  //console.log(evt.target + ' up swiped')
-        } else { 
-            down swipe //console.log(evt.target + ' down swiped')
-        }                                                                 
-    }
-     reset values 
-    xDown = null;
-    yDown = null;                                             
-};
-*/
-
+var dragItem = document.getElementById("draggable_burger");
 dragItem.addEventListener('touchstart', handleTouchStart, false);
 dragItem.addEventListener('touchmove', handleTouchMove, false);
 dragItem.addEventListener('touchend', handleTouchEnd, false);
@@ -326,7 +130,7 @@ var yDown = null;
 var xDiff = null;
 var yDiff = null;
 var timeDown = null;
-var TIME_TRASHOLD = 400;
+var TIME_TRASHOLD = 600;
 var DIFF_TRASHOLD = 100;
 
 function handleTouchEnd() {
@@ -335,31 +139,28 @@ function handleTouchEnd() {
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
     //most significant
     if (Math.abs(xDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
-      if (xDiff > 0) {
+      if (xDiff > 0 && dragItem.getBoundingClientRect().left >= 10) {
         //left swipe 
         // No yAxis transitions
-        console.log('swipeX left', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+        //FOR DEBUG : console.log('swipeX left', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+        setTranslate(1, 0, dragItem);
       } else {
         // right swipe 
+        //FOR DEBUG : console.log('swipeX right', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
         // No yAxis transitions
-        setTranslate(80, 0, dragItem);
-        console.log('swipeX right', 'x-move:', xDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+        setTranslate(78, 0, dragItem);
       }
-    } else {
-      console.log('swipeX trashhold');
+    } else {//FOR DEBUG : console.log('swipeX trashhold');
     }
   } else {
     if (Math.abs(yDiff) > DIFF_TRASHOLD && timeDiff < TIME_TRASHOLD) {
-      if (yDiff > 0) {
-        // up swipe 
-        console.log('swipeY right', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
-      } else {
-        // down swipe 
-        console.log('swipeY down', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+      if (yDiff > 0) {// up swipe 
+        //FOR DEBUG : console.log('swipeY right', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+      } else {// down swipe 
+          //FOR DEBUG : console.log('swipeY down', 'y-move:', yDiff, "in :", timeDiff, "ms", this.getBoundingClientRect());
+        }
+    } else {//FOR DEBUG : console.log('swipeY trashhold')
       }
-    } else {
-      console.log('swipeY trashhold');
-    }
   } // reset values 
 
 

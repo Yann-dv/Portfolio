@@ -109,7 +109,12 @@ input:invalid {
 }
 
 #draggable_burger {
-    margin: .5rem
+    margin: .5rem;
+    transition: all .5s;
+}
+
+#draggable_burger:active {
+    background-color: var(--progressbar-bg-color );
 }
 
 #draggable_burger:hover {
