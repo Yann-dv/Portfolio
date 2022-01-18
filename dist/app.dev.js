@@ -94,7 +94,7 @@ document.addEventListener("click", function (e) {
   if (e.target === burgerToggle && burgerToggle.checked == true) {
     navBurger_container.setAttribute("style", "background-color: #000;");
     dragItem.style.transition = "all 0s";
-    dragItem.classList.toggle("hidden");
+    burgerLabel.classList.toggle("hidden");
     var burgerlinks = document.querySelector('.navburger .burger_links'); //burgerlinks.setAttribute("style", "transition: all .5s;")
     //Closing burger timer   
 
@@ -103,7 +103,7 @@ document.addEventListener("click", function (e) {
       burgerLabel.classList.toggle("hidden");
       navBurger_container.setAttribute("style", "background-color: none");
       dragItem.style.transition = "all .5s";
-      dragItem.removeAttribute('style');
+      burgerlinks.removeAttribute('style');
     }, 8000);
   } else if (e.target === burgerToggle && burgerToggle.checked == false) {
     navBurger.setAttribute("style", "background-color: none");
