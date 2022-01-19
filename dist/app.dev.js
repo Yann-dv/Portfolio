@@ -11,6 +11,7 @@ var navBurger_container = document.querySelector('#draggable_burger_container');
 var burgerToggle = document.getElementById("toggle");
 var burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
 var dragItem = document.getElementById("draggable_burger");
+var arrowSlide = document.getElementsByClassName(".arrowSliding");
 var arrows = document.querySelectorAll('div.arrowSliding > div.arrow');
 var headerHeight = heading.clientHeight;
 var servicesHeight = serv.clientHeight;
@@ -195,6 +196,11 @@ function handleTouchMove(evt) {
   var righted;
 
   if (dragItem.getBoundingClientRect().left >= 20) {
+    document.documentElement.style.setProperty('--start-slide', 'translateX(15vw)');
+    document.documentElement.style.setProperty('--twenty-slide', 'translateX(9vw)');
+    document.documentElement.style.setProperty('--heighty-slide', 'translateX(-9vw)');
+    document.documentElement.style.setProperty('--finish-slide', 'translateX(-15vw)');
+
     for (var i = 0; i < arrows.length; i++) {
       arrows[i].classList.add('inverted_arrow');
       setTimeout(function () {
@@ -206,6 +212,11 @@ function handleTouchMove(evt) {
     arrowAnim.classList.toggle("hidden");
     arrowAnim.setAttribute("style", "width: 100%; z-index: 1;");
   } else if (righted = true) {
+    document.documentElement.style.setProperty('--start-slide', 'translateX(-15vw)');
+    document.documentElement.style.setProperty('--twenty-slide', 'translateX(-9vw)');
+    document.documentElement.style.setProperty('--heighty-slide', 'translateX(9vw)');
+    document.documentElement.style.setProperty('--finish-slide', 'translateX(15vw)');
+
     for (var i = 0; i < arrows.length; i++) {
       arrows[i].classList.remove('inverted_arrow');
     }

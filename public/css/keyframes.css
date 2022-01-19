@@ -1,3 +1,11 @@
+
+:root {
+    --start-slide: translateX(-15vw);
+    --twenty-slide: translateX(-9vw);
+    --heighty-slide: translateX(9vw);
+    --finish-slide: translateX(15vw);
+}
+
 @keyframes onHoverNav {
     0% {
         background: var(--nav-bg-color);
@@ -30,36 +38,36 @@
 @-webkit-keyframes slide {
     0% { 
         opacity:0; 
-        transform: translateX(-15vw); 
+        transform: var(--start-slide); 
     }	
    20% { 
        opacity:1; 
-       transform: translateX(-9vw); 
+       transform: var(--twenty-slide); 
     }	
    80% { 
        opacity:1; 
-       transform: translateX(9vw); 
+       transform: var(--heighty-slide); 
     }	
   100% { 
       opacity:0; 
-      transform: translateX(15vw); 
+      transform: var(--finish-slide); 
     }	
 }
 @keyframes slide {
     0% { 
         opacity:0; 
-        transform: translateX(-15vw); 
+        transform: var(--start-slide); 
     }	
    20% { 
        opacity:1; 
-       transform: translateX(-9vw); 
+       transform: var(--twenty-slide); 
     }	
    80% { 
        opacity:1; 
-       transform: translateX(9vw); 
+       transform: var(--heighty-slide); 
     }	
   100% { 
       opacity:0; 
-      transform: translateX(15vw); 
+      transform: var(--finish-slide); 
     }		
 }

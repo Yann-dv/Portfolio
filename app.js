@@ -10,6 +10,7 @@ const burgerToggle = document.getElementById("toggle");
 const burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
 
 const dragItem = document.getElementById("draggable_burger");
+const arrowSlide = document.getElementsByClassName(".arrowSliding");
 var arrows = document.querySelectorAll('div.arrowSliding > div.arrow');
 
 var headerHeight = heading.clientHeight;
@@ -219,6 +220,10 @@ function handleTouchMove(evt) {
  
   let righted;
   if(dragItem.getBoundingClientRect().left >= 20) {
+    document.documentElement.style.setProperty('--start-slide', 'translateX(15vw)');
+    document.documentElement.style.setProperty('--twenty-slide', 'translateX(9vw)');
+    document.documentElement.style.setProperty('--heighty-slide', 'translateX(-9vw)');
+    document.documentElement.style.setProperty('--finish-slide', 'translateX(-15vw)');
     for (var i=0; i < arrows.length; i++) {
         arrows[i].classList.add('inverted_arrow')
         setTimeout(() => {
@@ -230,6 +235,11 @@ function handleTouchMove(evt) {
     arrowAnim.setAttribute("style", "width: 100%; z-index: 1;");
   }
   else if(righted = true) {
+    document.documentElement.style.setProperty('--start-slide', 'translateX(-15vw)');
+    document.documentElement.style.setProperty('--twenty-slide', 'translateX(-9vw)');
+    document.documentElement.style.setProperty('--heighty-slide', 'translateX(9vw)');
+    document.documentElement.style.setProperty('--finish-slide', 'translateX(15vw)');
+
     for (var i=0; i < arrows.length; i++) {
         arrows[i].classList.remove('inverted_arrow')
     }
