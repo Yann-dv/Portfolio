@@ -1,6 +1,5 @@
 "use strict";
 
-var closingBtn = document.getElementById('close_modal_btn');
 var heading = document.querySelector('#header');
 var serv = document.querySelector('#services');
 var serv_itemsList = document.querySelectorAll('.servicesContainer .item-service');
@@ -10,6 +9,21 @@ var portfolioLinks = document.querySelectorAll('#portfolioList a');
 var navBurger_container = document.querySelector('#draggable_burger_container');
 var burgerToggle = document.getElementById("toggle");
 var burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
+var modalContainer = document.querySelector("#contactModal");
+var modalTriggers = document.querySelectorAll(".modal-trigger");
+var navBar = document.querySelector("#navbar");
+var navBurger = document.querySelector("#navBurger");
+modalTriggers.forEach(function (trigger) {
+  return trigger.addEventListener("click", toggleModal);
+});
+
+function toggleModal() {
+  document.body.classList.toggle("disable_overflow");
+  modalContainer.classList.toggle("active");
+  navBar.classList.toggle("hidden");
+  navBurger.classList.toggle("hidden");
+}
+
 var dragItem = document.getElementById("draggable_burger");
 var arrowSlide = document.getElementsByClassName(".arrowSliding");
 var arrows = document.querySelectorAll('div.arrowSliding > div.arrow');
@@ -60,6 +74,7 @@ window.addEventListener('load', function (event) {
   //Index redirection
   window.localStorage.removeItem('colorTheme');
   window.location = "#";
+  burgerToggle.checked = false;
   var fadeObject = document.querySelectorAll('.fadeLoad');
   var delay = 300;
   fadeObject.forEach(function (element, index) {
@@ -107,21 +122,6 @@ document.addEventListener("click", function (e) {
       dragItem.style.transition = "all .5s";
       burgerlinks.removeAttribute('style');
     }, 8000);
-  } else if (e.target === burgerToggle && burgerToggle.checked == false) {
-    navBurger.setAttribute("style", "background-color: none");
-    burgerLabel.setAttribute("style", "display: inline");
-  }
-
-  var isContacLink = e.target.classList.contains('contactLink');
-
-  if (isContacLink) {
-    document.body.classList.toggle("disable_overflow");
-    navbar.classList.toggle("hidden");
-    navBurger.classList.toggle("hidden");
-  } else if (e.target === closingBtn) {
-    document.body.classList.toggle("disable_overflow");
-    navbar.classList.toggle("hidden");
-    navBurger.classList.toggle("hidden");
   } else {//nothing to do
   }
 }); //Draggable burger menu

@@ -3,8 +3,9 @@
 <?php echo'<script async src="https://www.google.com/recaptcha/api.js?render=' . $reCAPTCHA_site_key . '"></script>'?>
 
 <?php ob_start(); ?>
+<div class="overlay modal-trigger"></div>
 <div class="modal_form">
-<a href="javascript:history.go(-1)" id="close_modal_btn" class="modal_close">&times;</a>
+<button id="close_modal_btn" class="modal_close modal-trigger">&times;</button>
 	<form id="contactForm" class="contact-form" method="POST" action="././back/traitement.php">
 	    <fieldset>
 		<h2>Vos coordonnées</h2>

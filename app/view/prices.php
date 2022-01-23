@@ -48,7 +48,7 @@
 					<span class="second-priceList-color">
 						Formation à l'utilisation du site
 					</span>
-	    <a href="#contactModal"><span class="contactLink">DEMANDER UN DEVIS</span></a>
+	    <a href="#contactModal"><span class="contactLink modal-trigger">DEMANDER UN DEVIS</span></a>
 	</div>
     <div class="prices custom_website">
         <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine') . '<br/>' . strtoupper('personnalise') . '<br/>' . '</span> <hr class="under_border"/>'?>
@@ -93,7 +93,7 @@
 					<span class="second-priceList-color">
 						Formation à l'utilisation du site
 					</span>
-	    <a href="#contactModal"><span class="contactLink">DEMANDER UN DEVIS</span></a>
+	    <a href="#contactModal"><span class="contactLink modal-trigger">DEMANDER UN DEVIS</span></a>
 	</div>
     <div class="prices ecommerce">
         <?php echo '<span class="priceHeader">' . strtoupper('Site') . '<br/>' . strtoupper('e-commerce') . '<br/>' . '</span> <hr class="under_border"/>' ?>
@@ -137,7 +137,7 @@
 					<span class="second-priceList-color">
 						Formation à l'utilisation du site
 					</span>
-	    <a href="#contactModal" ><span class="contactLink">DEMANDER UN DEVIS</span></a>
+	    <a href="#contactModal" ><span class="contactLink modal-trigger">DEMANDER UN DEVIS</span></a>
 	</div>
 	<div class="prices">
 		<div class="maintenance">
@@ -159,13 +159,13 @@
 				<span class="second-priceList-color"> 
 				Restauration de contenu
 				</span>
-			<a href="#contactModal"><span class="contactLink">ME CONTACTER</span></a>
+			<a href="#contactModal"><span class="contactLink modal-trigger">ME CONTACTER</span></a>
 		</div>
 
 		<div class="specials">
 			<?php echo '<span class="priceHeader">' . strtoupper('Developpement specifique') . '</span> <hr class="under_border"/>' ?>
 			<span class="second-priceList-color">Taux journalier moyen </br> 400€/Jour</span>
-			<a href="#contactModal"><span class="contactLink">ME CONTACTER</span></a>
+			<a href="#contactModal"><span class="contactLink modal-trigger">ME CONTACTER</span></a>
 		</div>
 	</div>
 </div>

@@ -7,7 +7,7 @@
 
 <div class="contactContainer">
         <a href="#contactModal" title="ouvrir le formulaire de contact">
-                <span class="contactLink rounded">FORMULAIRE DE CONTACT</span>
+                <span class="contactLink modal-trigger rounded">FORMULAIRE DE CONTACT</span>
         </a>
         
 </div>

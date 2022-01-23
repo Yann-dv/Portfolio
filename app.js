@@ -1,4 +1,3 @@
-const closingBtn = document.getElementById('close_modal_btn');
 const heading = document.querySelector('#header');
 const serv = document.querySelector('#services');
 const serv_itemsList = document.querySelectorAll('.servicesContainer .item-service');
@@ -8,6 +7,20 @@ const portfolioLinks = document.querySelectorAll('#portfolioList a');
 const navBurger_container = document.querySelector('#draggable_burger_container');
 const burgerToggle = document.getElementById("toggle");
 const burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
+
+const modalContainer = document.querySelector("#contactModal");
+const modalTriggers = document.querySelectorAll(".modal-trigger");
+const navBar = document.querySelector("#navbar");
+const navBurger = document.querySelector("#navBurger");
+
+modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+
+function toggleModal(){
+  document.body.classList.toggle("disable_overflow");
+  modalContainer.classList.toggle("active")
+  navBar.classList.toggle("hidden");
+  navBurger.classList.toggle("hidden");
+}
 
 const dragItem = document.getElementById("draggable_burger");
 const arrowSlide = document.getElementsByClassName(".arrowSliding");
@@ -71,6 +84,7 @@ window.addEventListener('load', (event) => {
     //Index redirection
     window.localStorage.removeItem('colorTheme');
     window.location="#";    
+    burgerToggle.checked = false;
     var fadeObject = document.querySelectorAll('.fadeLoad');
     var delay = 300;
     fadeObject.forEach(function(element, index) {
@@ -126,22 +140,6 @@ document.addEventListener("click", function (e) {
                 burgerlinks.removeAttribute('style');
             }, 8000);
         }
-    else if(e.target === burgerToggle && burgerToggle.checked == false) {
-        navBurger.setAttribute("style", "background-color: none");
-        burgerLabel.setAttribute("style", "display: inline");
-    }
-
-    let isContacLink = e.target.classList.contains('contactLink');
-    if(isContacLink) {
-        document.body.classList.toggle("disable_overflow");
-        navbar.classList.toggle("hidden");
-        navBurger.classList.toggle("hidden");
-    }
-    else if(e.target === closingBtn ) {
-        document.body.classList.toggle("disable_overflow");
-        navbar.classList.toggle("hidden");
-        navBurger.classList.toggle("hidden");
-    }
     else {
         //nothing to do
     }

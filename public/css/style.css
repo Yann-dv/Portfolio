@@ -586,29 +586,35 @@ progress {
 .rounded {
     border-radius: 20px;
 }
-
-#contactModal {
-    max-height: 0;
+.overlay {
     opacity: 0;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(77, 77, 77, 0.911);
-    transition: all .3s;
+    width: 100%;
+    height: 100%;
+    background: #333333d3;
+    transition: opacity 0.4s 0.2s ease-out;
+  }
+
+#contactModal.active .overlay {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
 }
 
-
-#contactModal:target {
+#contactModal {
+    /*display: none;*/
     display: flex;
+    visibility: collapse;
     position: fixed;
-    padding: .3rem;
-    opacity: 1;
-    max-height: 100%;
+    width: 100vw;
+    height: 100vh;
+}
+
+#contactModal.active {
+  /*display: flex;*/
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
 }
 
 .disable_overflow {
@@ -625,14 +631,25 @@ progress {
 }
 
 .modal_form {
+    opacity: 0;
     position: relative;
-    overflow: auto;
-    border-radius: 4px;
-    max-height: 90%;
-    max-width: 90%;
-    background: white;
-    padding: 1.5em 2em;
-}
+    width: 80%;
+    z-index: 100;
+    min-width: 300px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: .2rem;
+    transform: translate(0, -100%);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  #contactModal.active .modal_form{
+    opacity: 1;
+    transform: translate(0, .5%);
+    transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
+  }
+
 
 .modal_form::-webkit-scrollbar-thumb {
     border-radius: 20px;
@@ -676,13 +693,14 @@ progress {
 }
 
 .modal_close {
-    position: absolute;
+    cursor: pointer;
     background-color: var(--progressbar-bg-color);
     border-radius: 5px;
     font-size: 2rem;
     font-weight: bold;
     padding-left: .4rem;
     padding-right: .4rem;
+    position: absolute;
     top: 1rem;
     right: 1rem;
     color: var(--main-html-bg-color);
@@ -858,12 +876,8 @@ progress {
         font-size: 16px;
         width: 90%;
     }
-    .modal_close {
-        top: .1rem;
-        right: .1rem;
-    }
     .modal_form {
-        width: 60%;
+        width: 80%;
     }
 }
 @media screen and (min-width: 1023px) {
@@ -872,6 +886,9 @@ progress {
     }
     .header {
         margin: 3rem;
+    }
+    .modal_form {
+        width: 60%;
     }
     .servicesContainer{
         grid-column-gap: 50px;
