@@ -615,6 +615,7 @@ progress {
   align-items: center;
   justify-content: center;
   visibility: visible;
+  overflow-y: scroll;
 }
 
 .disable_overflow {
@@ -633,20 +634,21 @@ progress {
 .modal_form {
     opacity: 0;
     position: relative;
-    width: 80%;
+    width: 60%;
+    height: auto;
     z-index: 100;
     min-width: 300px;
-    padding: 30px;
+    padding: 5px;
     background: #fff;
     border-radius: 5px;
     margin-top: .2rem;
     transform: translate(0, -100%);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-  }
+}
 
   #contactModal.active .modal_form{
     opacity: 1;
-    transform: translate(0, .5%);
+    transform: translate(0, 15%);
     transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
   }
 
@@ -878,6 +880,10 @@ progress {
     }
     .modal_form {
         width: 80%;
+        padding: 20px;
+    }
+    #contactModal.active .modal_form{
+        transform: translate(0, 10%);
     }
 }
 @media screen and (min-width: 1023px) {
@@ -889,9 +895,13 @@ progress {
     }
     .modal_form {
         width: 60%;
+        padding: 22px;
     }
     .servicesContainer{
         grid-column-gap: 50px;
+    }
+    #contactModal.active .modal_form{
+        transform: translate(0, 1%);
     }
 }
 @media screen and (min-width: 1201px) {
