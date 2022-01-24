@@ -648,7 +648,7 @@ progress {
 
   #contactModal.active .modal_form{
     opacity: 1;
-    transform: translate(0, 10%);
+    transform: translate(0, 5%);
     transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
   }
 
@@ -883,7 +883,7 @@ progress {
         padding: 20px;
     }
     #contactModal.active .modal_form{
-        transform: translate(0, 5%);
+        transform: translate(0, 2%);
     }
 }
 @media screen and (min-width: 1023px) {
