@@ -648,7 +648,7 @@ progress {
 
   #contactModal.active .modal_form{
     opacity: 1;
-    transform: translate(0, 5%);
+    transform: translate(0, 3%);
     transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
   }
 
@@ -726,16 +726,18 @@ progress {
 /* Customize the label (the container) */
 .rgpd_check {
     display: block;
-    margin-top: 2rem;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     font-size: 12px;
+}
+
+.alert {
+    margin-top: .2rem;
 }
 
 /* Hide the browser's default checkbox */
@@ -803,8 +805,8 @@ progress {
 }
 
 .projectDescription {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
 }
 
 .sendFormBtn {
@@ -877,10 +879,17 @@ progress {
     }
     .rgpd_check {
         font-size: 16px;
+        margin-top: 1rem;
         width: 90%;
     }
+    .alert {
+        margin-top: .5rem;
+    }
+    .projectDescription {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
     .modal_form {
-        width: 80%;
         padding: 20px;
     }
     .modal_close {
@@ -904,7 +913,6 @@ progress {
         margin: 3rem;
     }
     .modal_form {
-        width: 60%;
         padding: 22px;
     }
     .servicesContainer{
