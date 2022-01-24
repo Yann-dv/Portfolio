@@ -658,8 +658,8 @@ progress {
 }
 
 #contactForm h2{
-    margin-top: .4rem;
-    margin-bottom: .4rem;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #contactModal {
