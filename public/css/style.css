@@ -690,8 +690,8 @@ progress {
     background-color: var(--contactLink-color);
     border: .09rem solid var(--contactLink-color);
     color: white;
-    padding: 1rem 3rem;
-    font-size: 20px;
+    padding: .5rem 2rem;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -892,8 +892,8 @@ progress {
         transform: translate(0, 2%);
     }
     #sendEmailBtn {
-        padding: .5rem 2rem;
-        font-size: 18px;
+        padding: 1rem 3rem;
+        font-size: 20px;
     }
 }
 @media screen and (min-width: 1023px) {
