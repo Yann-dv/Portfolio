@@ -736,6 +736,10 @@ progress {
     font-size: 12px;
 }
 
+.msgFormDevis {
+    display: none;
+}
+
 .alert {
     margin-top: .2rem;
 }
@@ -882,6 +886,9 @@ progress {
         font-size: 16px;
         margin-top: 1rem;
         width: 90%;
+    }
+    .msgFormDevis {
+        display: inline;
     }
     .alert {
         margin-top: .5rem;
