@@ -825,6 +825,7 @@ progress {
     transform: scale(1.08);
     transition: .4s;
 }
+
 @media screen and (min-width: 768px) {
     .grecaptcha-badge { 
         visibility: visible; 
@@ -905,6 +906,16 @@ progress {
         font-size: 20px;
     }
 }
+
+@media screen and (orientation: landscape) {
+    #contactModal.active .modal_form{
+        transform: translate(0, 15%);
+    }
+    .overlay {
+        min-height: 1000px;
+    }
+}
+
 @media screen and (min-width: 1023px) {
     html {
         background-image:url('../image/main_bg_medium.jpg'); 
