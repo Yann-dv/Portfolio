@@ -648,7 +648,7 @@ progress {
 
   #contactModal.active .modal_form{
     opacity: 1;
-    transform: translate(0, 1%);
+    transform: translate(0, .5%);
     transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
   }
 
@@ -937,7 +937,7 @@ progress {
         grid-column-gap: 50px;
     }
     #contactModal.active .modal_form{
-        transform: translate(0, 1.5%);
+        transform: translate(0, 2%);
     }
     #contactForm h2{
         margin-top: 1rem;
