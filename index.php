@@ -33,13 +33,14 @@ require ('./app/textContent.php');
         <script defer src="./app.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JRQKGGFVH4"></script>
+        <!--Deleted due to new European rules aout RGPD and Google Analytics January 2022-->
+        <!--<script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JRQKGGFVH4"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-JRQKGGFVH4');
-        </script>
+        </script>-->
     </head>
 
     <?php require('./app/view/template.php'); ?>
