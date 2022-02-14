@@ -1,18 +1,17 @@
 <?php ob_start(); ?>
-    <div class="sectionHeader">
+    <section class="sectionHeader">
         <h3 class="sectionTitle"><?php echo strtoupper('Mes services') ?></h3>
         <p>Des prestations adaptées à vos besoins</p>
         <hr class="under_border">
-    </div>
+    </section>
 
-    <div class="servicesContainer">
+    <section class="servicesContainer">
             <div class="item-service">
                 <div class="iconBlock">
                     <span class="fa-stack">
                         <i class="fa fa-circle-thin fa-stack-2x"></i>
                         <i class="fas fa-stack-1x fa-globe"></i>
-                    </span>
-                    
+                    </span> 
                 </div>
                 <div class="service_desc">
                     <h4><?php echo strtoupper('Gestion de projets web'); ?></h4>
@@ -58,17 +57,17 @@
 
 
 
-        <div class="item-service ">
-                <div class="iconBlock">
-                <span class="fa-stack">
-                        <i class="fa fa-circle-thin fa-stack-2x"></i>
-                        <i class="fa fa-stack-1x fa-pencil"></i>
-                </span>
-                </div>
-                <div class="service_desc">
-                    <h4><?php echo strtoupper('Conception graphique'); ?></h4>
-                    <p>Logos, templates Web, plaquettes publicitaires, cartes de visite, newsletters...</p>
-                </div>
+            <div class="item-service ">
+                    <div class="iconBlock">
+                    <span class="fa-stack">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class="fa fa-stack-1x fa-pencil"></i>
+                    </span>
+                    </div>
+                    <div class="service_desc">
+                        <h4><?php echo strtoupper('Conception graphique'); ?></h4>
+                        <p>Logos, templates Web, plaquettes publicitaires, cartes de visite, newsletters...</p>
+                    </div>
             </div>
             <div class="item-service">
                 <div class="iconBlock">
@@ -106,7 +105,7 @@
                     <p>Compatible tous supports, tablette & application mobile. Développement mobile-first</p>
                 </div>
             </div>
-        </div>
+    </section>
 
 
 <?php $services= ob_get_clean(); ?>

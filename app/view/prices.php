@@ -1,10 +1,10 @@
 <?php ob_start(); ?>
-<div class="sectionHeader">
+<section class="sectionHeader">
         <h3 class="sectionTitle"><?php echo strtoupper('Tarifs') ?></h3>
         <p>N'hésitez pas à demander un devis gratuit pour votre projet !</p>
         <hr class="under_border">
-</div>
-<div class="pricesContainer">
+</section>
+<section class="pricesContainer">
     <div class="prices classic_website">
       <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine') . '<br/>' . strtoupper('standard') . '<br/>' . '</span>' . '<hr class="under_border"/>'?>
 		<span class="first-priceList-color">À partir de 1000€ <abbr title="L'ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. Droit d'auteur & propriété intellectuelle : A l'issue de la production, vous êtes propriétaire de l'ensemble des ressources (fichiers) composant celui-ci. Paiment possible en plusieurs fois.">*</abbr></span>
@@ -168,7 +168,7 @@
 			<a href="#contactModal"><span class="contactLink modal-trigger">ME CONTACTER</span></a>
 		</div>
 	</div>
-</div>
+</section>
 			
 
 <?php $prices= ob_get_clean(); ?>

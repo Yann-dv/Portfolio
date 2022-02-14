@@ -12,9 +12,9 @@
 <body class="success_body">
     <h1 class="succes_ttt_title">Votre demande de contact a bien été envoyée</h1>
         <h2 class="success_subtitle">Apperçu de l'envoi : </h2>
-        <div class="success_content">
+        <section class="success_content">
             <?php echo $_SESSION['sendedContent']; ?>
-        </div>
+        </section>
         <div class="loaderContainer">
             <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>

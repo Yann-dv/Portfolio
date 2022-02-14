@@ -4,8 +4,8 @@
 
 <?php ob_start(); ?>
 <div class="overlay modal-trigger"></div>
-<div class="modal_form">
-<button id="close_modal_btn" class="modal_close modal-trigger">&times;</button>
+<section class="modal_form">
+	<button id="close_modal_btn" class="modal_close modal-trigger">&times;</button>
 	<form id="contactForm" class="contact-form" method="POST" action="././back/traitement.php">
 	    <fieldset>
 		<h2>Vos coordonnées</h2>
@@ -151,5 +151,5 @@
         });
     }
 	</script>
-</div>
+</section>
 <?php $contactModalForm= ob_get_clean(); ?>

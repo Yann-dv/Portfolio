@@ -1,15 +1,15 @@
 <?php ob_start(); ?>
 
-<div class="sectionHeader">
+<section class="sectionHeader">
         <h3 class="sectionTitle"><?php echo strtoupper('Mes projets') ?></h3>
         <p>Aperçu des projets sur lesquels j'ai travaillé</p>
         <hr class="under_border">
-</div>
+</section>
 
 <?php require('./back/api.php'); ?> <!--Get Github Api public datas-->
 
   <?php
-   echo '<div class="projectsContainer" id="portfolioList">';
+   echo '<section class="projectsContainer" id="portfolioList">';
     foreach($projects_list as $project) {
       if($project['private'] !== false && $project['visibility'] !== 'public'){
         // Don't show privates projects if transmitted by error
@@ -48,7 +48,7 @@
         }
       }
     }
-    echo '</div>' // portfolio container end
+    echo '</section>' // portfolio container end
   ?>  
 
 <?php $portfolio= ob_get_clean(); ?>

@@ -1,10 +1,10 @@
 <?php ob_start(); ?>
-<div class="sectionHeader">
+<section class="sectionHeader">
         <h3 class="sectionTitle"><?php echo strtoupper('A propos') ?></h3>
         <p>Un développeur web passionné !</p>
         <hr class="under_border">
-</div>
-<div class="aboutContainer">
+</section>
+<section class="aboutContainer">
         <img src="./public/image/avatar.jpg" alt="Image portrait de moi-même" title="Moi-même">
         <p>
         Ma passion pour l'informatique et la programmation commence dès l'adolescence, dans les années 2000. 
@@ -23,5 +23,5 @@
         ainsi que celles que j'ai développé en me formant en parallèle en autodidacte que je démarre ma carrière de Développeur Web !
         Depuis ma reconversion, j'ai pu participer à différentes projets de développement, notamment des créations de sites vitrines pour des professionnels du sport.
         </p>
-</div>
+</section>
 <?php $about= ob_get_clean(); ?>

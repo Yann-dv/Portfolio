@@ -1,11 +1,11 @@
 <?php ob_start(); ?>
-<div class="sectionHeader">
+<section class="sectionHeader">
         <h3 class="sectionTitle"><?php echo strtoupper('Mes competences') ?></h3>
         <p>Des prestations adaptées à vos besoins</p>
         <hr class="under_border">
-    </div>
+    </section>
 
-    <div class="skillsContainer">
+    <section class="skillsContainer">
         <div class="leftSkillsList">
             <div class="skillsList">
                 <ul>
@@ -128,6 +128,6 @@
                 </ul>
 			</div>
         </div>
-    </div>
+</section>
 
 <?php $skills= ob_get_clean(); ?>
