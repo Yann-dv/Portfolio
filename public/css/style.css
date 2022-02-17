@@ -650,11 +650,15 @@ progress {
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
-  #contactModal.active .modal_form{
-    opacity: 1;
-    transform: translate(0, 15%);
-    transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
-  }
+#contactModal header {
+    visibility: collapse;
+}
+
+#contactModal.active .modal_form{
+  opacity: 1;
+  transform: translate(0, 15%);
+  transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
+}
 
 
 .modal_form::-webkit-scrollbar-thumb {

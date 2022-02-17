@@ -26,7 +26,7 @@ require('./app/view/contactModalForm.php');
             <?php echo '<article class="contentBlock fadeLoad" id="prices">' . $prices . '</article>'?>
             <?php echo '<article class="contentBlock fadeLoad" id="about">' . $about . '</article>'?>
             <?php echo '<article class="contentBlock fadeLoad" id="contact">' . $contact . '</article>'?>
-            <?php echo '<article class="modal" id="contactModal">' . $contactModalForm . '</article>'?>
+            <?php echo '<article class="modal" id="contactModal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">' . $contactModalForm . '</article>'?>
         </main>
     </body>
 

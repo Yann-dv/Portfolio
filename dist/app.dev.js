@@ -11,6 +11,8 @@ var burgerToggle = document.getElementById("toggle");
 var burgerLabel = document.querySelector('#draggable_burger_container > label:nth-child(1)');
 var modalContainer = document.querySelector("#contactModal");
 var modalTriggers = document.querySelectorAll(".modal-trigger");
+var modalCloseBtn = document.getElementById("close_modal_btn");
+var attrModal = document.getElementById("contactModal").attributes;
 var navBar = document.querySelector("#navbar");
 var navBurger = document.querySelector("#navBurger");
 modalTriggers.forEach(function (trigger) {
@@ -20,6 +22,20 @@ modalTriggers.forEach(function (trigger) {
 function toggleModal() {
   document.body.classList.toggle("disable_overflow");
   modalContainer.classList.toggle("active");
+
+  if (attrModal['aria-hidden'].value == "true") {
+    document.body.setAttribute("aria-hidden", "true");
+    navbar.setAttribute("aria-hidden", "true");
+    navBurger.setAttribute("aria-hidden", "true");
+    document.getElementById("close_modal_btn").focus();
+    modalContainer.setAttribute("aria-hidden", "false");
+  } else if (attrModal['aria-hidden'].value == "false") {
+    document.body.setAttribute("aria-hidden", "false");
+    navbar.setAttribute("aria-hidden", "false");
+    navBurger.setAttribute("aria-hidden", "false");
+    modalContainer.setAttribute("aria-hidden", "true");
+  }
+
   navBar.classList.toggle("hidden");
   navBurger.classList.toggle("hidden");
 }
@@ -106,6 +122,13 @@ window.addEventListener('load', function (event) {
       document.body.style.removeProperty('transition-duration');
     }
   }, 120000);
+});
+document.addEventListener("keyup", function (e) {
+  var keyCode = e.keyCode ? e.keyCode : e.which;
+
+  if (attrModal['aria-hidden'].value == "false" && keyCode === 27) {
+    toggleModal();
+  }
 });
 document.addEventListener("click", function (e) {
   if (e.target === burgerToggle && burgerToggle.checked == true) {

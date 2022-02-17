@@ -4,6 +4,9 @@
 
 <?php ob_start(); ?>
 <div class="overlay modal-trigger"></div>
+<header> 
+	<h2 id="modalTitle" class="modal-title">Formulaire de contact à remplir</h2>
+</header>
 <section class="modal_form">
 	<button id="close_modal_btn" class="modal_close modal-trigger">&times;</button>
 	<form id="contactForm" class="contact-form" method="POST" action="././back/traitement.php">

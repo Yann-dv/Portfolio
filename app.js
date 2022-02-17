@@ -10,6 +10,8 @@ const burgerLabel = document.querySelector('#draggable_burger_container > label:
 
 const modalContainer = document.querySelector("#contactModal");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
+const modalCloseBtn = document.getElementById("close_modal_btn");
+var attrModal = document.getElementById("contactModal").attributes;
 const navBar = document.querySelector("#navbar");
 const navBurger = document.querySelector("#navBurger");
 
@@ -18,6 +20,19 @@ modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
 function toggleModal(){
   document.body.classList.toggle("disable_overflow");
   modalContainer.classList.toggle("active")
+  if(attrModal['aria-hidden'].value == "true") {
+    document.body.setAttribute("aria-hidden", "true");
+    navbar.setAttribute("aria-hidden", "true");
+    navBurger.setAttribute("aria-hidden", "true");
+    document.getElementById("close_modal_btn").focus();
+    modalContainer.setAttribute("aria-hidden", "false");
+  }
+  else if(attrModal['aria-hidden'].value == "false"){
+    document.body.setAttribute("aria-hidden", "false");
+    navbar.setAttribute("aria-hidden", "false");
+    navBurger.setAttribute("aria-hidden", "false");
+    modalContainer.setAttribute("aria-hidden", "true");
+  }
   navBar.classList.toggle("hidden");
   navBurger.classList.toggle("hidden");
 }
@@ -121,6 +136,13 @@ window.addEventListener('load', (event) => {
     }, 120000);
 });
 
+document.addEventListener("keyup", function (e) {
+  const keyCode = e.keyCode ? e.keyCode : e.which;
+
+  if (attrModal['aria-hidden'].value == "false" && keyCode === 27) {
+    toggleModal();
+  }
+})
 
 document.addEventListener("click", function (e) {
     if(e.target === burgerToggle && burgerToggle.checked == true) { 
