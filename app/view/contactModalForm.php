@@ -18,7 +18,7 @@
 					<div class="userProfile">
 						<div class="form-group input-group">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input id="userName" type="text" name="userName" class="form-control" aria-label="nom et prénom" placeholder="Nom / Prénom" autocomplete="off" min-length="2" required>
+							<input id="userName" type="text" name="userName" class="form-control" aria-label="nom et prénom" placeholder="Nom / Prénom" autocomplete="off" min="2" required>
 						</div>
 						<div class="userOption">
 								<div class="i-checks">
@@ -35,13 +35,13 @@
 						<div class="form-group input-group">
 							<div class="userOption">
 								<div class="i-checks">
-									<span class="iradio_minimal-grey"><input type="radio" id="idRadioP" name="typeUserDevis" value="1" checked="checked">
+									<div class="iradio_minimal-grey"><input type="radio" id="idRadioP" name="typeUserDevis" value="1" checked="checked">
 										<label id="idRadioP_label" for="idRadioP" class="bold">Particulier</label>
 										<div id="blocCompagny" class="form-group input-group">
 											<span class="input-group-addon"><i class="fas fa-building"></i></span>
-											<input id="compagny" type="text" name="compagny" class="form-control" placeholder="Société / Association :" autocomplete="off" min-length="2"> 
+											<input id="compagny" type="text" name="compagny" class="form-control" placeholder="Société / Association :" autocomplete="off" min="2"> 
 										</div>
-									</span>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -50,19 +50,19 @@
 				<div class="userContact">
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
-						<input type="email" name="email" id="email" aria-label="email" class="form-control" placeholder="E-mail" autocomplete="off" min-length="2" required> 
+						<input type="email" name="email" id="email" aria-label="email" class="form-control" placeholder="E-mail" autocomplete="off" min="2" required> 
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
 						<input id="phone" type="tel" name="tel" class="form-control" placeholder="Téléphone" aria-label="téléphone"
 						pattern="^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$"
-						autocomplete="off" min-length="2"> 
+						autocomplete="off" min="2"> 
 						
 					</div>
 					<div class="form-group input-group">
 						<span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
 						<input id="userUrl" type="url" name="userUrl" class="form-control" placeholder="https://my_project_url.com" aria-label="lien vers votre projet"
-       					pattern="https://.*" size="30" autocomplete="off" min-length="2">
+       					pattern="https://.*" size="30" autocomplete="off" min="2">
 					</div>
 				</div>
 			</div>
@@ -100,7 +100,7 @@
 						</span>
 					</div>
 					<div class="form-group input-group projectDescription">
-						<textarea id="message" rows="5" name="message" min-length="2" max-length="600" aria-label="description de votre projet"
+						<textarea id="message" rows="5" name="message" min="2" max-length="600" aria-label="description de votre projet"
 						placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin." 
 						required></textarea>
 					</div>
