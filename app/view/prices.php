@@ -5,6 +5,7 @@
         <hr class="under_border">
 </section>
 <section class="pricesContainer">
+	<h3 class="visualy-hidden">Liste des nos tarifs</h3>
     <div class="prices classic_website">
       <?php echo '<span class="priceHeader">' . strtoupper('Site vitrine') . '<br/>' . strtoupper('standard') . '<br/>' . '</span>' . '<hr class="under_border"/>'?>
 		<span class="first-priceList-color">À partir de 1000€ <abbr title="L'ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. Droit d'auteur & propriété intellectuelle : A l'issue de la production, vous êtes propriétaire de l'ensemble des ressources (fichiers) composant celui-ci. Paiment possible en plusieurs fois.">*</abbr></span>

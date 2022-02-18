@@ -643,6 +643,13 @@ progress {
     transition-duration: .5s;
 }
 
+.visualy-hidden{
+    z-index: -1;
+    visibility: none;
+    height: 0;
+    width: 0;
+}
+
 .modal_form {
     opacity: 0;
     position: relative;

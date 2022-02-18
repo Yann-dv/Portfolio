@@ -11,7 +11,7 @@
 	<button id="close_modal_btn" class="modal_close modal-trigger">&times;</button>
 	<form id="contactForm" class="contact-form" method="POST" action="././back/traitement.php">
 	    <fieldset>
-		<h2>Vos coordonnées</h2>
+			<h2>Vos coordonnées</h2>
 				<hr>
 			<div class="gridForm">
 				<div class="inputCheck">
@@ -100,19 +100,18 @@
 						</span>
 					</div>
 					<div class="form-group input-group projectDescription">
-					<textarea id="message" rows="5" name="message" min-length="2" max-length="600" aria-label="description de votre projet"
-					placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin." 
-					required></textarea>
+						<textarea id="message" rows="5" name="message" min-length="2" max-length="600" aria-label="description de votre projet"
+						placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin." 
+						required></textarea>
 					</div>
 
-                    <button id="sendEmailBtn"
-						class="g-recaptcha" 
-						data-sitekey="<?php echo $reCAPTCHA_site_key; ?>"
-						data-action='submit'
-						onclick='formSubmitBtn(event)'
-						value = send>Submit
-					</button>
-			    	<div>
+						<button id="sendEmailBtn"
+							class="g-recaptcha" 
+							data-sitekey="<?php echo $reCAPTCHA_site_key; ?>"
+							data-action='submit'
+							onclick='formSubmitBtn(event)'
+							value = send>Submit
+						</button>
 				</div>
 		</fieldset>			
 	</form>
