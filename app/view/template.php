@@ -16,8 +16,8 @@ ondragstart="return false" onMouseOver="window.status='No right click '; return 
     ?>        
 
     <main class="mainContent">
-        <?php echo '<nav role="navigation" aria-label="Desktop navigation" class="navbar fadeLoad" id="navbar">' . $navbar . '</nav>'?>
-        <?php echo '<nav role="navigation" aria-label="Mobile navigation" class="navburger fadeLoad" id="navBurger">' . $navburger . '</nav>'?>
+        <?php echo '<nav aria-label="Desktop navigation" class="navbar fadeLoad" id="navbar">' . $navbar . '</nav>'?>
+        <?php echo '<nav aria-label="Mobile navigation" class="navburger fadeLoad" id="navBurger">' . $navburger . '</nav>'?>
         <?php echo '<article class="header fadeLoad" id="header">' . $header . '</article>' ?>
         <?php echo '<article class="contentBlock fadeLoad" id="services">' . $services . '</article>'?>
         <?php echo '<article class="contentBlock fadeLoad" id="skills">' . $skills . '</article>'?>

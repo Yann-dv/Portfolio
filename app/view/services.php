@@ -1,6 +1,7 @@
 <?php ob_start(); ?>
+<h3 class="sectionTitle"><?php echo strtoupper('Mes services') ?></h3>
     <section class="sectionHeader">
-        <h3 class="sectionTitle"><?php echo strtoupper('Mes services') ?></h3>
+        
         <p>Des prestations adaptées à vos besoins</p>
         <hr class="under_border">
     </section>

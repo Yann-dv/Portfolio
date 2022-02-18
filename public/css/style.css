@@ -247,6 +247,10 @@ input:invalid {
     flex-grow: 1;
 }
 
+.skillsContainer h4{
+    margin-left: 2.5rem;
+}
+
 .skillsList ul li::before {
     font-family: "Font Awesome 5 Free";
 }
@@ -299,6 +303,7 @@ input:invalid {
 
 .sectionTitle {
     font-size: 1.6rem;
+    text-align: center;
 }
 
 .servicesContainer {

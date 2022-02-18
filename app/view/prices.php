@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
+<h3 class="sectionTitle"><?php echo strtoupper('Tarifs') ?></h3>
 <section class="sectionHeader">
-        <h3 class="sectionTitle"><?php echo strtoupper('Tarifs') ?></h3>
         <p>N'hésitez pas à demander un devis gratuit pour votre projet !</p>
         <hr class="under_border">
 </section>

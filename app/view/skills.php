@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
+<h3 class="sectionTitle"><?php echo strtoupper('Mes competences') ?></h3>
 <section class="sectionHeader">
-        <h3 class="sectionTitle"><?php echo strtoupper('Mes competences') ?></h3>
         <p>Des prestations adaptées à vos besoins</p>
         <hr class="under_border">
     </section>
@@ -8,8 +8,8 @@
     <section class="skillsContainer">
         <div class="leftSkillsList">
             <div class="skillsList">
+                <h4><?php echo strtoupper('Domaines de competences'); ?></h4>
                 <ul>
-                    <h4><?php echo strtoupper('Domaines de competences'); ?></h4>
 					<li class="item-skills reduced">
 						<strong>Gestion de projets web</strong>
 						<br>
@@ -57,8 +57,8 @@
 
         <div class="rightSkillsList">
             <div class="skillsLevel">
-                <ul class="skillsList_dev">
                 <h4><?php echo strtoupper('Languages de programmation'); ?></h4>
+                <ul class="skillsList_dev">
                     <li class="item-skills reduced">
                         <div class="progress-bar">
                             <span data-value="85">HTML5/CSS3</span>
@@ -84,8 +84,8 @@
                         </div>
 					</li>
                 </ul>
+            <h4><?php echo strtoupper('Outils de developpement : frameworks, CMS'); ?></h4>
                 <ul class="skillsList_tools">
-                <h4><?php echo strtoupper('Outils de developpement : frameworks, CMS'); ?></h4>
                 <li class="item-skills reduced">
                         <div class="progress-bar">
                             <span data-value="75">Bootstrap, Symfony</span>
@@ -111,8 +111,8 @@
                         </div>
 					</li>
                 </ul>
+            <h4><?php echo strtoupper('Outils de conception graphique'); ?></h4>
                 <ul class="skillsList_design">
-                <h4><?php echo strtoupper('Outils de conception graphique'); ?></h4>
                 <li class="item-skills reduced">
                         <div class="progress-bar">
                             <span data-value="75">PHOTOSHOP</span>

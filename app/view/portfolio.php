@@ -1,7 +1,6 @@
 <?php ob_start(); ?>
-
+<h3 class="sectionTitle"><?php echo strtoupper('Mes projets') ?></h3>
 <section class="sectionHeader">
-        <h3 class="sectionTitle"><?php echo strtoupper('Mes projets') ?></h3>
         <p>Aperçu des projets sur lesquels j'ai travaillé</p>
         <hr class="under_border">
 </section>
