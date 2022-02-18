@@ -5,6 +5,7 @@
         <hr class="under_border">
 </section>
 <section class="aboutContainer">
+        <h3 class="visualy-hidden">Description de mon parcours : </h3>
         <img src="./public/image/avatar.jpg" alt="Image portrait de moi-même" title="Moi-même">
         <p>
         Ma passion pour l'informatique et la programmation commence dès l'adolescence, dans les années 2000. 

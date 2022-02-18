@@ -6,6 +6,7 @@
 </section>
 
 <section class="contactContainer">
+<h3 class="visualy-hidden">Bouton ouvrant le formulaire de contact</h3>
         <a href="#contactModal" title="ouvrir le formulaire de contact">
                 <span class="contactLink modal-trigger rounded">FORMULAIRE DE CONTACT</span>
         </a>
