@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <h3 class="sectionTitle"><?php echo strtoupper('Tarifs') ?></h3>
 <section class="sectionHeader">
-        <p>N'hésitez pas à demander un devis gratuit pour votre projet !</p>
+        <h4>N'hésitez pas à demander un devis gratuit pour votre projet !</h4>
         <hr class="under_border">
 </section>
 <section class="pricesContainer">
@@ -164,7 +164,7 @@
 
 		<div class="specials">
 			<?php echo '<span class="priceHeader">' . strtoupper('Developpement specifique') . '</span> <hr class="under_border"/>' ?>
-			<span class="second-priceList-color">Taux journalier moyen </br> 400€/Jour</span>
+			<span class="second-priceList-color">Taux journalier moyen <br/> 400€/Jour</span>
 			<a href="#contactModal"><span class="contactLink modal-trigger">ME CONTACTER</span></a>
 		</div>
 	</div>

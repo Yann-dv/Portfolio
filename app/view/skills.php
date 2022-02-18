@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <h3 class="sectionTitle"><?php echo strtoupper('Mes competences') ?></h3>
 <section class="sectionHeader">
-        <p>Des prestations adaptées à vos besoins</p>
+        <h4>Des prestations adaptées à vos besoins</h4>
         <hr class="under_border">
     </section>
 

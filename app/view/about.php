@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <h3 class="sectionTitle"><?php echo strtoupper('A propos') ?></h3>
 <section class="sectionHeader">
-        <p>Un développeur web passionné !</p>
+        <h4>Un développeur web passionné !</h4>
         <hr class="under_border">
 </section>
 <section class="aboutContainer">

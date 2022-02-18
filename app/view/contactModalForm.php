@@ -22,13 +22,13 @@
 						</div>
 						<div class="userOption">
 								<div class="i-checks">
-									<span class="iradio_minimal-grey"><input type="radio" id="idRadioA" name="typeUserDevis" value="2">
+									<span class="iradio_minimal-grey"><input type="radio" id="idRadioA" name="typeUserDevis" value="2"></span>
 									<label id="idRadioA_label" for="idRadioA">Association</label>
 								</div>
 							</div>								
 							<div class="userOption">
 								<div class="i-checks">
-									<span class="iradio_minimal-grey"><input type="radio" id="idRadioS" name="typeUserDevis" value="3">
+									<span class="iradio_minimal-grey"><input type="radio" id="idRadioS" name="typeUserDevis" value="3"></span>
 									<label id="idRadioS_label" for="idRadioS">Société</label>		
 								</div>
 							</div>
@@ -36,11 +36,12 @@
 							<div class="userOption">
 								<div class="i-checks">
 									<span class="iradio_minimal-grey"><input type="radio" id="idRadioP" name="typeUserDevis" value="1" checked="checked">
-									<label id="idRadioP_label" for="idRadioP" class="bold">Particulier</label>
-									<div id="blocCompagny" class="form-group input-group">
-										<span class="input-group-addon"><i class="fas fa-building"></i></span>
-										<input id="compagny" type="text" name="compagny" class="form-control" placeholder="Société / Association :" autocomplete="off" min-length="2"> 
-									</div>
+										<label id="idRadioP_label" for="idRadioP" class="bold">Particulier</label>
+										<div id="blocCompagny" class="form-group input-group">
+											<span class="input-group-addon"><i class="fas fa-building"></i></span>
+											<input id="compagny" type="text" name="compagny" class="form-control" placeholder="Société / Association :" autocomplete="off" min-length="2"> 
+										</div>
+									</span>
 								</div>
 							</div>
 						</div>

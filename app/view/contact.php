@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <h3 class="sectionTitle"><?php echo strtoupper('Contact') ?></h3>
 <section class="sectionHeader">
-        <p>Contactez moi si vous souhaitez des informations, un devis, etc.</p>
+        <h4>Contactez moi si vous souhaitez des informations, un devis, etc.</h4>
         <hr class="under_border">
 </section>
 

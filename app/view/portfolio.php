@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <h3 class="sectionTitle"><?php echo strtoupper('Mes projets') ?></h3>
 <section class="sectionHeader">
-        <p>Aperçu des projets sur lesquels j'ai travaillé</p>
+        <h4>Aperçu des projets sur lesquels j'ai travaillé</h4>
         <hr class="under_border">
 </section>
 
@@ -23,7 +23,7 @@
           echo '<a href="' . $project['description'] . '" target="_blank" title="Cliquer pour visualiser">'
           . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
             . '<h3 class="project_title">' . $project['name'] . '</h3>'
-            . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . 'alt="Image du lien vers le projet ' . $project['name'] . '">'
+            . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . ' alt="Image du lien vers le projet ' . $project['name'] . '">'
             . '</div>'
           . '</a>';
 
@@ -33,7 +33,7 @@
           echo '<a href="https://github.com/Yann-dv/' . $project['name'] . '" target="_blank" title="Cliquer pour visualiser">'
           . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
             . '<h3 class="project_title">' . $project['name'] . '</h3>'
-            . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . 'alt="Image du lien vers le projet ' . $project['name'] . '">'
+            . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . ' alt="Image du lien vers le projet ' . $project['name'] . '">'
             . '</div>'
           . '</a>';
         }
@@ -41,7 +41,7 @@
           echo '<a href="https://yann-dv.github.io/' . $project['name'] . '" target="_blank" title="Cliquer pour visualiser">'
           . '<div class="project" id="project_'. array_search($project, $projects_list) . '">' 
             . '<h3 class="project_title">' . $project['name'] . '</h3>'
-            . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . 'alt="Image du lien vers le projet ' . $project['name'] . '">'
+            . '<image src="./public/image/min_' . $project['name'] . '.jpg"' . ' alt="Image du lien vers le projet ' . $project['name'] . '">'
             . '</div>'
           . '</a>';
         }
