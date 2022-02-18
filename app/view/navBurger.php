@@ -2,8 +2,7 @@
 <div id="draggable_burger_container" data-boxtype="drop" data-appendto="true">
     <label for="toggle" draggable="true" id="draggable_burger">☰</label>
         <input type="checkbox" id="toggle">
-     
-        <div class="burger_links" role="menu" aria-haspopup="true" aria-controls="burger_links">
+        <div class="burger_links" role="menu">
             <a href="#services" role="menuitem"><?php echo strtoupper('Services'); ?> </a>
             <a href="#skills" role="menuitem"><?php echo strtoupper('Competences'); ?></a>
             <a href="#portfolio" role="menuitem"><?php echo strtoupper('Portfolio'); ?></a>

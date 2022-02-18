@@ -100,7 +100,7 @@
 						</span>
 					</div>
 					<div class="form-group input-group projectDescription">
-						<textarea id="message" rows="5" name="message" minlengt="2" maxlength="600" aria-label="description de votre projet"
+						<textarea id="message" rows="5" name="message" minlength="2" maxlength="600" aria-label="description de votre projet"
 						placeholder="Description de votre projet... Merci de détailler le plus possible votre besoin." 
 						required></textarea>
 					</div>
