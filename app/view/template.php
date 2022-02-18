@@ -16,8 +16,8 @@ ondragstart="return false" onMouseOver="window.status='No right click '; return 
     ?>        
 
     <main class="mainContent">
-        <?php echo '<nav role="desktop navigation" class="navbar fadeLoad" id="navbar">' . $navbar . '</nav>'?>
-        <?php echo '<nav role="mobile navigation" class="navburger fadeLoad" id="navBurger">' . $navburger . '</nav>'?>
+        <?php echo '<nav role="navigation" aria-label="Desktop navigation" class="navbar fadeLoad" id="navbar">' . $navbar . '</nav>'?>
+        <?php echo '<nav role="navigation" aria-label="Mobile navigation" class="navburger fadeLoad" id="navBurger">' . $navburger . '</nav>'?>
         <?php echo '<article class="header fadeLoad" id="header">' . $header . '</article>' ?>
         <?php echo '<article class="contentBlock fadeLoad" id="services">' . $services . '</article>'?>
         <?php echo '<article class="contentBlock fadeLoad" id="skills">' . $skills . '</article>'?>
@@ -25,7 +25,7 @@ ondragstart="return false" onMouseOver="window.status='No right click '; return 
         <?php echo '<article class="contentBlock fadeLoad" id="prices">' . $prices . '</article>'?>
         <?php echo '<article class="contentBlock fadeLoad" id="about">' . $about . '</article>'?>
         <?php echo '<article class="contentBlock fadeLoad" id="contact">' . $contact . '</article>'?>
-        <?php echo '<article class="modal" id="contactModal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">' . $contactModalForm . '</article>'?>
+        <?php echo '<modal class="modal" id="contactModal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">' . $contactModalForm . '</modal>'?>
     </main>
 </body>
 

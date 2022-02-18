@@ -112,6 +112,7 @@
 						value = send>Submit
 					</button>
 			    	<div>
+				</div>
 		</fieldset>			
 	</form>
 	<script>

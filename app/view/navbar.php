@@ -1,13 +1,13 @@
 <?php ob_start(); ?>
 <div class="leftHolder"></div>
     <ul role="menu">
-        <a href="#services" role="menuitem"><li role="none"><?php echo strtoupper('Services'); ?> </li></a>
-        <a href="#skills" role="menuitem"><li role="none"><?php echo strtoupper('Competences'); ?></li></a>
-        <a href="#portfolio" role="menuitem"><li role="none"><?php echo strtoupper('Portfolio'); ?></li></a>
-        <a href="#prices" role="menuitem"><li role="none"><?php echo strtoupper('Tarifs'); ?></li></a>
-        <a href="#about" role="menuitem"><li role="none"><?php echo strtoupper('A propos'); ?></li></a>
-        <a href="#contact" role="menuitem"><li role="none"><?php echo strtoupper('Contact'); ?></li></a>
-        </ul>
+        <li role="none"><a href="#services" role="menuitem"><?php echo strtoupper('Services'); ?></a></li>
+        <li role="none"><a href="#skills" role="menuitem"><?php echo strtoupper('Competences'); ?></a></li>
+        <li role="none"><a href="#portfolio" role="menuitem"><?php echo strtoupper('Portfolio'); ?></a></li>
+        <li role="none"><a href="#prices" role="menuitem"><?php echo strtoupper('Tarifs'); ?></a></li>
+        <li role="none"><a href="#about" role="menuitem"><?php echo strtoupper('A propos'); ?></a></li>
+        <li role="none"><a href="#contact" role="menuitem"><?php echo strtoupper('Contact'); ?></a></li>
+    </ul>
 <div class="rightHolder"></div>
 
 <?php $navbar= ob_get_clean(); ?>
