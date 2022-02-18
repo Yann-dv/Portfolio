@@ -645,9 +645,7 @@ progress {
 
 .visualy-hidden{
     z-index: -1;
-    visibility: none;
-    height: 0;
-    width: 0;
+    visibility: hidden;
 }
 
 .modal_form {
