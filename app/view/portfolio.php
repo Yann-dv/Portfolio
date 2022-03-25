@@ -46,7 +46,7 @@
           . '</a>';
         }
       }
-    }
+    }g
     echo '</section>' // portfolio container end
   ?>  
 
